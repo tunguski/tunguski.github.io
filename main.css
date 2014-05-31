@@ -1,0 +1,29 @@
+
+html {
+  background: url(/img/bg1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.project-container {
+  min-height: 140px;
+  border: 1px solid #eee;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.project-container:hover {
+  border-color: deepskyblue;
+}
+
+.project-container h3 {
+  margin-top: 0px;
+}
+
+.project-container span.info {
+  padding-bottom: 10px;
+  color: grey;
+}
+
