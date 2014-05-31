@@ -1,29 +1,61 @@
 
-html {
-  background: url(/img/bg1.jpg) no-repeat center center fixed;
+html, .glass:before {
+  background: url(http://tunguski.github.io/img/bg1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+body {
+  background-color: inherit;
+  height: 100%;
+}
+
+footer * {
+  color: #666;
+}
+
+
+.glass {
+  background: rgba(255,255,255,0.90);
+}
+
+.glass:before {
+  z-index: -1;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+}
+
+
 .project-container {
+  position: relative;
   min-height: 140px;
-  border: 1px solid #eee;
+  border: 1px solid #999;
   margin-top: 20px;
   padding: 20px;
 }
 
 .project-container:hover {
   border-color: deepskyblue;
+  cursor: pointer;
 }
 
 .project-container h3 {
   margin-top: 0px;
 }
 
+.project-container a.goto-project {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
 .project-container span.info {
   padding-bottom: 10px;
-  color: grey;
+  color: #333;
 }
 
