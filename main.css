@@ -8,6 +8,7 @@ html, .glass:before {
 }
 
 body {
+  font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: inherit;
   height: 100%;
 }
@@ -20,6 +21,11 @@ footer * {
 header {
   border-bottom: 1px solid #ccc;
   padding: 50px
+}
+
+
+p.description {
+  font-size: 21px;
 }
 
 .container.section {
@@ -56,6 +62,7 @@ header {
 
 .project-container:hover * {
   text-decoration: none;
+  color: #428bca;
 }
 
 .project-container h3 {
