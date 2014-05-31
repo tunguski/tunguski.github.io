@@ -37,11 +37,16 @@ footer * {
   border: 1px solid #999;
   margin-top: 20px;
   padding: 20px;
+  cursor: pointer;
 }
 
 .project-container:hover {
   border-color: deepskyblue;
-  cursor: pointer;
+  background-color: #f6f6f6;
+}
+
+.project-container:hover * {
+  text-decoration: none;
 }
 
 .project-container h3 {

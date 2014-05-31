@@ -36,7 +36,7 @@
           <h3>JS Utils</h3>
           <span class="info">Simple additional js utils, used in other libraries</span>
           <br>
-          <a href="/matsuo-js-util"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-js-util" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -44,7 +44,7 @@
           <h3>Matsuo Angular Route</h3>
           <span class="info">Simple AngularJs Routing. Define once, route always.</span>
           <br>
-          <a href="/matsuo-ng-route"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-ng-route" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -52,7 +52,7 @@
           <h3>Matsuo Angular Resource</h3>
           <span class="info">Additional resource handling functions</span>
           <br>
-          <a href="/matsuo-ng-resource"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-ng-resource" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -60,7 +60,7 @@
           <h3>Matsuo Angular UI</h3>
           <span class="info">Additional elements extending Angular UI</span>
           <br>
-          <a href="/matsuo-ng-ui"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-ng-ui" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
           <h3>Matsuo Core</h3>
           <span class="info">Spring/Hibernate/AngularJS project base.</span>
           <br>
-          <a href="/matsuo-core"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-core" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
       <div class="col-md-4">
@@ -91,7 +91,7 @@
           <h3>Matsuo Core sample app</h3>
           <span class="info">Sample project structure for using Matsuo Core.</span>
           <br>
-          <a href="/matsuo-core-sample-app"class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
+          <a href="/matsuo-core-sample-app" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
         </div>
       </div>
     </div>
@@ -106,6 +106,10 @@
 
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
   <script>
+    $('div.project-container').click(function (e) {
+      window.location = $(this).find("a.goto-project").attr('href');
+    });
+
     $('body').height($(document).height());
     $( window ).resize(function() { $('body').height($(document).height()); });
   </script>
