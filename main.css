@@ -14,8 +14,17 @@ body {
 
 footer * {
   color: #666;
+  margin-top: 50px;
 }
 
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 50px
+}
+
+.container.section {
+  margin-top: 50px;
+}
 
 .glass {
   background: rgba(255,255,255,0.90);
@@ -63,4 +72,3 @@ footer * {
   padding-bottom: 10px;
   color: #333;
 }
-
