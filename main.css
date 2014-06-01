@@ -32,6 +32,11 @@ header {
 
 p.description {
   font-size: 21px;
+  color: #428bca;
+}
+
+h1, h2 {
+  color: #428bca;
 }
 
 .container.section {
