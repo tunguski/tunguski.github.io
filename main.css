@@ -7,6 +7,12 @@ html, .glass:before {
   background-size: cover;
 }
 
+@media (max-width: 768px) {
+  html, .glass:before {
+    background: none;
+  }
+}
+
 body {
   font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: inherit;
@@ -43,6 +49,20 @@ p.description {
   -moz-filter: blur(10px);
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .glass {
+    background: white;
+  }
+
+  .glass:before {
+    filter: none;
+    -webkit-filter: none;
+    -moz-filter: none;
+    -o-filter: none;
+    -ms-filter: none;
+  }
 }
 
 
