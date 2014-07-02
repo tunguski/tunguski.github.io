@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Matsuo IT Open Source Projects</title>
+
+  <link href="//fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Open+Sans:400normal|Lato:400normal|Droid+Sans:400normal|Oswald:400normal|PT+Sans:400normal|Source+Sans+Pro:400normal|Ubuntu:400normal|Raleway:400normal|Roboto+Condensed:400normal|Lobster:400normal&amp;subset=all" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body class="glass" ng-app="status">
+
+  <header>
+    <div class="container">
+      <h1>Matsuo IT</h1>
+      <p class="description">Open Source Projects</p>
+    </div>
+  </header>
+
+  <div class="container section">
+    <div class="row">
+      <div class="col-sm-12">
+ 
+        <table class="table">
+	  <tr>
+	    <th>Project</th>
+	    <th>Travis CI</th>
+	    <th>Coveralls</th>
+	    <th>David-dm</th>
+	    <th>David-dm dev</th>
+	  </tr>
+
+          <tr ng-repeat="project in projects">
+            <td>{{ project }}</td>
+            <td><img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master"></img></td>
+            <td><img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master"></img></td>
+            <td><img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img></td>
+            <td><img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <h5>Matsuo IT 2014</h5>
+      <h5><a href="index.html">Home page</a></h5>
+    </div>
+  </footer>
+
+
+  <script src="https://code.angularjs.org/1.3.0-beta.14/angular.js"></script>
+  <script>
+    angular.module('status', [])
+      .run(function ($rootScope) {
+        $rootScope.projects = [
+	  'matsuo-js-util',
+	  'matsuo-ng-route',
+	  'matsuo-ng-resource',
+	  'matsuo-ng-ui',
+	  'matsuo-core-webapp',
+	  'matsuo-core-mobileapp'
+	];
+      });
+  </script>
+</body>
+</html>
