@@ -37,10 +37,10 @@
 
           <tr ng-repeat="project in projects">
             <td>{{ project }}</td>
-            <td><img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master"></img></td>
-            <td><img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master"></img></td>
-            <td><img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img></td>
-            <td><img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img></td>
+            <td><a ng-href="https://travis-ci.org/tunguski/{{project}}"><img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master"></img></a></td>
+            <td><a ng-href="https://coveralls.io/r/tunguski/{{project}}?branch=master"><img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master"></img></a></td>
+            <td><a ng-href="https://david-dm.org/tunguski/{{project}}#info=dependencies"><img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img></a></td>
+            <td><a ng-href="https://david-dm.org/tunguski/{{project}}#info=devDependencies"><img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img></a></td>
           </tr>
         </table>
       </div>
