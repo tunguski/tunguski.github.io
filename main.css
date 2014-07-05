@@ -106,6 +106,12 @@ h1, h2 {
 }
 
 
+@media (max-width: 768px) {
+  .grid-table {
+    margin-left: 20px;
+  }
+}
+
 .grid-table > .row {
   border-bottom: 1px solid #ddd;
 }
