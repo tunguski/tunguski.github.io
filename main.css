@@ -104,3 +104,29 @@ h1, h2 {
   padding-bottom: 10px;
   color: #333;
 }
+
+
+.grid-table > .row {
+  border-bottom: 1px solid #ddd;
+}
+
+.grid-table > .row:last-child {
+  border-bottom: none;
+}
+
+.grid-table > .row.grid-table-header {
+  border-bottom: 2px solid #ddd;
+}
+
+.grid-table > .row > div {
+  padding: 8px;
+}
+
+.grid-table > .row.grid-table-header {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.grid-table {
+
+}

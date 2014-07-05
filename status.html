@@ -20,29 +20,40 @@
     </div>
   </header>
 
-  <div class="container section">
-    <div class="row">
-      <div class="col-sm-12">
- 
-        <table class="table">
-	  <thead>
-      	    <tr>
-      	      <th>Project</th>
-      	      <th>Travis CI</th>
-      	      <th>Coveralls</th>
-      	      <th>David-dm</th>
-      	      <th>David-dm dev</th>
-      	    </tr>
-	  </thead>
+  <div class="container section grid-table">
+    <div class="row grid-table-header">
+      <div class="col-md-4">Project</div>
+      <div class="col-md-2">Travis CI</div>
+      <div class="col-md-2">Coveralls</div>
+      <div class="col-md-2">David-dm</div>
+      <div class="col-md-2">David-dm dev</div>
+    </div>
 
-          <tr ng-repeat="project in projects">
-            <td><a ng-href="https://github.com/tunguski/{{project}}" ng-bind="project"><a></td>
-            <td><a ng-href="https://travis-ci.org/tunguski/{{project}}"><img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master"></img></a></td>
-            <td><a ng-href="https://coveralls.io/r/tunguski/{{project}}?branch=master"><img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master"></img></a></td>
-            <td><a ng-href="https://david-dm.org/tunguski/{{project}}#info=dependencies"><img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img></a></td>
-            <td><a ng-href="https://david-dm.org/tunguski/{{project}}#info=devDependencies"><img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img></a></td>
-          </tr>
-        </table>
+    <div class="row" ng-repeat="(project, conf) in projects">
+      <div class="col-md-4">
+        <a ng-href="https://github.com/tunguski/{{project}}" ng-bind="project"></a>
+      </div>
+      <div class="col-md-2">
+        <a ng-href="https://travis-ci.org/tunguski/{{project}}">
+          <img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master">
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a ng-href="https://coveralls.io/r/tunguski/{{project}}?branch=master">
+          <img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master">
+        </a>
+      </div>
+      <div class="col-md-2">
+        <a ng-if="!conf.java" ng-href="https://david-dm.org/tunguski/{{project}}#info=dependencies">
+          <img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img>
+        </a>
+        <span ng-if="conf.java">----</span>
+      </div>
+      <div class="col-md-2">
+        <a ng-if="!conf.java" ng-href="https://david-dm.org/tunguski/{{project}}#info=devDependencies">
+          <img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img>
+        </a>
+        <span ng-if="conf.java">----</span>
       </div>
     </div>
   </div>
@@ -60,15 +71,17 @@
   <script>
     angular.module('status', [])
       .run(function ($rootScope) {
-        $rootScope.projects = [
-	  'matsuo-js-util',
-	  'matsuo-ng-route',
-	  'matsuo-ng-resource',
-	  'matsuo-ng-ui',
-	  'matsuo-core-webapp',
-	  'matsuo-core-mobileapp',
-	  'hibernate-validator-pl'
-	];
+        $rootScope.projects = {
+          'matsuo-js-util': {},
+          'matsuo-ng-route': {},
+          'matsuo-ng-resource': {},
+          'matsuo-ng-ui': {},
+          'matsuo-core-webapp': {},
+          'matsuo-core-mobileapp': {},
+          'hibernate-validator-pl': {
+            java: true
+          }
+        };
       });
   </script>
 </body>
