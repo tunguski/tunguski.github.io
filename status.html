@@ -32,8 +32,8 @@
     <div class="row" ng-repeat="(project, conf) in projects">
       <div class="col-sm-2">
         <a ng-href="https://github.com/tunguski/{{project}}" ng-bind="project"></a>
-        <span ng-if="conf.java">java</span>
-        <span ng-if="!conf.java">js</span>
+        <span class="text-muted" ng-if="conf.java">java</span>
+        <span class="text-muted" ng-if="!conf.java">js</span>
       </div>
       <div class="col-sm-2">
         <a ng-href="https://travis-ci.org/tunguski/{{project}}">
