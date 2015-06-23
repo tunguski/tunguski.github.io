@@ -1,149 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marek Romanowski</title>
 
-  <title>Matsuo IT Open Source Projects</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <!--<base href="/">-->
 
-  <link href="//fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Open+Sans:400normal|Lato:400normal|Droid+Sans:400normal|Oswald:400normal|PT+Sans:400normal|Source+Sans+Pro:400normal|Ubuntu:400normal|Raleway:400normal|Roboto+Condensed:400normal|Lobster:400normal&amp;subset=all" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="main.css"/>
-</head>
-<body class="glass">
-
-  <header>
-    <div class="container">
-      <h1>Matsuo IT</h1>
-      <p class="description">Open Source Projects</p>
-    </div>
-  </header>
-
-  <div class="container section">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2>Client side projects</h2>
-        <legend>Javascript & AngularJS</legend>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>JS Utils</h3>
-          <span class="info">Simple additional js utils, used in other libraries</span>
-          <br>
-          <a href="/matsuo-js-util" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Angular Route</h3>
-          <span class="info">Simple AngularJs Routing. Define once, route always.</span>
-          <br>
-          <a href="/matsuo-ng-route" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Angular Resource</h3>
-          <span class="info">Additional resource handling functions</span>
-          <br>
-          <a href="/matsuo-ng-resource" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Angular UI</h3>
-          <span class="info">Additional elements extending Angular UI</span>
-          <br>
-          <a href="/matsuo-ng-ui" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Angular simple mobile app skeleton</h3>
-          <span class="info">Very basic app configuration for mobile</span>
-          <br>
-          <a href="https://github.com/tunguski/matsuo-core-mobileapp" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container section">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Server side projects</h2>
-        <legend>Java, Spring, Hibernate etc.</legend>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Core</h3>
-          <span class="info">Spring/Hibernate/AngularJS project base.</span>
-          <br>
-          <a href="/matsuo-core" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Matsuo Core sample app</h3>
-          <span class="info">Sample project structure for using Matsuo Core.</span>
-          <br>
-          <a href="/matsuo-core-sample-app" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Hibernate Validator Polish</h3>
-          <span class="info">Poland specific validators for Hibernate</span>
-          <br>
-          <a href="https://github.com/tunguski/hibernate-validator-pl" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container section">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Research</h2>
-        <legend>Projects not to use in production</legend>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="project-container">
-          <h3>Junit + java 8</h3>
-          <span class="info">Junit modified interface to use java 8 closures power.</span>
-          <br>
-          <a href="https://github.com/tunguski/junit-java8" class="goto-project"><i class="glyphicon glyphicon-hand-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <footer>
-    <div class="container">
-      <h5>Matsuo IT 2014</h5>
-      <h5><a href="status.html">Projects status page</a></h5>
-    </div>
-  </footer>
-
-  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
   <script>
-    $('div.project-container').click(function (e) {
-      window.location = $(this).find("a.goto-project").attr('href');
-    });
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    $('body').height($(document).height());
-    $( window ).resize(function() { $('body').height($(document).height()); });
+    ga('create', 'UA-62299335-5', 'auto');
+    ga('send', 'pageview');
   </script>
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+
+        <button type="button" class="navbar-toggle collapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <h3 class="comment"><a href="index.html">Marek Romanowski</a></h3>
+      </div>
+      <div class="col-md-8 col-lg-6">
+        <h3><span>Matsuo IT</span></h3>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="menu-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-8 col-lg-6 menu-border">
+        <h4><a href="projects.html">Projects</a></h4>
+        <h4><a href="about.html">About</a></h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container page-presentation">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4 page-menu">
+
+      <div class="">
+        <div class="row">
+          <div class="col-sm-10 col-md-8 hidden-sm hidden-xs">
+            <img src="https://scontent-fra3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/298130_2407933081423_1220681072_n.jpg?oh=81be61600c6d54cefdb0b40531965fdf&oe=562DCAD0"
+                 alt="Marek Romanowski" class="face-image">
+          </div>
+        </div>
+      </div>
+      <h3 class=" hidden-sm hidden-xs">Marek Romanowski</h3>
+      <p>
+        <a href="github.com/tunguski">Github</a>
+      </p>
+      <p>
+        <a href="https://twitter.com/tunguski">Tweeter</a>
+      </p>
+      <p>
+        <a href="mailto:marek.romanowski@gmail.com">Gmail</a>
+      </p>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-6 project-description">
+      <h3>Hi, I'm a full stack engineer.</h3>
+
+      <p>I'm currently working for PZU Life Insurances in Poland.</p>
+
+      <h3>Fields of interests</h3>
+
+      <ul class="">
+        <li>Organizing complexity</li>
+        <li>UX in all forms (plain text included)</li>
+        <li>Complex Simplicity in terms of value</li>
+      </ul>
+
+      <h3>Commercial IT work areas</h3>
+
+      <ul class="">
+        <li>Insurance</li>
+        <li>Health care</li>
+        <li>Accounting</li>
+      </ul>
+
+      <h3>Hobbies</h3>
+
+      <ul class="">
+        <li>Playing piano</li>
+        <li>Crossfit</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+            <span class="pull-right text-muted">
+              <a href="mailto:marek.romanowski@gmail.com">Marek Romanowski</a> @ 2015
+            </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

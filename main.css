@@ -1,108 +1,137 @@
 
-html, .glass:before {
-  background: url(http://tunguski.github.io/img/bg2.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-@media (max-width: 768px) {
-  html, .glass:before {
-    background: none;
-  }
-}
-
-body {
-  font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: inherit;
-  height: 100%;
-}
-
-footer * {
-  color: #666;
-  margin-top: 50px;
-}
-
-header {
-  border-bottom: 1px solid #ccc;
-  padding: 50px
-}
-
-
-p.description {
-  font-size: 21px;
-  color: #428bca;
-}
-
-h1, h2 {
-  color: #428bca;
-}
-
-.container.section {
-  margin-top: 50px;
-}
-
-.glass {
-  background: rgba(255,255,255,0.90);
-}
-
-.glass:before {
-  z-index: -1;
-  filter: blur(10px);
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  -o-filter: blur(10px);
-  -ms-filter: blur(10px);
-}
-
-@media (max-width: 768px) {
-  .glass {
-    background: white;
-  }
-
-  .glass:before {
-    filter: none;
-    -webkit-filter: none;
-    -moz-filter: none;
-    -o-filter: none;
-    -ms-filter: none;
-  }
-}
-
-
-.project-container {
-  position: relative;
-  min-height: 140px;
-  border: 1px solid #999;
-  margin-top: 20px;
-  padding: 20px;
+.clickable {
   cursor: pointer;
 }
 
-.project-container:hover {
-  border-color: deepskyblue;
+h1, h2, h3, h4, h5, h6 {
+  color: #394d54;
+}
+
+blockquote {
+  color: #999;
+  font-size: 13px;
+}
+
+.page-presentation .panel {
+  text-align: center;
+  cursor: pointer;
+}
+
+.page-presentation .panel:hover {
   background-color: #f6f6f6;
 }
 
-.project-container:hover * {
-  text-decoration: none;
-  color: #428bca;
+.page-presentation .panel .panel-body {
+  padding-bottom: 35px;
 }
 
-.project-container h3 {
-  margin-top: 0px;
+.comment,
+.comment a,
+.h1 .comment, .h1 small,
+.h2 .comment, .h2 small,
+.h3 .comment, .h3 small,
+.h4 .comment, .h4 small,
+.h5 .comment, .h5 small,
+.h6 .comment, .h6 small,
+h1 .comment, h1 small,
+h2 .comment, h2 small,
+h3 .comment, h3 small,
+h4 .comment, h4 small,
+h5 .comment, h5 small,
+h6 .comment, h6 small {
+  color: #bbb;
 }
 
-.project-container a.goto-project {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-.project-container span.info {
+.main-header, .menu-border {
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
-  color: #333;
+  margin-bottom: 10px;
+}
+
+.media {
+  padding-top: 30px;
+  /*padding-bottom: 10px;*/
+}
+
+.media img {
+  width: 96px;
+  height: 96px;
+}
+
+footer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /*padding: 80px 0;*/
+  /*background-color: #eee;*/
+}
+
+header.menu-header h4 {
+  display: inline;
+  margin-right: 20px;
+}
+
+.face-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 992px) {
+  .page-menu .comment {
+    display: block;
+  }
+
+  .page-menu h4 {
+    /*     text-align: right; */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hide-mobile-menu {
+    display: none;
+  }
+
+  .page-menu {
+    padding-left: 20px;
+  }
+}
+
+
+button.navbar-toggle {
+  margin-top: 0;
+  margin-right: 0;
+}
+
+button.navbar-toggle:hover {
+  background-color: #f3f3f3;
+  border-color: #f3f3f3;
+}
+
+button.navbar-toggle .icon-bar {
+  background-color: #394d54;
+}
+
+
+ol, ul {
+  margin-top: 20px;
+}
+
+ol ol,
+ul ol,
+ol ul,
+ul ul {
+  margin-top: 10px;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+ol ol li,
+ul ol li,
+ol ul li,
+ul ul li {
+  padding-bottom: 0;
 }
 
 

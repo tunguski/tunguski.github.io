@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marek Romanowski</title>
+
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <!--<base href="/">-->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62299335-5', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body ng-app="status">
+
+<header class="main-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+
+        <button type="button" class="navbar-toggle collapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <h3 class="comment"><a href="index.html">Marek Romanowski</a></h3>
+      </div>
+      <div class="col-md-8 col-lg-6">
+        <h3><span>Matsuo IT</span></h3>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="menu-header">
+  <div class="container">
+    <div class="row menu-border">
+      <div class="col-md-4"></div>
+      <div class="col-md-8 col-lg-6">
+        <h4><a href="projects.html">Projects</a></h4>
+        <h4><a href="about.html">About</a></h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container section grid-table">
+
+  <h1>Open source projects</h1>
+
+  <div class="row grid-table-header">
+    <div class="col-sm-2">Project</div>
+    <div class="col-sm-2">Travis CI</div>
+    <div class="col-sm-2">Coveralls</div>
+    <div class="col-sm-3">David-dm</div>
+    <div class="col-sm-3">David-dm dev</div>
+  </div>
+
+  <div class="row" ng-repeat="(project, conf) in projects">
+    <div class="col-sm-2">
+      <a ng-href="https://github.com/tunguski/{{project}}" ng-bind="project"></a>
+    </div>
+    <div class="col-sm-2">
+      <a ng-href="https://travis-ci.org/tunguski/{{project}}">
+        <img ng-src="https://travis-ci.org/tunguski/{{project}}.svg?branch=master">
+      </a>
+    </div>
+    <div class="col-sm-2">
+      <a ng-href="https://coveralls.io/r/tunguski/{{project}}?branch=master">
+        <img ng-src="https://coveralls.io/repos/tunguski/{{project}}/badge.png?branch=master">
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a ng-if="!conf.java" ng-href="https://david-dm.org/tunguski/{{project}}#info=dependencies">
+        <img ng-src="https://david-dm.org/tunguski/{{project}}/status.png?branch=master"></img>
+      </a>
+      <span ng-if="conf.java">----</span>
+    </div>
+    <div class="col-sm-3">
+      <a ng-if="!conf.java" ng-href="https://david-dm.org/tunguski/{{project}}#info=devDependencies">
+        <img ng-src="https://david-dm.org/tunguski/{{project}}/dev-status.png?branch=master"></img>
+      </a>
+      <span ng-if="conf.java">----</span>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+            <span class="pull-right text-muted">
+              <a href="mailto:marek.romanowski@gmail.com">Marek Romanowski</a> @ 2015
+            </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://code.angularjs.org/1.4.1/angular.js"></script>
+<script>
+  angular.module('status', [])
+      .run(function ($rootScope) {
+        $rootScope.projects = {
+          'matsuo-js-util': {},
+          'matsuo-ng-route': {},
+          'matsuo-ng-resource': {},
+          'matsuo-ng-ui': {},
+          'matsuo-core-webapp': {},
+          'matsuo-core-mobileapp': {},
+          'matsuo-accounting-webapp': {},
+          'hibernate-validator-pl': { java: true },
+          'matsuo-core': { java: true },
+          'matsuo-accounting': { java: true }
+        };
+      });
+</script>
+</body>
+</html>
