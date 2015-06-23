@@ -65,6 +65,11 @@ footer {
   /*background-color: #eee;*/
 }
 
+body {
+  padding-bottom: 80px;
+}
+
+
 header.menu-header h4 {
   display: inline;
   margin-right: 20px;
