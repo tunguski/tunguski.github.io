@@ -3,10 +3,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marek Romanowski</title>
+  <title>Marek Romanowski - {{ page.title }}</title>
 
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
   <!--<base href="/">-->
 
   <script>
@@ -33,7 +33,7 @@
           <!--<span class="icon-bar"></span>-->
         <!--</button>-->
 
-        <h3 class="comment"><a href="index.html">Marek Romanowski</a></h3>
+        <h3 class="comment"><a href="/">Marek Romanowski</a></h3>
       </div>
       <div class="col-md-8 col-lg-6">
         <h3><span>{{ page.title }}</span></h3>
@@ -52,8 +52,20 @@
 
 <div class="container page-presentation">
   <div class="row">
-    {% include {{page.left_column}} %}
-    {{ content }}
+    {% if page.left_column %}
+    <div class="col-sm-12 col-md-4 col-lg-4 page-menu">
+      {% include {{page.left_column}} %}
+    </div>
+    {% endif %}
+    {% if page.left_column %}
+    <div class="col-sm-12 col-md-8 col-lg-8 project-description">
+      {{ content }}
+    </div>
+    {% else %}
+    <div class="col-md-12 project-description">
+      {{ content }}
+    </div>
+    {% endif %}
   </div>
 </div>
 

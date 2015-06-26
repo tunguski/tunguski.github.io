@@ -1,22 +1,36 @@
 - name: matsuo-js-util
+  type: js
+  docs: true
 
 - name: matsuo-ng-route
+  type: js
+  docs: true
 
 - name: matsuo-ng-resource
+  type: js
+  docs: true
 
 - name: matsuo-ng-ui
+  type: js
+  docs: true
 
 - name: matsuo-core-webapp
+  type: js
 
 - name: matsuo-core-mobileapp
+  type: js
 
 - name: matsuo-accounting-webapp
+  type: js
 
 - name: hibernate-validator-pl
+  type: java
   java: true
 
 - name: matsuo-core
+  type: java
   java: true
 
 - name: matsuo-accounting
+  type: java
   java: true

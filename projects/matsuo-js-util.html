@@ -1,0 +1,183 @@
+---
+layout: two_column
+left_column: projects_list.html
+project: matsuo-js-util
+title: "Matsuo IT Common JS Utils"
+---
+
+<div>
+  <div>
+    <h2>Small, invisible additions</h2>
+    <p>
+      This library adds only small set of functions to <code>underscore</code>, <code>Array</code> and
+      <code>Date</code> type. This additions are commonly used by other libraries used outside.
+    </p>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>Underscore additional functions</h2>
+    <table class="table">
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>uncapitalize(str)</code></td>
+        <td>Returns <code>str</code> with first case lower.</td>
+      </tr>
+      <tr>
+        <td><code>capitalize(str)</code></td>
+        <td>Returns <code>str</code> with first case upper.</td>
+      </tr>
+      <tr>
+        <td><code>isDefined(object)</code></td>
+        <td>Returns <code>true</code> if passed parameter is defined.</td>
+      </tr>
+      <tr>
+        <td><code>strContains(str, it)</code></td>
+        <td>Returns <code>true</code> if first parameter contains second.</td>
+      </tr>
+      <tr>
+        <td><code>endsWith(str, suffix)</code></td>
+        <td>Returns <code>true</code> if first parameter ends with suffix.</td>
+      </tr>
+
+      <tr>
+        <td><code>filterRequestData(obj)</code></td>
+        <td>Removes from passed object all properties that value is empty string, null or undefined. Additionally
+          removes all properties which name start from '$' - that are angular internal properties.</td>
+      </tr>
+      <tr>
+        <td><code>paramsObject(obj)</code></td>
+        <td>Returns object that all properties are serialized to string.</td>
+      </tr>
+      <tr>
+        <td><code>toUrlParams(obj)</code></td>
+        <td>Transforms object to url query part.</td>
+      </tr>
+
+      <tr>
+        <td><code>getByPath(object, path)</code></td>
+        <td>
+          <p>
+            Returns object that is accessed by path in first parameter object. That is:
+          {% highlight js %}_.getByPath({ elem: { val: "x" }}, 'elem.val'){% endhighlight %} returns <code>"x"</code>.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>setByPath(object, path, value)</code></td>
+        <td>
+          <p>
+            Sets property in <code>object</code> accessed by <code>path</code> to <code>value</code>. That means after:
+          {% highlight js %}_.setByPath({ elem: { val: {} }}, 'elem.val.foo', "x"){% endhighlight %}
+          invoking <code>elem.val.foo</code> will return <code>"x"</code>.
+          If any part of <code>path</code> is undefined, nothing will be set.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>getOrCreate(object, path)</code></td>
+        <td>
+          <p>
+            Returns object that is accessed by path in first parameter object. That is:
+          {% highlight js %}_.getByPath({ elem: { val: "x" }}, 'elem.val'){% endhighlight %} returns <code>"x"</code>.
+          </p>
+          <p>
+            If any part of <code>path</code> is undefined it will be created as empty object <code>{}</code>. Newly
+            created object described by last part of <code>path</code> will be returned.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>serializeObject(dom)</code></td>
+        <td>
+          <p>
+            Returns serialized form of <code>dom</code>.
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>
+    </p>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>Array object extensions</h2>
+    <table class="table">
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>Array.prototype.pushArray(arr)</code></td>
+        <td>
+          <p>
+            Pushes all elements of <code>arr</code> to <code>this</code> array.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>Array.prototype.byProp(property, id)</code></td>
+        <td>
+          <p>
+            Returns first element that has <code>property</code> equal to <code>id</code>.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>Array.prototype.remove(element)</code></td>
+        <td>
+          <p>
+            Removes first instance of <code>element</code> from <code>this</code> array.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>Array.prototype.filter(fun)</code></td>
+        <td>
+          <p>
+            Returns new array containing all elements for which <code>fun(element)</code> returns <code>true</code>.
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>
+    </p>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>Date object extensions</h2>
+    <table class="table">
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>Date.prototype.toISOString()</code></td>
+        <td>
+          <p>
+            Date to ISO string serialization. Added to Date type only if it does not exist.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>License</h2>
+    This project is licensed under terms of <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a>
+  </div>
+</div>

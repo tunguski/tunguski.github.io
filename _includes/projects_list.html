@@ -1,0 +1,9 @@
+
+{% assign withDocs = site.data.projects | where: "docs", true %}
+
+<div class="list-group">
+  {% for project in withDocs %}
+  <a class="list-group-item {% if project.name == page.project %}active{% endif %}" href="/projects/{{ project.name }}.html">{{ project.name }}</a>
+  {% endfor %}
+</div>
+

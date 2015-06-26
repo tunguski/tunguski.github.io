@@ -1,0 +1,188 @@
+---
+layout: two_column
+left_column: projects_list.html
+project: matsuo-ng-resource
+title: "AngularJs Resources Improved"
+---
+
+<div>
+  <div>
+    <h2>Simple as hell</h2>
+    <p>
+      Simplest possible resource is created like this.
+    </p>
+    {% highlight js %}restFactory("Person");{% endhighlight %}
+    <p>
+      This provides default set of methods for ajax calls.
+    </p>
+    <h4>Invocation examples</h4>
+    <table class="table">
+      <tr>
+        <th>Invocation</th>
+        <th>Method</th>
+        <th>Url</th>
+        <th>Request Body</th>
+      </tr>
+      <tr>
+        <td><code>Person.get({ idPerson: 1},</code>
+          <code>[successFn], [errorFn])</code></td>
+        <td><code>GET</code></td>
+        <td><code>/api/persons/1</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>Person.query({ sex: 'male'},</code>
+          <code>[successFn], [errorFn])</code></td>
+        <td><code>GET</code></td>
+        <td><code>/api/persons</code></td>
+        <td><code>{ sex: 'male'}</code></td>
+      </tr>
+      <tr>
+        <td><code>Person.listByIds({ ids: [1,2,3,4,5]},</code>
+          <code>[successFn], [errorFn])</code></td>
+        <td><code>GET</code></td>
+        <td><code>/api/persons/listByIds</code>
+          <code>?ids=1&ids=2&ids=3&ids=4&ids=5</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>person.$save([successFn], [errorFn])</code></td>
+        <td><code>POST</code></td>
+        <td><code>/api/persons</code></td>
+        <td><code>{ id: 1, firstName: 'John',</code>
+          <code>lastName: 'Doe' }</code></td>
+      </tr>
+      <tr>
+        <td><code>person.$update([successFn], [errorFn])</code></td>
+        <td><code>PUT</code></td>
+        <td><code>/api/persons</code></td>
+        <td><code>{ id: 1, firstName: 'John',</code>
+          <code>lastName: 'Doe' }</code></td>
+      </tr>
+    </table>
+    <h4>Methods</h4>
+    <table class="table">
+      <tr>
+        <th>Invocation</th>
+        <th>Result</th>
+      </tr>
+      <tr>
+        <td><code>Resource.get([parameters], [success], [error])</code></td>
+        <td>Returns single object of type that match parameters.</td>
+      </tr>
+      <tr>
+        <td><code>Resource.query(([parameters], [success], [error]))</code></td>
+        <td>Returns array of objects that match parameters.</td>
+      </tr>
+      <tr>
+        <td><code>instance.$save([parameters], postData, [success], [error])</code></td>
+        <td>Saves object, sending it's data by POST request.</td>
+      </tr>
+      <tr>
+        <td><code>instance.$update([parameters], postData, [success], [error])</code></td>
+        <td>Updates object by sending it's data by PUT request.</td>
+      </tr>
+    </table>
+    <p>
+      More complicated example changes default entityName (root of all urls for this resource), and adds new functions.
+    </p>
+      {% highlight js %}restFactory('Login', {
+        urlEntityName: 'login',
+        additionalFunctions: {
+          getUser: { url: "/user" },
+          logoff: { url: "/logoff", method: 'POST' },
+          login: {
+            method: 'POST'
+          }
+        }
+      });{% endhighlight %}
+
+    <h4>Invocation examples</h4>
+    <table class="table">
+      <tr>
+        <th>Invocation</th>
+        <th>Method</th>
+        <th>Url</th>
+        <th>Request Body</th>
+      </tr>
+      <tr>
+        <td><code>Login.getUser([successFn], [errorFn])</code></td>
+        <td><code>GET</code></td>
+        <td><code>/api/login/user</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>Login.logoff([successFn], [errorFn])</code></td>
+        <td><code>POST</code></td>
+        <td><code>/api/login/logoff</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>Login.login({ username: 'doe', password: 'pass' }, [successFn], [errorFn])</code></td>
+        <td><code>GET</code></td>
+        <td><code>/api/login/user</code></td>
+        <td><code>{ username: 'doe', password: 'pass' }</code></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>Configuration parameters</h2>
+    <table class="table">
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>parentName</code></td>
+        <td>If present, this entity represents other's entity child. So urls will not be like
+          <code>/api/urlEntityName/{{idEntity}}</code>, but
+          <code>/api/parentName/{{idParentEntity}}/urlEntityName/{{idEntity}}</code>.
+        </td>
+      </tr>
+      <tr>
+        <td><code>urlEntityName</code></td>
+        <td>
+          Normally urlEntityName is automatically builded by concatenating passed module name and 's'. But sometimes
+          you don't want this convention. Then by setting <code>urlEntityName</code> you may change default
+          behaviour.
+        </td>
+      </tr>
+      <tr>
+        <td><code>additionalFunctions</code></td>
+        <td>
+          Parameter containing additional functions for resource construction.
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>How resources work</h2>
+    <p>
+      This simple module implements a couple of conventions for resource processing.
+    </p>
+    <ul>
+      <li>All methods have id[name] parameter. So when building factory by <code>restFactory("Person");</code>, get
+        method has idPerson parameter for setting id.</li>
+      <li>Processes first level and child level entities. It is not possible to process child's child.</li>
+      <li>Adds <code>update()</code> method that is not present in AngularJs.</li>
+      <li>Adds <code>isNew()</code> method, that returns <code>true</code> if entity has id. That is a marker of
+        db state.</li>
+    </ul>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <h2>License</h2>
+    This project is licensed under terms of <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0 License</a>
+  </div>
+</div>
