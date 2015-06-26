@@ -1,0 +1,9 @@
+# overwriten by github - for compatibility
+safe: true
+lsi: false
+
+# set to github default
+highlighter: pygments
+
+name: Marek Romanowski
+twitter: tunguski

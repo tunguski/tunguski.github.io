@@ -1,0 +1,22 @@
+- name: matsuo-js-util
+
+- name: matsuo-ng-route
+
+- name: matsuo-ng-resource
+
+- name: matsuo-ng-ui
+
+- name: matsuo-core-webapp
+
+- name: matsuo-core-mobileapp
+
+- name: matsuo-accounting-webapp
+
+- name: hibernate-validator-pl
+  java: true
+
+- name: matsuo-core
+  java: true
+
+- name: matsuo-accounting
+  java: true
