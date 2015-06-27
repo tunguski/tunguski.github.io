@@ -1,7 +1,6 @@
 ---
 layout: two_column
 left_column: matsuo_core_menu.html
-project: util
 title: "Matsuo Core Utilities"
 ---
 

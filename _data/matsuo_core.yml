@@ -1,11 +1,42 @@
 modules:
   - name: util
+    elements:
+    - name: collections
+
+    - name: functional
+
+    - name: reflection
 
   - name: model
+    elements:
+    - name: base
+
+    - name: key_value_facade
+      title: Key Value Facade
+
+    - name: request_params
+      title: Request Params
 
   - name: core
+    elements:
+    - name: execution_service
+      title: Execution Service
+
+    - name: i18n
+
+    - name: parameter_provider
+      title: Parameter Provider
+
+    - name: prints
+
+    - name: reports
+
+    - name: numerations
 
   - name: web
+    elements:
+    - name: abstract_controller
+      title: Abstract Controller
 
 menu:
   pages:

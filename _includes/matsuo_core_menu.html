@@ -1,11 +1,29 @@
 <ul class="list-unstyled">
   <li class="{% if page.project == 'matsuo-core' %}active{% endif %}">
-    <a href="/projects/matsuo-core.html"><b>Matsuo Core</b></a>
+    <a href="/projects/matsuo-core.html"><b class="project-name">Matsuo Core</b></a>
   </li>
 
   {% for project in site.data.matsuo_core.modules %}
-  <li class="{% if project.name == page.project %}active{% endif %}">
-    <a href="/projects/matsuo-core/{{ project.name }}.html">{{ project.name }}</a>
+  {% capture project_page %}{{ project.name }}.md{% endcapture %}
+  <li class="{% if project_page == page.name %}active{% endif %}">
+    <a href="/projects/matsuo-core/{{ project.name }}.html"><b>{{ project.name }}</b></a>
+
+    {% if project.elements %}
+      <ul class="list-unstyled">
+        {% for subPage in project.elements %}
+        {% capture project_page %}{{ subPage.name }}.md{% endcapture %}
+        <li class="{% if project_page == page.name %}active{% endif %}">
+          <a href="/projects/matsuo-core/{{project.name}}/{{ subPage.name }}.html">
+            {% if subPage.title %}
+            {{ subPage.title }}
+            {% else %}
+            {{ subPage.name }}
+            {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </li>
   {% endfor %}
 
@@ -15,4 +33,3 @@
   </li>
   {% endfor %}
 </ul>
-

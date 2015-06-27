@@ -1,7 +1,6 @@
 ---
 layout: two_column
 left_column: matsuo_core_menu.html
-project: contribute
 title: "Matsuo Core Contributing"
 ---
 
@@ -46,5 +45,4 @@ page listing skin user sites.
 
 ## Copyright and license
 
-GNU LESSER GENERAL PUBLIC LICENSE
-Version 3, 29 June 2007
+[GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007](license.html)
