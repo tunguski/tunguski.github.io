@@ -1,36 +1,56 @@
 - name: matsuo-js-util
   type: js
   docs: true
+  research: false
 
 - name: matsuo-ng-route
   type: js
   docs: true
+  research: false
 
 - name: matsuo-ng-resource
   type: js
   docs: true
+  research: false
 
 - name: matsuo-ng-ui
   type: js
   docs: true
+  research: false
 
 - name: matsuo-core-webapp
   type: js
+  research: false
 
 - name: matsuo-core-mobileapp
   type: js
+  research: false
 
 - name: matsuo-accounting-webapp
   type: js
+  research: false
 
 - name: hibernate-validator-pl
   type: java
-  java: true
+  research: false
 
 - name: matsuo-core
   type: java
-  java: true
+  docs: true
+  research: false
 
 - name: matsuo-accounting
   type: java
-  java: true
+  research: false
+
+- name: angular-boostrapize-maven-site
+  type: js
+  research: true
+  site: maven.matsuo-it.com
+  description: "Effort to build modern Bootstrap based Maven site."
+
+- name: msb3-maven-skin
+  type: js
+  research: true
+  site: tunguski.github.io/msb3-maven-skin
+  description: "Maven skin based on Bootstrap 3.3."

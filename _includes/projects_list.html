@@ -1,9 +1,30 @@
+{% assign tmp = site.data.projects | where: "docs", true | where: "research", false %}
 
-{% assign withDocs = site.data.projects | where: "docs", true %}
+<ul class="list-unstyled">
+  <li><b>Javascript projects</b></li>
 
-<div class="list-group">
+  {% assign withDocs = tmp | where: "type", "js" %}
   {% for project in withDocs %}
-  <a class="list-group-item {% if project.name == page.project %}active{% endif %}" href="/projects/{{ project.name }}.html">{{ project.name }}</a>
+  <li class="{% if project.name == page.project %}active{% endif %}">
+    <a class="" href="/projects/{{ project.name }}.html">{{ project.name }}</a>
+  </li>
   {% endfor %}
-</div>
 
+  <li><b>Java projects</b></li>
+
+  {% assign withDocs = tmp | where: "type", "java" %}
+  {% for project in withDocs %}
+  <li class="{% if project.name == page.project %}active{% endif %}">
+    <a class="" href="/projects/{{ project.name }}.html">{{ project.name }}</a>
+  </li>
+  {% endfor %}
+
+  <li><b>Research projects</b></li>
+
+  {% assign research = site.data.projects | where: "research", true %}
+  {% for project in research %}
+  <li class="{% if project.name == page.project %}active{% endif %}">
+    <a href="http://{{ project.site }}" target="_blank">{{ project.name }}</a>
+  </li>
+  {% endfor %}
+</ul>

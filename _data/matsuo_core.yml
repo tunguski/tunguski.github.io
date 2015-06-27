@@ -1,0 +1,14 @@
+modules:
+  - name: util
+
+  - name: model
+
+  - name: core
+
+  - name: web
+
+menu:
+  pages:
+    - name: contribute
+
+    - name: license

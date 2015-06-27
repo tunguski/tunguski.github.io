@@ -15,7 +15,8 @@ title: "Open Source Projects"
     <div class="col-sm-3">David-dm dev</div>
   </div>
 
-  {% for project in site.data.projects %}
+  {% assign projects = site.data.projects | where: "research", false %}
+  {% for project in projects %}
   <div class="row">
     <div class="col-sm-2">
       <a href="https://github.com/tunguski/{{project.name}}">{{project.name}}</a>
@@ -36,7 +37,7 @@ title: "Open Source Projects"
       </a>
     </div>
     <div class="col-sm-2">
-      {% if project.java == true %}
+      {% if project.type == "java" %}
       <span>----</span>
       {% else %}
       <a href="https://david-dm.org/tunguski/{{project.name}}#info=dependencies">
@@ -45,7 +46,7 @@ title: "Open Source Projects"
       {% endif %}
     </div>
     <div class="col-sm-3">
-      {% if project.java == true %}
+      {% if project.type == "java" %}
       <span>----</span>
       {% else %}
       <a href="https://david-dm.org/tunguski/{{project.name}}#info=devDependencies">
@@ -55,4 +56,28 @@ title: "Open Source Projects"
     </div>
   </div>
   {% endfor %}
+
+  <h1>Research projects</h1>
+
+  <div class="row grid-table-header">
+    <div class="col-sm-3">Github repository</div>
+    <div class="col-sm-3">Site</div>
+    <div class="col-sm-3">Description</div>
+  </div>
+
+  {% assign projects = site.data.projects | where: "research", true %}
+  {% for project in projects %}
+  <div class="row">
+    <div class="col-sm-3">
+      <a href="https://github.com/tunguski/{{project.name}}">{{project.name}}</a>
+    </div>
+    <div class="col-sm-3">
+      <a href="http://{{project.site}}">{{project.site}}</a>
+    </div>
+    <div class="col-sm-6">
+      {{project.description}}
+    </div>
+  </div>
+  {% endfor %}
+
 </div>

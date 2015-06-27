@@ -8,12 +8,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #394d54;
+  color: #563d7c;
   /*border-bottom: 1px solid #f3f3f3;*/
-}
-
-a:hover {
-  border-bottom: none;
 }
 
 header a {
@@ -187,9 +183,47 @@ ul ul li {
 }
 
 .grid-table {
-
 }
 
+.page-menu > ul > li {
+  padding-bottom: 0;
+}
+
+.page-menu li > * {
+  display: block;
+  padding: 4px 20px;
+  font-size: 13px;
+  color: #767676;
+}
+
+.page-menu li > a {
+  font-weight: 500;
+}
+
+.page-menu li > a:focus {
+  text-decoration: none;
+}
+
+.page-menu li > a:first-letter {
+  text-transform: uppercase;
+}
+
+.page-menu li > a:hover {
+  border-bottom: none;
+  padding-left: 19px;
+  color: #563d7c;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #563d7c;
+}
+
+.page-menu .active > a {
+  padding-left: 18px;
+  font-weight: 700;
+  color: #563d7c;
+  background-color: transparent;
+  border-left: 2px solid #563d7c;
+}
 
 /* Pygments */
 

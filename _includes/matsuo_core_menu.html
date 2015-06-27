@@ -1,0 +1,18 @@
+<ul class="list-unstyled">
+  <li class="{% if page.project == 'matsuo-core' %}active{% endif %}">
+    <a href="/projects/matsuo-core.html"><b>Matsuo Core</b></a>
+  </li>
+
+  {% for project in site.data.matsuo_core.modules %}
+  <li class="{% if project.name == page.project %}active{% endif %}">
+    <a href="/projects/matsuo-core/{{ project.name }}.html">{{ project.name }}</a>
+  </li>
+  {% endfor %}
+
+  {% for menu_elem in site.data.matsuo_core.menu.pages %}
+  <li class="{% if menu_elem.name == page.project %}active{% endif %}">
+    <a href="/projects/matsuo-core/{{ menu_elem.name }}.html">{{ menu_elem.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
