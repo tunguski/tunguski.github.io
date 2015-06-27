@@ -201,6 +201,10 @@ ul ul li {
   font-size: 110%;
 }
 
+.page-menu li .group-header {
+  margin-top: 20px;
+}
+
 .page-menu li > a {
   font-weight: 500;
 }
