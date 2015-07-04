@@ -39,6 +39,11 @@
   docs: true
   research: false
 
+- name: gitlab-java-event-listener
+  type: java
+  docs: true
+  research: false
+
 - name: matsuo-accounting
   type: java
   research: false
