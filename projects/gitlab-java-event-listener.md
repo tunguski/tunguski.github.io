@@ -31,13 +31,58 @@ and add dependency:
 
 ### CheckStyle
 
+Generates ChecksStyle report and calculate quality value based on report.
+
+#### Todo
+
+* Parse generated report
+* Define measures for each type of error
+* Calculate the overall quality value
+* Save full report and overall quality value
+
 ### Cobertura
+
+Generates code coverage report and calculate quality value based on it.
+
+#### Todo
+
+* Parse generated report
+* Define measures for each type of error
+* Calculate the overall quality value
+* Save full report and overall quality value
 
 ### Documentation
 
+Generates documentation quality report and calculate overall quality value based on it.
+
+#### Todo
+
+* Define rules for documentation
+* Generate quality report
+* Calculate the overall quality value
+* Save full report and overall quality value
+
 ### FindBugs
 
+Generates FindBugs report and calculate quality value based on it.
+
+#### Todo
+
+* Parse generated report
+* Define measures for each type of error
+* Calculate the overall quality value
+* Save full report and overall quality value
+
 ### JavaNcss
+
+Generates JavaNcss report and calculate quality value based on it.
+
+#### Todo
+
+* Parse generated report
+* Define measures for each type of error
+* Calculate the overall quality value
+* Save full report and overall quality value
 
 ### Jekyll
 
@@ -53,6 +98,15 @@ Property | Default | Description
 
 
 ### Pmd
+
+Generates Pmd report and calculate quality value based on it.
+
+#### Todo
+
+* Parse generated report
+* Define measures for each type of error
+* Calculate the overall quality value
+* Save full report and overall quality value
 
 ## About
 
