@@ -43,7 +43,7 @@ and add dependency:
 
 Generates project site and makes it availible for user.
 
-**Properties**
+#### Properties
 
 Property | Default | Description
 -------- | :-----: | -----------
