@@ -27,6 +27,33 @@ and add dependency:
 </dependency>
 {% endhighlight %}
 
+## Builders
+
+### CheckStyle
+
+### Cobertura
+
+### Documentation
+
+### FindBugs
+
+### JavaNcss
+
+### Jekyll
+
+Generates project site and makes it availible for user.
+
+**Properties**
+
+Property | Default | Description
+-------- | :-----: | -----------
+```jekyll.source```      | ```<project_dir>/src/site``` | Specifies where are site's sources
+```jekyll.destination``` | ```<project_dir>/_site```    | Specifies where generated site should be places
+```jekyll.skip```        | ```false```                  | Should site be generated
+
+
+### Pmd
+
 ## About
 
 This project is developed by Marek Romanowski Matuo IT.

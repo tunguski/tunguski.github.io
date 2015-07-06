@@ -249,3 +249,19 @@ ul ul li {
 .page-menu > ul ul > li.active > a {
   padding-left: 29px;
 }
+
+.project-description > table {
+  width: 100%;
+}
+
+.project-description > table > tbody > tr > td {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.project-description > table > thead > tr > th {
+  border-bottom: 2px solid #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
