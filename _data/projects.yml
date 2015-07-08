@@ -44,6 +44,11 @@
   docs: true
   research: false
 
+- name: docx2md 
+  type: java
+  docs: false
+  research: false
+
 - name: matsuo-accounting
   type: java
   research: false
