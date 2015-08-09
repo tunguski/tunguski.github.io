@@ -1,0 +1,33 @@
+modules:
+  - name: build
+    title: Builders
+    elements:
+    - name: checkstyle
+
+    - name: cobertura
+
+    - name: documentation
+
+    - name: findbugs
+
+    - name: javancss
+
+    - name: jekyll
+
+    - name: pmd
+
+  - name: extending
+    elements:
+    - name: base
+
+#    - name: key_value_facade
+#      title: Key Value Facade
+
+#    - name: request_params
+#      title: Request Params
+
+menu:
+  pages:
+    - name: contribute
+
+    - name: license

@@ -1,0 +1,41 @@
+<ul class="list-unstyled">
+  <li class="{% if page.project == 'kosher' %}active{% endif %}">
+    <a href="/projects/gitlab-java-event-listener.html"><b class="project-name">Kosher</b></a>
+  </li>
+
+  {% for project in site.data.kosher.modules %}
+  {% capture project_page %}{{ project.name }}.md{% endcapture %}
+  <li class="{% if project_page == page.name %}active{% endif %}">
+    <a href="/projects/kosher/{{ project.name }}.html"><b>
+      {% if project.title %}
+      {{ project.title }}
+      {% else %}
+      {{ project.name }}
+      {% endif %}
+      </b></a>
+
+    {% if project.elements %}
+      <ul class="list-unstyled">
+        {% for subPage in project.elements %}
+        {% capture project_page %}{{ subPage.name }}.md{% endcapture %}
+        <li class="{% if project_page == page.name %}active{% endif %}">
+          <a href="/projects/kosher/{{project.name}}/{{ subPage.name }}.html">
+            {% if subPage.title %}
+            {{ subPage.title }}
+            {% else %}
+            {{ subPage.name }}
+            {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+
+  {% for menu_elem in site.data.kosher.menu.pages %}
+  <li class="{% if menu_elem.name == page.project %}active{% endif %}">
+    <a href="/projects/kosher/{{ menu_elem.name }}.html">{{ menu_elem.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
