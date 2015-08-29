@@ -1,3 +1,10 @@
+---
+layout: two_column
+left_column: kosher_menu.html
+project: gitlab-java-event-listener
+title: "Kosher"
+---
+
 # Key Value Store
 
 Koshers' internal database is simple key value store.
