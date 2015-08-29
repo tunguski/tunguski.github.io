@@ -30,3 +30,5 @@ of user ```tunguski``` at commit ```95790bf8```.
         * ```[commit]``` - actual commit info
             * ```[builder_name]``` - builder execution info for commit
                 * ```log``` - log from build command execution
+                * ```file``` - if builder stats are based on file content, builder adds this file content here
+                * ```report``` - builders' data about commit quality
