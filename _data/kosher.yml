@@ -16,6 +16,8 @@ modules:
 
     - name: pmd
 
+  - name: database
+
   - name: extending
     elements:
     - name: base
