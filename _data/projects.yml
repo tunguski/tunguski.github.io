@@ -39,7 +39,7 @@
   docs: true
   research: false
 
-- name: gitlab-java-event-listener
+- name: kosher
   type: java
   docs: true
   research: false
