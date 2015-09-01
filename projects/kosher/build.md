@@ -1,7 +1,7 @@
 ---
 layout: two_column
 left_column: kosher_menu.html
-project: gitlab-java-event-listener
+project: kosher 
 title: "Kosher"
 ---
 
