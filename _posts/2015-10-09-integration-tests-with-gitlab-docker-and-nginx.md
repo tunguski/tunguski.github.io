@@ -1,6 +1,5 @@
 ---
-layout: two_column
-left_column: posts_menu.html 
+layout: post 
 title: "Integration tests with Gitlab Docker and Nginx"
 ---
 
