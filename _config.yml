@@ -3,7 +3,7 @@ safe: true
 lsi: false
 
 # set to github default
-highlighter: rouge
+highlighter: pygments
 
 name: Marek Romanowski
 twitter: tunguski
