@@ -1,37 +1,13 @@
 ---
 layout: two_column
 left_column: kosher_menu.html
-project: gitlab-java-event-listener
+project: kosher
 title: "Kosher"
 ---
 
 ## What is Kosher?
 
 Kosher integrates with Gitlab and provides automatic project quality checking.
-
-## Build from sources
-
-Clone [this repository](https://github.com/tunguski/gitlab-java-event-listener), build it
-
-{% highlight bash %}
-mvn clean install
-{% endhighlight %}
-
-and add dependency:
-
-{% highlight xml %}
-<dependency>
-  <groupId>pl.matsuo.gitlab</groupId>
-  <artifactId>base-listener</artifactId>
-  <version>1.0-SNAPSHOT</version>
-</dependency>
-{% endhighlight %}
-
-Now you need to create new docker container:
-
-{% highlight bash %}
-docker build -t tunguski/gitlab-java-event-listener .
-{% endhighlight %}
 
 ## Configuring Kosher server
 
@@ -44,8 +20,20 @@ There are some additional steps required to fully configure Kosher server
 ## Running Kosher server
 
 {% highlight bash %}
-docker run -d --name gitlab-java-event-listener -p 10082:8080 tunguski/gitlab-java-event-listener
+docker run -d --name kosher -p 10082:8080 --volumes-from gitlab tunguski/kosher
 {% endhighlight %}
+
+```--volumes-from gitlab``` is important, because Kosher tries to clone repository if you did not configure ssh keys.
+
+## Integrate project builds with Kosher
+
+Add ```webhook``` to your project (```Project -> Settings -> Web Hooks```) pointing to ```kosher``` server:
+
+    http://<kosher_host>:<kosher_port>/hooks
+    
+where ```kosher_host``` and ```kosher_port``` should be replaced to point to your kosher server instance.
+
+Remember that ```kosher_host``` won't be ```localhost```, because for Gitlab that points to it's container.
 
 ## How does it work?
 
