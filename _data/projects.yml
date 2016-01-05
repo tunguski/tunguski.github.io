@@ -64,3 +64,9 @@
   research: true
   site: tunguski.github.io/msb3-maven-skin
   description: "Maven skin based on Bootstrap 3.3."
+
+- name: msb4-maven-skin
+  type: js
+  research: true
+  site: tunguski.github.io/msb4-maven-skin
+  description: "Maven skin based on Bootstrap 4.0."
