@@ -7,3 +7,5 @@ build_script:
 
 script: 
     - bundle exec jekyll build
+
+cache: bundler
