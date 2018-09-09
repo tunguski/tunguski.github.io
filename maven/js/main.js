@@ -16,15 +16,15 @@
     this.splice(this.length-1,1);
     return top;
   };
-  
+
 })(jQuery);
 
 
 
 (function() {
   angular.module('abms', ['ui.bootstrap', 'ngSanitize', 'firebase'])
-  
-  
+
+
   .run(function ($rootScope) {
     $rootScope.scopeSetter = function (field) {
       var self = this;
@@ -33,34 +33,34 @@
       };
     };
   })
-  
-  
+
+
   .controller('AppCtrl', function ($scope, $http, $location, pageCache, siteScanner, config) {
     $scope.scrollToTop = function () {
         $('html, body').animate({ scrollTop: 0 }, 100);
     }
-    
-    
+
+
     $scope.toggleFullWindow = function () {
         $scope.fullWindow = !$scope.fullWindow;
     }
-    
-    
+
+
     $scope.outerHtml = function (jq) {
       return jq.map(function (index, element) {
         return angular.element(element).prop('outerHTML');
       });
     }
-    
-    
+
+
     $scope.executeWithSite = function (part, fn) {
       part = part ? part : 'site';
       this.$watch('mvn.' + part, function (element) {
         if (element) fn($scope.mvn, element);
       });
     }
-    
-    
+
+
     $scope.resolvePagePresentation = function (data) {
       if (data.indexOf('packageListFrame') >= 0) {
         // jxr or javadoc
@@ -82,13 +82,14 @@
         // default presentation
         $scope.pagePresentation = '/views/default-site-page.html';
       }
+        $scope.pagePresentation = '/maven' + $scope.pagePresentation;
     };
-    
-    
+
+
     $scope.$on('$locationChangeSuccess', function (data) {
       $scope.hash = $location.path();
       $scope.page = '/' + config.base + $scope.hash;
-      
+
       if ($scope.hash.indexOf('_') == 0 || $scope.hash.indexOf('/_') == 0) {
         $scope.pagePresentation = $scope.hash.substr($scope.hash.indexOf('_') + 1);
       } else {
@@ -108,22 +109,22 @@
       }
     });
   })
-  
-  
+
+
   .controller('MenuCtrl', function ($scope, mvnRepository, $timeout) {
     $scope.$watch('query', function (query) {
       mvnRepository.search(query).then($scope.scopeSetter('searchResults'));
       $scope.showSearchResults = query && query.length >= 3;
     });
-    
+
     $scope.hideSearchResults = function () {
       $timeout(function () {
         $scope.searchFocus = false;
       }, 100);
     };
-    
+
     $scope.themes = [
-      { name: 'Bootstrap 3.3', 
+      { name: 'Bootstrap 3.3',
         href: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
         defaultHlTheme: 'xcode'
       }];
@@ -148,22 +149,22 @@
       element.href = '//bootswatch.com/' + element.name.toLowerCase() + '/bootstrap.min.css';
       $scope.themes.push(element);
     });
-    
+
     $scope.$watch('selectedTheme', function (selectedTheme) {
       if (!selectedTheme) {
         $scope.selectedTheme = selectedTheme = $scope.themes[0];
       }
-      
+
       // set highlight theme as well
       $scope.selectedHlTheme = _.findWhere($scope.hlThemes, { style: selectedTheme.defaultHlTheme});
-      
+
       $('link#theme-link').attr('href', selectedTheme.href);
 
       if (localStorage) {
         localStorage.setItem('site.theme', JSON.stringify($scope.selectedTheme));
       }
     });
-    
+
     $scope.hlThemes = [];
     angular.forEach([
       { title: "Default", style: "default" },
@@ -221,67 +222,67 @@
       element.name = element.title;
       $scope.hlThemes.push(element);
     });
-    
+
     $scope.$watch('selectedHlTheme', function (selectedHlTheme) {
       if (!selectedHlTheme) {
         $scope.selectedHlTheme = selectedHlTheme = $scope.hlThemes[0];
       }
-      
+
       $('link#hl-theme-link').attr('href', selectedHlTheme.href);
 
       if (localStorage) {
         localStorage.setItem('site.hlTheme', JSON.stringify($scope.selectedHlTheme));
       }
     });
-    
-    
+
+
     if (localStorage && localStorage.getItem('site.theme')) {
       $scope.selectedTheme = JSON.parse(localStorage.getItem('site.theme'));
       $scope.selectedHlTheme = JSON.parse(localStorage.getItem('site.hlTheme'));
     }
   })
-  
-  
+
+
   .controller('FooterCtrl', function ($scope) {
     $scope.executeWithSite('footerContent', function (mvn) {
       $scope.footerHtml = angular.element($scope.mvn.footerContent).prop('outerHTML');
     });
   })
-  
-  
+
+
   .directive('dynamicElement', function ($compile) {
-    return { 
-      restrict: 'E', 
+    return {
+      restrict: 'E',
       replace: true,
       link: function(scope, element, attrs) {
         scope.$watch(attrs.message, function (content) {
         var template = $compile(content)(scope);
-        element.replaceWith(template);               
+        element.replaceWith(template);
         });
       }
     };
   })
-  
-  
+
+
   .directive('selectionNotePanel', function ($compile) {
-    return { 
-      restrict: 'E', 
+    return {
+      restrict: 'E',
       replace: true,
-      template: '<div class="selection-note-panel">' + 
-                  '<textarea rows="5"></textarea>' + 
-                  '<button class="btn btn-primary">Save</button>' + 
-                  '<button class="btn btn-default">Cancel</button>' + 
-                  '' + 
-                  '' + 
-                  '' + 
-                  '' + 
+      template: '<div class="selection-note-panel">' +
+                  '<textarea rows="5"></textarea>' +
+                  '<button class="btn btn-primary">Save</button>' +
+                  '<button class="btn btn-default">Cancel</button>' +
+                  '' +
+                  '' +
+                  '' +
+                  '' +
                 '</div>',
       link: function(scope, element, attrs) {
       }
     };
   })
-  
-  
+
+
   .run(function ($rootScope) {
   // watch selection
 //   document.addEventListener('selectionchange', function (event) {
