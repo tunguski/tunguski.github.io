@@ -48,7 +48,15 @@
 <header class="menu-header">
   <div class="container">
     <div class="row">
-      {% include {{ page.subheader }} %}
+    {% if layout.subheader %}
+      {% include {{ layout.subheader }} %}
+    {% else %}
+      <div class="col-sm-12">
+        <div class="alert alert-danger">
+          No subheader found
+        </div>
+      </div>
+    {% endif %}
     </div>
   </div>
 </header>
@@ -59,8 +67,6 @@
     <div class="col-sm-12 col-md-4 col-lg-4 page-menu">
       {% include {{ page.left_column }} %}
     </div>
-    {% endif %}
-    {% if page.left_column %}
     <div class="col-sm-12 col-md-8 col-lg-8 project-description">
       {{ content }}
     </div>
@@ -73,7 +79,7 @@
 </div>
 
 <footer>
-  <div class="container visible-sm visible-xs">
+  <div class="container d-md-none">
     <div class="row">
       <div class="col-md-12">
         <p><a href="https://github.com/tunguski">Github</a></p>
