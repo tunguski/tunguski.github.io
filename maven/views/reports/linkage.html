@@ -1,0 +1,86 @@
+<div class="row" ng-controller="LinkagePageCtrl">
+  <div class="col-lg-2 col-sm-3 main-navigation" ng-controller="LinkageNaviCtrl">
+  </div>
+
+  <div class="col-lg-8 col-sm-9 main-body" ng-controller="LinkageContentCtrl">
+    <div class="btn-group">
+      <button class="btn btn-primary" ng-click="siteScanner.scan()">Start building report</button>
+      <button class="btn btn-default" ng-click="siteScanner.stop()">Stop building report</button>
+      <button class="btn btn-danger" ng-click="siteScanner.clear()">Clear report</button>
+    </div>
+
+    <h3>Summary</h3>
+    
+    <div class="table-responsive">
+      <table class="table table-condensed">
+        <tr>
+          <td><a ng-click="showType('all')">Pages found</a></td>
+          <td ng-bind="siteScanner.report.__meta.pages.all"></td>
+        </tr>
+        <tr>
+          <td><a ng-click="showType(200)">200 (OK)</a></td>
+          <td ng-bind="siteScanner.report.__meta.pages['200']"></td>
+        </tr>
+        <tr>
+          <td><a ng-click="showType(404)">404 (Not found)</a></td>
+          <td ng-bind="siteScanner.report.__meta.pages['404']"></td>
+        </tr>
+        <tr>
+          <td><a ng-click="showType(403)">403 (Forbidden)</a></td>
+          <td ng-bind="siteScanner.report.__meta.pages['403']"></td>
+        </tr>
+        <tr>
+          <td><a ng-click="showType(500)">500 (Internal Server Error)</a></td>
+          <td ng-bind="siteScanner.report.__meta.pages['500']"></td>
+        </tr>
+        <tr>
+          <td>Waiting for processing</td>
+          <td ng-bind="siteScanner.toScan.length"></td>
+        </tr>
+      </table>
+    </div>
+
+    <h3>Details <small ng-if="siteScanner.isScanning" class="text-muted">(Scanning...)</small></h3>
+    
+    <table class="table table-condensed">
+      <tr>
+        <th>Page</th>
+        <th>Links</th>
+      </tr>
+      <tr ng-if="shouldShowPage(pageName, pageDetails)"
+          ng-repeat="(pageName, pageDetails) in siteScanner.report">
+        <td>
+          <span ng-bind="trimRedirect(pageName)"></span>
+          <span class="pull-right">
+            <span class="label label-default" ng-if="countPages(pageDetails)"
+                  ng-bind="countPages(pageDetails)"></span>
+            <span class="label label-danger" ng-if="countErrors(pageDetails)" 
+                  ng-bind="countErrors(pageDetails)"></span>
+          </span>
+        </td>
+        <td>
+
+          <table class="table table-condensed"
+                 ng-if="keys(pageDetails)">
+            <tr>
+              <th>Link</th>
+              <th>Status</th>
+            </tr>
+            <tr ng-if="shouldShowPageReference(link, linkDetails)"
+                ng-repeat="(link, linkDetails) in pageDetails"
+                ng-class="{ warning: linkDetails.status === 403, danger: linkDetails.status === 404, success: linkDetails.status === 200, info: linkDetails.status === 500 }">
+              <td ng-bind="trimRedirect(link)"></td>
+              <td ng-bind="linkDetails.status || '+'"></td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-lg-2 col-sm-9 col-sm-offset-3 col-lg-offset-0 download-navigation" 
+       ng-class="{ 'visible-lg-block': isMenu }" 
+       ng-controller="LinkageDownloadCtrl">
+  </div>
+</div>

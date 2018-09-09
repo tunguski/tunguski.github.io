@@ -1,0 +1,267 @@
+
+*:focus {
+    outline: none;
+}
+
+a {
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .visible-sm-gt {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .visible-md-gt {
+    display: none;
+  }
+}
+
+tt {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.affix {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .affix {
+      position: fixed;
+      top: 20px;
+  }
+}
+
+/* wtf ??? */
+
+table.table {
+  border-width: 0;
+}
+
+table.table td, table.table th {
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+}
+
+table.table tbody tr th {
+  border-top-width: 0;
+}
+
+
+/* project-header */
+
+header.project-header {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  header.project-header {
+    margin: 40px 0;
+  }
+}
+
+header.project-header a {
+  text-decoration: none;
+}
+
+header.project-header h1 .pull-right {
+  font-size: 16px;
+}
+
+.theme-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.theme-div div, .theme-div select {
+  width: 100%;
+}
+
+/* search-results */
+
+.search-results {
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.search-results > * {
+  margin-top: 20px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* main-navigation */
+
+.main-navigation {
+  font-size: 85%;
+  opacity: .3;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .main-navigation {
+    margin-bottom: 60px;
+  }
+}
+
+.main-navigation ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.main-navigation h5 {
+  cursor: pointer;
+}
+
+.main-navigation:hover {
+  opacity: 1;
+}
+
+.main-navigation *[ng-click] {
+  cursor: pointer;
+}
+
+
+/* main-body */
+
+.main-body {
+  text-align: justify;
+}
+
+h1, h2, h3, h4, h5, header {
+  text-align: left;
+}
+
+/* jxr and javadocs */
+
+
+.jxr-presentation .main-body * {
+  text-align: justify;
+}
+
+.jxr-presentation .project-element ul {
+  padding-left: 10px;
+}
+
+.jxr-presentation .project-element .collapsed {
+  font-weight: bold;
+}
+
+
+
+/* download-navigation */
+
+.download-navigation {
+  font-size: 85%;
+  opacity: .3;
+  margin-top: 20px;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.download-navigation:hover {
+  opacity: 1;
+}
+
+.download-navigation h5 {
+  cursor: pointer;
+}
+
+.download-navigation a:not([href*='foundation']) {
+  white-space: nowrap
+}
+
+.download-navigation .collapsed > .section > * {
+  display: none;
+}
+
+.download-navigation .collapsed > .section > h5 {
+  display: block;
+}
+
+.download-navigation .section > * {
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.download-navigation .section > h5 {
+  padding-left: 0;
+  cursor: pointer;
+}
+
+/* selection note panel */
+
+.selection-note-panel {
+  display: none;
+}
+
+/* scroll-to-top */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #eee;
+  opacity: .3;
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px 10px 7px;
+  transition: all .5s ease;
+}
+
+.scroll-to-top:hover {
+  opacity: .5;
+}
+
+.scroll-to-top i {
+  font-size: 32px;
+}
+
+
+/* scroll-to-top */
+
+.toggle-full-window {
+  position: fixed;
+  bottom: 10px;
+  right: 70px;
+  background-color: #eee;
+  opacity: .3;
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px 10px 7px;
+  transition: all .5s ease;
+}
+
+.toggle-full-window:hover {
+  opacity: .5;
+}
+
+.toggle-full-window i {
+  font-size: 32px;
+}
+
+
+/* footer */
+
+footer {
+  margin: 60px 0;
+}
+
+footer .row + .row {
+  margin-top: 20px;
+}

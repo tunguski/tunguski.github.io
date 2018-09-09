@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html ng-app="abms">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--     <meta name="theme-color" content="#000000"> -->
+
+    <title>Angular-Bootstrapized Maven Site</title>
+
+    <link rel="stylesheet" type="text/css" 
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" id="theme-link" 
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" id="hl-theme-link" 
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/xcode.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <base href="/">
+  </head>
+  
+  
+  <body ng-controller="AppCtrl">
+    
+    
+    <div id="header-container" ng-cloak ng-class="fullWindow ? 'container-fluid' : 'container'">
+      <header class="project-header" ng-controller="MenuCtrl">
+        <div class="row">
+          <div class="col-lg-8 col-sm-9 col-sm-offset-3 col-lg-offset-2 project-header-container">
+            <form class="navbar-form pull-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="query"
+                       ng-focus="searchFocus = true" ng-blur="hideSearchResults()">
+              </div>
+            </form>            
+
+            <h1>
+              <a href="/">
+                <span ng-bind="title"></span>
+              </a>
+            </h1>
+            <div ng-if="projectVersion" class="text-muted" ng-bind="projectVersion"></div>
+            <div ng-if="lastPublished" class="text-muted" ng-bind="lastPublished"></div>
+            <!-- ng-if="searchFocus && showSearchResults" -->
+            <div class="search-results" 
+                 ng-show="searchFocus && showSearchResults && searchResults.response.docs.length > 0">
+              <ul class="list-group">
+                <li href="#" class="list-group-item" ng-repeat="element in searchResults.response.docs">
+                  <a ng-href="#/_views/repository/search.html?g={{ element.g }}&a={{ element.a }}" 
+                     ng-bind="element.a"></a>
+                  ::
+                  <a ng-href="#/_views/repository/search.html?g={{ element.g }}" 
+                     ng-bind="element.g"></a>
+                  ::
+                  <a ng-href="#/_views/repository/search.html?g={{ element.g }}&a={{ element.a }}&v={{ element.latestVersion }}" 
+                     ng-bind="element.latestVersion"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="theme-div">
+          <div>
+            <select ng-model="selectedTheme"
+                    ng-options="theme.name for theme in themes track by theme.name">
+            </select>
+          </div>
+          <div>
+            <select ng-model="selectedHlTheme"
+                    ng-options="theme.name for theme in hlThemes track by theme.name">
+            </select>
+          </div>
+        </div>
+      </header>
+    </div>
+    
+    
+    <div ng-cloak class="page-presentation" ng-include="pagePresentation"
+         ng-class="fullWindow ? 'container-fluid' : 'container'">
+    </div>
+    
+    
+    <footer ng-cloak ng-controller="FooterCtrl">
+      <div class="text-muted" ng-class="fullWindow ? 'container-fluid' : 'container'">
+        <div class="row">
+          <div class="col-lg-8 col-sm-9 col-sm-offset-3 col-lg-offset-2" ng-bind-html="footerHtml">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-sm-9 col-sm-offset-3 col-lg-offset-2">
+            <div class="pull-right">
+              <a class="reports-link" href="#/_views/reports/reports-list.html">
+                <i class="glyphicon glyphicon-cog"></i>
+              </a>
+            </div>
+            
+            <div>Theme created by <a href="mailto:marek.romanowski@gmail.com">Marek Romanowski</a></div>
+            <div>Source code availible at <a href="https://github.com/tunguski/angular-boostrapize-maven-site">Angular-Bootstrapize Maven Site Project</a></div>
+            <div>Copyright @ <a href="mailto:contact@matsuo.pl">Matsuo IT</a> 2015</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <div class="toggle-full-window hidden-xs ng-cloak" ng-click="toggleFullWindow()">
+      <i class="glyphicon" ng-class="fullWindow ? 'glyphicon-resize-small' : 'glyphicon-resize-full'"></i>
+    </div>
+
+    <div class="scroll-to-top ng-cloak" ng-click="scrollToTop()">
+      <i class="glyphicon glyphicon-arrow-up"></i>
+    </div>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-62299335-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <!-- external libraries -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-sanitize.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="//rawgit.com/twbs/bootstrap/master/js/affix.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/highlight.js/9.0.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/highlight.js/9.0.0/languages/1c.min.js"></script>
+    <script type="text/javascript" src="//lunrjs.com/lunr.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    
+
+    <!-- main -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+
+    <!-- services -->
+    <script type="text/javascript" src="js/services/pageCache.js"></script>
+    <script type="text/javascript" src="js/services/mvnLinker.js"></script>
+    <script type="text/javascript" src="js/services/mvnRepository.js"></script>
+    <script type="text/javascript" src="js/services/menuMemory.js"></script>
+    <script type="text/javascript" src="js/services/siteIndex.js"></script>
+    <script type="text/javascript" src="js/services/siteScanner.js"></script>
+    <script type="text/javascript" src="js/services/framedViewService.js"></script>
+    
+    <!-- directives -->
+    <script type="text/javascript" src="js/directives/projectElement.js"></script>
+    
+    <!-- views -->
+    <script type="text/javascript" src="js/views/default.js"></script>
+    <script type="text/javascript" src="js/views/fluido.js"></script>
+    <script type="text/javascript" src="js/views/jxr.js"></script>
+    <script type="text/javascript" src="js/views/javadoc.js"></script>
+
+    <!-- repository -->
+    <script type="text/javascript" src="js/repository/search.js"></script>
+    
+    <!-- reports -->
+    <script type="text/javascript" src="js/reports/reports-list.js"></script>
+    <script type="text/javascript" src="js/reports/linkage.js"></script>
+    <script type="text/javascript" src="js/reports/site-map.js"></script>
+    <script type="text/javascript" src="js/reports/class-references.js"></script>
+  </body>
+</html>
