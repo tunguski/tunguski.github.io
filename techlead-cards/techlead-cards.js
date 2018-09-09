@@ -4433,12 +4433,6 @@ function _Time_getZoneName()
 var author$project$Main$SetTime = function (a) {
 	return {$: 'SetTime', a: a};
 };
-var author$project$Main$Model = F3(
-	function (time, id, currentNote) {
-		return {currentNote: currentNote, id: id, time: time};
-	});
-var elm$core$Maybe$Nothing = {$: 'Nothing'};
-var author$project$Main$emptyModel = A3(author$project$Main$Model, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing);
 var author$project$Note$Note = F4(
 	function (title, content, citationName, citationUrl) {
 		return {citationName: citationName, citationUrl: citationUrl, content: content, title: title};
@@ -4604,6 +4598,7 @@ var elm$core$List$length = function (xs) {
 var elm$core$Maybe$Just = function (a) {
 	return {$: 'Just', a: a};
 };
+var elm$core$Maybe$Nothing = {$: 'Nothing'};
 var elm$core$Basics$False = {$: 'False'};
 var elm$core$Basics$True = {$: 'True'};
 var elm$core$Result$isOk = function (result) {
@@ -5036,7 +5031,7 @@ var author$project$Main$appDescription = function (model) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text('This page shows random daily note for technical leader and line managers')
+						elm$html$Html$text('Random daily note for technical leader and line managers')
 					]))
 			]));
 };
@@ -5117,7 +5112,34 @@ var author$project$Main$card = function (model) {
 			}()
 			]));
 };
-var elm$core$Debug$toString = _Debug_toString;
+var author$project$Main$printMonth = function (month) {
+	switch (month.$) {
+		case 'Jan':
+			return 'January';
+		case 'Feb':
+			return 'February';
+		case 'Mar':
+			return 'March';
+		case 'Apr':
+			return 'April';
+		case 'May':
+			return 'May';
+		case 'Jun':
+			return 'Juni';
+		case 'Jul':
+			return 'Juli';
+		case 'Aug':
+			return 'August';
+		case 'Sep':
+			return 'September';
+		case 'Oct':
+			return 'October';
+		case 'Nov':
+			return 'November';
+		default:
+			return 'December';
+	}
+};
 var elm$time$Time$flooredDiv = F2(
 	function (numerator, denominator) {
 		return elm$core$Basics$floor(numerator / denominator);
@@ -5257,9 +5279,9 @@ var author$project$Main$showTime = function (model) {
 						if (_n0.$ === 'Just') {
 							var time = _n0.a;
 							return elm$html$Html$text(
-								elm$core$Debug$toString(
-									A2(elm$time$Time$toYear, elm$time$Time$utc, time)) + (' ' + (elm$core$Debug$toString(
-									A2(elm$time$Time$toMonth, elm$time$Time$utc, time)) + (' ' + elm$core$Debug$toString(
+								elm$core$String$fromInt(
+									A2(elm$time$Time$toYear, elm$time$Time$utc, time)) + (' ' + (author$project$Main$printMonth(
+									A2(elm$time$Time$toMonth, elm$time$Time$utc, time)) + (' ' + elm$core$String$fromInt(
 									A2(elm$time$Time$toDay, elm$time$Time$utc, time))))));
 						} else {
 							return elm$html$Html$text('');
@@ -5282,7 +5304,17 @@ var author$project$Main$title = function (model) {
 				elm$html$Html$h1,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('display-1 text-muted')
+						elm$html$Html$Attributes$class('d-none d-lg-block display-1 text-muted')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Technical Lead Cards')
+					])),
+				A2(
+				elm$html$Html$h1,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('d-lg-none text-muted')
 					]),
 				_List_fromArray(
 					[
@@ -5372,16 +5404,23 @@ var author$project$Main$view = function (model) {
 		_List_Nil,
 		_List_fromArray(
 			[
-				A3(
-				elm$html$Html$node,
-				'link',
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$href('/css/bootstrap.css'),
-						elm$html$Html$Attributes$rel('stylesheet'),
-						elm$html$Html$Attributes$type_('text/css')
-					]),
-				_List_Nil),
+				function () {
+				var _n0 = model.flags;
+				if (_n0.$ === 'Just') {
+					return A2(elm$html$Html$div, _List_Nil, _List_Nil);
+				} else {
+					return A3(
+						elm$html$Html$node,
+						'link',
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$href('/css/bootstrap.css'),
+								elm$html$Html$Attributes$rel('stylesheet'),
+								elm$html$Html$Attributes$type_('text/css')
+							]),
+						_List_Nil);
+				}
+			}(),
 				A3(
 				elm$html$Html$node,
 				'style',
@@ -5643,6 +5682,27 @@ var elm$url$Url$fromString = function (str) {
 var elm$browser$Browser$element = _Browser_element;
 var elm$core$Platform$Sub$batch = _Platform_batch;
 var elm$core$Platform$Sub$none = elm$core$Platform$Sub$batch(_List_Nil);
+var author$project$Main$buildMain = function (init) {
+	return elm$browser$Browser$element(
+		{
+			init: init,
+			subscriptions: function (model) {
+				return elm$core$Platform$Sub$none;
+			},
+			update: author$project$Main$update,
+			view: author$project$Main$view
+		});
+};
+var author$project$Main$Model = F4(
+	function (flags, time, id, currentNote) {
+		return {currentNote: currentNote, flags: flags, id: id, time: time};
+	});
+var author$project$Main$emptyModel = function (flags) {
+	return A4(author$project$Main$Model, flags, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing);
+};
+var elm$json$Json$Decode$null = _Json_decodeNull;
+var elm$json$Json$Decode$oneOf = _Json_oneOf;
+var elm$json$Json$Decode$string = _Json_decodeString;
 var elm$time$Time$Name = function (a) {
 	return {$: 'Name', a: a};
 };
@@ -5655,18 +5715,16 @@ var elm$time$Time$Posix = function (a) {
 };
 var elm$time$Time$millisToPosix = elm$time$Time$Posix;
 var elm$time$Time$now = _Time_now(elm$time$Time$millisToPosix);
-var author$project$Main$main = elm$browser$Browser$element(
-	{
-		init: function (_n0) {
-			return _Utils_Tuple2(
-				author$project$Main$emptyModel,
-				A2(elm$core$Task$perform, author$project$Main$SetTime, elm$time$Time$now));
-		},
-		subscriptions: function (model) {
-			return elm$core$Platform$Sub$none;
-		},
-		update: author$project$Main$update,
-		view: author$project$Main$view
+var author$project$Main$main = author$project$Main$buildMain(
+	function (flags) {
+		return _Utils_Tuple2(
+			author$project$Main$emptyModel(flags),
+			A2(elm$core$Task$perform, author$project$Main$SetTime, elm$time$Time$now));
 	});
 _Platform_export({'Main':{'init':author$project$Main$main(
-	elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
+	elm$json$Json$Decode$oneOf(
+		_List_fromArray(
+			[
+				elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
+				A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, elm$json$Json$Decode$string)
+			])))(0)}});}(this));
