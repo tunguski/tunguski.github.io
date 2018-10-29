@@ -5485,7 +5485,7 @@ var author$project$Main$data = _List_fromArray(
 		_Utils_Tuple2(
 		'miejsce pamięci',
 		_List_fromArray(
-			['das Gedenksort', 'die Gedenkstätte']))
+			['das Gedenkort', 'die Gedenkstätte']))
 	]);
 var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
