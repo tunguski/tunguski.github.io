@@ -5485,7 +5485,7 @@ var author$project$Main$data = _List_fromArray(
 		_Utils_Tuple2(
 		'miejsce pamięci',
 		_List_fromArray(
-			['Gedenksort']))
+			['das Gedenksort', 'die Gedenkstätte']))
 	]);
 var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
@@ -5787,8 +5787,58 @@ var author$project$Main$onKeyUp = function (tagger) {
 		A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$keyCode));
 };
 var elm$core$Debug$toString = _Debug_toString;
+var elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return elm$core$Maybe$Nothing;
+		}
+	});
+var elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
 var author$project$Main$resultsDescription = function (result) {
-	return elm$core$Debug$toString(result);
+	return A2(
+		elm$core$Maybe$withDefault,
+		elm$core$Debug$toString(result),
+		A2(
+			elm$core$Maybe$map,
+			function (_n0) {
+				var match = _n0.a;
+				var list = _n0.b;
+				if (!list.b) {
+					return '[no translations found]';
+				} else {
+					if (!list.b.b) {
+						var _n2 = list.a;
+						var word = _n2.a;
+						return word;
+					} else {
+						var h = list.a;
+						var t = list.b;
+						return A2(
+							elm$core$String$join,
+							' / ',
+							A2(
+								elm$core$List$map,
+								function (_n3) {
+									var w = _n3.a;
+									return w;
+								},
+								list));
+					}
+				}
+			},
+			result));
 };
 var elm$core$List$head = function (list) {
 	if (list.b) {
