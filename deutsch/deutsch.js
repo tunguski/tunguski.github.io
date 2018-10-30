@@ -5738,7 +5738,7 @@ var author$project$Main$data = _List_fromArray(
 		_List_fromArray(
 			['nach Absprache'])),
 		_Utils_Tuple2(
-		'urządzić komfortowo',
+		'urządzone komfortowo',
 		_List_fromArray(
 			['komfortabel eingerichtet'])),
 		_Utils_Tuple2(
@@ -5764,7 +5764,7 @@ var author$project$Main$data = _List_fromArray(
 		_Utils_Tuple2(
 		'nocleg',
 		_List_fromArray(
-			['die Ubernachtung'])),
+			['die Übernachtung'])),
 		_Utils_Tuple2(
 		'w stosunku do ubiegłego roku',
 		_List_fromArray(
@@ -5800,7 +5800,63 @@ var author$project$Main$data = _List_fromArray(
 		_Utils_Tuple2(
 		'miejsce pamięci',
 		_List_fromArray(
-			['das Gedenkort', 'die Gedenkstätte']))
+			['das Gedenkort', 'die Gedenkstätte'])),
+		_Utils_Tuple2(
+		'bliskość surowców naturalnych',
+		_List_fromArray(
+			['die Rohstoffnähe'])),
+		_Utils_Tuple2(
+		'niska cena energii',
+		_List_fromArray(
+			['niedrige Energiepreis'])),
+		_Utils_Tuple2(
+		'dobre trasy transportowe',
+		_List_fromArray(
+			['gute Transportwege'])),
+		_Utils_Tuple2(
+		'dobra infrastruktura',
+		_List_fromArray(
+			['gute Infrastruktur'])),
+		_Utils_Tuple2(
+		'bliskość rynku zbytu',
+		_List_fromArray(
+			['Nähe des Absatzmarktes'])),
+		_Utils_Tuple2(
+		'warunki klimatyczne',
+		_List_fromArray(
+			['klimatische Bediengungen'])),
+		_Utils_Tuple2(
+		'korzystne opodatkowanie',
+		_List_fromArray(
+			['günstige Besteuerung'])),
+		_Utils_Tuple2(
+		'klimat przyjazny przedsiębiorcy',
+		_List_fromArray(
+			['unternehmensfreindliches Klima'])),
+		_Utils_Tuple2(
+		'jasne, nieskomplikowane (transparentne) zasady',
+		_List_fromArray(
+			['klare, nicht komplizierte (transparente) Vorschriften'])),
+		_Utils_Tuple2(
+		'stabilność polityczna',
+		_List_fromArray(
+			['politische Stabilitat'])),
+		_Utils_Tuple2(
+		'dostęp do nowoczesnych technologii',
+		_List_fromArray(
+			['Zugang zu modernen Technologien'])),
+		_Utils_Tuple2(
+		'dobra dostępność',
+		_List_fromArray(
+			['gute Erreichbarkeit'])),
+		_Utils_Tuple2(
+		'o ile',
+		_List_fromArray(
+			['sofern'])),
+		_Utils_Tuple2(
+		'przyciąganie',
+		_List_fromArray(
+			['anziehung']))
 	]);
 var elm$core$Array$fromListHelp = F3(
 	function (list, nodeList, nodeListSize) {
