@@ -4377,13 +4377,114 @@ function _Time_getZoneName()
 		callback(_Scheduler_succeed(name));
 	});
 }
+
+
+// CREATE
+
+var _Regex_never = /.^/;
+
+var _Regex_fromStringWith = F2(function(options, string)
+{
+	var flags = 'g';
+	if (options.multiline) { flags += 'm'; }
+	if (options.caseInsensitive) { flags += 'i'; }
+
+	try
+	{
+		return elm$core$Maybe$Just(new RegExp(string, flags));
+	}
+	catch(error)
+	{
+		return elm$core$Maybe$Nothing;
+	}
+});
+
+
+// USE
+
+var _Regex_contains = F2(function(re, string)
+{
+	return string.match(re) !== null;
+});
+
+
+var _Regex_findAtMost = F3(function(n, re, str)
+{
+	var out = [];
+	var number = 0;
+	var string = str;
+	var lastIndex = re.lastIndex;
+	var prevLastIndex = -1;
+	var result;
+	while (number++ < n && (result = re.exec(string)))
+	{
+		if (prevLastIndex == re.lastIndex) break;
+		var i = result.length - 1;
+		var subs = new Array(i);
+		while (i > 0)
+		{
+			var submatch = result[i];
+			subs[--i] = submatch
+				? elm$core$Maybe$Just(submatch)
+				: elm$core$Maybe$Nothing;
+		}
+		out.push(A4(elm$regex$Regex$Match, result[0], result.index, number, _List_fromArray(subs)));
+		prevLastIndex = re.lastIndex;
+	}
+	re.lastIndex = lastIndex;
+	return _List_fromArray(out);
+});
+
+
+var _Regex_replaceAtMost = F4(function(n, re, replacer, string)
+{
+	var count = 0;
+	function jsReplacer(match)
+	{
+		if (count++ >= n)
+		{
+			return match;
+		}
+		var i = arguments.length - 3;
+		var submatches = new Array(i);
+		while (i > 0)
+		{
+			var submatch = arguments[i];
+			submatches[--i] = submatch
+				? elm$core$Maybe$Just(submatch)
+				: elm$core$Maybe$Nothing;
+		}
+		return replacer(A4(elm$regex$Regex$Match, match, arguments[arguments.length - 2], count, _List_fromArray(submatches)));
+	}
+	return string.replace(re, jsReplacer);
+});
+
+var _Regex_splitAtMost = F3(function(n, re, str)
+{
+	var string = str;
+	var out = [];
+	var start = re.lastIndex;
+	var restoreLastIndex = re.lastIndex;
+	while (n--)
+	{
+		var result = re.exec(string);
+		if (!result) break;
+		out.push(string.slice(start, result.index));
+		start = re.lastIndex;
+	}
+	out.push(string.slice(start));
+	re.lastIndex = restoreLastIndex;
+	return _List_fromArray(out);
+});
+
+var _Regex_infinity = Infinity;
 var author$project$Main$Resize = F2(
 	function (a, b) {
 		return {$: 'Resize', a: a, b: b};
 	});
 var elm$core$Basics$False = {$: 'False'};
 var elm$core$Maybe$Nothing = {$: 'Nothing'};
-var author$project$Main$initialModel = {correct: 0, count: elm$core$Maybe$Nothing, incorrect: 0, input: '', result: elm$core$Maybe$Nothing, seed: elm$core$Maybe$Nothing, showAll: false, viewportSize: elm$core$Maybe$Nothing};
+var author$project$Main$initialModel = {correct: 0, incorrect: 0, input: '', result: elm$core$Maybe$Nothing, seed: elm$core$Maybe$Nothing, showAll: false, shuffled: elm$core$Maybe$Nothing, viewportSize: elm$core$Maybe$Nothing};
 var author$project$Main$GetSeed = function (a) {
 	return {$: 'GetSeed', a: a};
 };
@@ -5392,101 +5493,47 @@ var author$project$Main$initialMsg = elm$core$Platform$Cmd$batch(
 			A2(elm$core$Task$attempt, author$project$Main$GetViewport, elm$browser$Browser$Dom$getViewport),
 			A2(elm$random$Random$generate, author$project$Main$GetSeed, elm$random$Random$independentSeed)
 		]));
-var author$project$Main$data = _List_fromArray(
-	[
-		_Utils_Tuple2(
-		'wymienić (np. buty)',
-		_List_fromArray(
-			['umtauschen'])),
-		_Utils_Tuple2(
-		'wygłaszać referat',
-		_List_fromArray(
-			['das Referat halten'])),
-		_Utils_Tuple2(
-		'wypadać (np. zajęcia)',
-		_List_fromArray(
-			['ausfallen'])),
-		_Utils_Tuple2(
-		'oszczędzać pieniądze',
-		_List_fromArray(
-			['Geld sparen'])),
-		_Utils_Tuple2(
-		'dozwolone',
-		_List_fromArray(
-			['erlaubt'])),
-		_Utils_Tuple2(
-		'regulamin (np. domu)',
-		_List_fromArray(
-			['die Hausordnung'])),
-		_Utils_Tuple2(
-		'po uzgodnieniu',
-		_List_fromArray(
-			['nach Absprache'])),
-		_Utils_Tuple2(
-		'urządzić komfortowo',
-		_List_fromArray(
-			['komfortabel eingerichtet'])),
-		_Utils_Tuple2(
-		'powstają szkody',
-		_List_fromArray(
-			['Schäden entstehen'])),
-		_Utils_Tuple2(
-		'poinformować',
-		_List_fromArray(
-			['benachrichten', 'mitteilen'])),
-		_Utils_Tuple2(
-		'spełniać życzenia',
-		_List_fromArray(
-			['Wünsche zu erfüllen'])),
-		_Utils_Tuple2(
-		'według danych szacunkowych',
-		_List_fromArray(
-			['nach schatzungen Angaben'])),
-		_Utils_Tuple2(
-		'zgłaszać rekordowe wyniki',
-		_List_fromArray(
-			['Rekordergebnise melden'])),
-		_Utils_Tuple2(
-		'nocleg',
-		_List_fromArray(
-			['die Ubernachtung'])),
-		_Utils_Tuple2(
-		'w stosunku do ubiegłego roku',
-		_List_fromArray(
-			['gegenüber dem Vorjahr'])),
-		_Utils_Tuple2(
-		'w porównaniu do',
-		_List_fromArray(
-			['im Vergleich zu'])),
-		_Utils_Tuple2(
-		'ogólna liczba',
-		_List_fromArray(
-			['Gesamtzahl'])),
-		_Utils_Tuple2(
-		'wynosić',
-		_List_fromArray(
-			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
-		_Utils_Tuple2(
-		'udział w',
-		_List_fromArray(
-			['der Anteil an'])),
-		_Utils_Tuple2(
-		'pochodzić z',
-		_List_fromArray(
-			['stammen aus'])),
-		_Utils_Tuple2(
-		'odnotowywać wzrost',
-		_List_fromArray(
-			['Wachstum verzeichnen'])),
-		_Utils_Tuple2(
-		'szybować w górę',
-		_List_fromArray(
-			['in die Höhe schnellen'])),
-		_Utils_Tuple2(
-		'miejsce pamięci',
-		_List_fromArray(
-			['das Gedenkort', 'die Gedenkstätte']))
-	]);
+var elm$core$String$trim = _String_trim;
+var elm$regex$Regex$Match = F4(
+	function (match, index, number, submatches) {
+		return {index: index, match: match, number: number, submatches: submatches};
+	});
+var elm$regex$Regex$fromStringWith = _Regex_fromStringWith;
+var elm$regex$Regex$fromString = function (string) {
+	return A2(
+		elm$regex$Regex$fromStringWith,
+		{caseInsensitive: false, multiline: false},
+		string);
+};
+var elm$regex$Regex$replace = _Regex_replaceAtMost(_Regex_infinity);
+var author$project$Main$cleanup = function (text) {
+	var trimWs = elm$regex$Regex$fromString('[ \t]+');
+	var toRemove = elm$regex$Regex$fromString('[^a-z\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df ]+');
+	var replaced = function () {
+		var _n0 = _Utils_Tuple2(toRemove, trimWs);
+		if ((_n0.a.$ === 'Just') && (_n0.b.$ === 'Just')) {
+			var remove = _n0.a.a;
+			var trim = _n0.b.a;
+			return elm$core$String$trim(
+				A3(
+					elm$regex$Regex$replace,
+					trim,
+					function (match) {
+						return ' ';
+					},
+					A3(
+						elm$regex$Regex$replace,
+						remove,
+						function (match) {
+							return ' ';
+						},
+						text)));
+		} else {
+			return 'error regex';
+		}
+	}();
+	return replaced;
+};
 var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$noMsg = function (model) {
@@ -5495,27 +5542,6 @@ var author$project$Main$noMsg = function (model) {
 		elm$core$Platform$Cmd$none);
 };
 var elm$core$Basics$not = _Basics_not;
-var elm$core$List$drop = F2(
-	function (n, list) {
-		drop:
-		while (true) {
-			if (n <= 0) {
-				return list;
-			} else {
-				if (!list.b) {
-					return list;
-				} else {
-					var x = list.a;
-					var xs = list.b;
-					var $temp$n = n - 1,
-						$temp$list = xs;
-					n = $temp$n;
-					list = $temp$list;
-					continue drop;
-				}
-			}
-		}
-	});
 var elm$core$List$filter = F2(
 	function (isGood, list) {
 		return A3(
@@ -5527,6 +5553,15 @@ var elm$core$List$filter = F2(
 			_List_Nil,
 			list);
 	});
+var elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return elm$core$Maybe$Just(x);
+	} else {
+		return elm$core$Maybe$Nothing;
+	}
+};
 var elm$core$List$isEmpty = function (xs) {
 	if (!xs.b) {
 		return true;
@@ -5534,7 +5569,34 @@ var elm$core$List$isEmpty = function (xs) {
 		return false;
 	}
 };
-var elm$core$String$trim = _String_trim;
+var elm$core$Maybe$andThen = F2(
+	function (callback, maybeValue) {
+		if (maybeValue.$ === 'Just') {
+			var value = maybeValue.a;
+			return callback(value);
+		} else {
+			return elm$core$Maybe$Nothing;
+		}
+	});
+var elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return elm$core$Maybe$Nothing;
+		}
+	});
+var elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
 var elm$core$String$foldr = _String_foldr;
 var elm$core$String$toList = function (string) {
 	return A3(elm$core$String$foldr, elm$core$List$cons, _List_Nil, string);
@@ -5591,89 +5653,744 @@ var rluiten$stringdistance$StringDistance$sift3Distance = F2(
 		}
 	});
 var author$project$Main$actionCheck = function (model) {
-	var _n0 = model.count;
-	if (_n0.$ === 'Just') {
-		var count = _n0.a;
-		return author$project$Main$noMsg(
-			function (i) {
-				if (i.b) {
-					var _n2 = i.a;
-					var pl = _n2.a;
-					var de = _n2.b;
-					var t = i.b;
-					var distances = A2(
-						elm$core$List$map,
-						function (word) {
-							return _Utils_Tuple3(
-								word,
-								A2(
-									rluiten$stringdistance$StringDistance$sift3Distance,
-									elm$core$String$trim(model.input),
-									elm$core$String$trim(word)),
-								(elm$core$String$length(
-									elm$core$String$trim(word)) / 5) | 0);
+	return A2(
+		elm$core$Maybe$withDefault,
+		author$project$Main$noMsg(model),
+		A2(
+			elm$core$Maybe$map,
+			function (_n0) {
+				var pl = _n0.a;
+				var de = _n0.b;
+				var distances = A2(
+					elm$core$List$map,
+					function (word) {
+						return _Utils_Tuple3(
+							word,
+							A2(
+								rluiten$stringdistance$StringDistance$sift3Distance,
+								author$project$Main$cleanup(model.input),
+								author$project$Main$cleanup(word)),
+							(elm$core$String$length(
+								author$project$Main$cleanup(word)) / 5) | 0);
+					},
+					de);
+				var foundMatch = !elm$core$List$isEmpty(
+					A2(
+						elm$core$List$filter,
+						function (_n2) {
+							var word = _n2.a;
+							var dist = _n2.b;
+							var allowed = _n2.c;
+							return _Utils_cmp(dist, allowed) < 0;
 						},
-						de);
-					var foundMatch = !elm$core$List$isEmpty(
-						A2(
-							elm$core$List$filter,
-							function (_n4) {
-								var word = _n4.a;
-								var dist = _n4.b;
-								var allowed = _n4.c;
-								return _Utils_cmp(dist, allowed) < 0;
-							},
-							distances));
-					if (foundMatch) {
-						return _Utils_update(
-							model,
-							{
-								correct: model.correct + 1,
-								result: elm$core$Maybe$Just(
-									_Utils_Tuple2(true, distances))
-							});
-					} else {
-						return _Utils_update(
-							model,
-							{
-								incorrect: model.incorrect + 1,
-								result: elm$core$Maybe$Just(
-									_Utils_Tuple2(false, distances))
-							});
-					}
-				} else {
-					return model;
-				}
-			}(
-				A2(elm$core$List$drop, count, author$project$Main$data)));
+						distances));
+				return author$project$Main$noMsg(
+					function () {
+						if (foundMatch) {
+							return _Utils_update(
+								model,
+								{
+									correct: model.correct + 1,
+									result: elm$core$Maybe$Just(
+										_Utils_Tuple2(true, distances))
+								});
+						} else {
+							return _Utils_update(
+								model,
+								{
+									incorrect: model.incorrect + 1,
+									result: elm$core$Maybe$Just(
+										_Utils_Tuple2(false, distances))
+								});
+						}
+					}());
+			},
+			A2(elm$core$Maybe$andThen, elm$core$List$head, model.shuffled)));
+};
+var author$project$Main$data = _List_fromArray(
+	[
+		_Utils_Tuple2(
+		'wymienić (np. buty)',
+		_List_fromArray(
+			['umtauschen'])),
+		_Utils_Tuple2(
+		'wygłaszać referat',
+		_List_fromArray(
+			['das Referat halten'])),
+		_Utils_Tuple2(
+		'wypadać (np. zajęcia)',
+		_List_fromArray(
+			['ausfallen'])),
+		_Utils_Tuple2(
+		'oszczędzać pieniądze',
+		_List_fromArray(
+			['Geld sparen'])),
+		_Utils_Tuple2(
+		'dozwolone',
+		_List_fromArray(
+			['erlaubt'])),
+		_Utils_Tuple2(
+		'regulamin (np. domu)',
+		_List_fromArray(
+			['die Hausordnung'])),
+		_Utils_Tuple2(
+		'po uzgodnieniu',
+		_List_fromArray(
+			['nach Absprache'])),
+		_Utils_Tuple2(
+		'urządzić komfortowo',
+		_List_fromArray(
+			['komfortabel eingerichtet'])),
+		_Utils_Tuple2(
+		'powstają szkody',
+		_List_fromArray(
+			['Schäden entstehen'])),
+		_Utils_Tuple2(
+		'poinformować',
+		_List_fromArray(
+			['benachrichten', 'mitteilen'])),
+		_Utils_Tuple2(
+		'spełniać życzenia',
+		_List_fromArray(
+			['Wünsche zu erfüllen'])),
+		_Utils_Tuple2(
+		'według danych szacunkowych',
+		_List_fromArray(
+			['nach schätzungen Angaben'])),
+		_Utils_Tuple2(
+		'zgłaszać rekordowe wyniki',
+		_List_fromArray(
+			['Rekordergebnise melden'])),
+		_Utils_Tuple2(
+		'nocleg',
+		_List_fromArray(
+			['die Ubernachtung'])),
+		_Utils_Tuple2(
+		'w stosunku do ubiegłego roku',
+		_List_fromArray(
+			['gegenüber dem Vorjahr'])),
+		_Utils_Tuple2(
+		'w porównaniu do',
+		_List_fromArray(
+			['im Vergleich zu'])),
+		_Utils_Tuple2(
+		'ogólna liczba',
+		_List_fromArray(
+			['Gesamtzahl'])),
+		_Utils_Tuple2(
+		'wynosić',
+		_List_fromArray(
+			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
+		_Utils_Tuple2(
+		'udział w',
+		_List_fromArray(
+			['der Anteil an'])),
+		_Utils_Tuple2(
+		'pochodzić z',
+		_List_fromArray(
+			['stammen aus'])),
+		_Utils_Tuple2(
+		'odnotowywać wzrost',
+		_List_fromArray(
+			['Wachstum verzeichnen'])),
+		_Utils_Tuple2(
+		'szybować w górę',
+		_List_fromArray(
+			['in die Höhe schnellen'])),
+		_Utils_Tuple2(
+		'miejsce pamięci',
+		_List_fromArray(
+			['das Gedenkort', 'die Gedenkstätte']))
+	]);
+var elm$core$Array$fromListHelp = F3(
+	function (list, nodeList, nodeListSize) {
+		fromListHelp:
+		while (true) {
+			var _n0 = A2(elm$core$Elm$JsArray$initializeFromList, elm$core$Array$branchFactor, list);
+			var jsArray = _n0.a;
+			var remainingItems = _n0.b;
+			if (_Utils_cmp(
+				elm$core$Elm$JsArray$length(jsArray),
+				elm$core$Array$branchFactor) < 0) {
+				return A2(
+					elm$core$Array$builderToArray,
+					true,
+					{nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
+			} else {
+				var $temp$list = remainingItems,
+					$temp$nodeList = A2(
+					elm$core$List$cons,
+					elm$core$Array$Leaf(jsArray),
+					nodeList),
+					$temp$nodeListSize = nodeListSize + 1;
+				list = $temp$list;
+				nodeList = $temp$nodeList;
+				nodeListSize = $temp$nodeListSize;
+				continue fromListHelp;
+			}
+		}
+	});
+var elm$core$Array$fromList = function (list) {
+	if (!list.b) {
+		return elm$core$Array$empty;
 	} else {
-		return author$project$Main$noMsg(model);
+		return A3(elm$core$Array$fromListHelp, list, _List_Nil, 0);
 	}
 };
-var author$project$Main$actionNext = function (model) {
+var elm$core$Array$isEmpty = function (_n0) {
+	var len = _n0.a;
+	return !len;
+};
+var elm$core$Basics$composeR = F3(
+	function (f, g, x) {
+		return g(
+			f(x));
+	});
+var elm$random$Random$andThen = F2(
+	function (callback, _n0) {
+		var genA = _n0.a;
+		return elm$random$Random$Generator(
+			function (seed) {
+				var _n1 = genA(seed);
+				var result = _n1.a;
+				var newSeed = _n1.b;
+				var _n2 = callback(result);
+				var genB = _n2.a;
+				return genB(newSeed);
+			});
+	});
+var elm$random$Random$constant = function (value) {
+	return elm$random$Random$Generator(
+		function (seed) {
+			return _Utils_Tuple2(value, seed);
+		});
+};
+var elm$core$Elm$JsArray$appendN = _JsArray_appendN;
+var elm$core$Elm$JsArray$slice = _JsArray_slice;
+var elm$core$Array$appendHelpBuilder = F2(
+	function (tail, builder) {
+		var tailLen = elm$core$Elm$JsArray$length(tail);
+		var notAppended = (elm$core$Array$branchFactor - elm$core$Elm$JsArray$length(builder.tail)) - tailLen;
+		var appended = A3(elm$core$Elm$JsArray$appendN, elm$core$Array$branchFactor, builder.tail, tail);
+		return (notAppended < 0) ? {
+			nodeList: A2(
+				elm$core$List$cons,
+				elm$core$Array$Leaf(appended),
+				builder.nodeList),
+			nodeListSize: builder.nodeListSize + 1,
+			tail: A3(elm$core$Elm$JsArray$slice, notAppended, tailLen, tail)
+		} : ((!notAppended) ? {
+			nodeList: A2(
+				elm$core$List$cons,
+				elm$core$Array$Leaf(appended),
+				builder.nodeList),
+			nodeListSize: builder.nodeListSize + 1,
+			tail: elm$core$Elm$JsArray$empty
+		} : {nodeList: builder.nodeList, nodeListSize: builder.nodeListSize, tail: appended});
+	});
+var elm$core$Array$bitMask = 4294967295 >>> (32 - elm$core$Array$shiftStep);
+var elm$core$Basics$ge = _Utils_ge;
+var elm$core$Elm$JsArray$push = _JsArray_push;
+var elm$core$Elm$JsArray$singleton = _JsArray_singleton;
+var elm$core$Elm$JsArray$unsafeGet = _JsArray_unsafeGet;
+var elm$core$Elm$JsArray$unsafeSet = _JsArray_unsafeSet;
+var elm$core$Array$insertTailInTree = F4(
+	function (shift, index, tail, tree) {
+		var pos = elm$core$Array$bitMask & (index >>> shift);
+		if (_Utils_cmp(
+			pos,
+			elm$core$Elm$JsArray$length(tree)) > -1) {
+			if (shift === 5) {
+				return A2(
+					elm$core$Elm$JsArray$push,
+					elm$core$Array$Leaf(tail),
+					tree);
+			} else {
+				var newSub = elm$core$Array$SubTree(
+					A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, elm$core$Elm$JsArray$empty));
+				return A2(elm$core$Elm$JsArray$push, newSub, tree);
+			}
+		} else {
+			var value = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
+			if (value.$ === 'SubTree') {
+				var subTree = value.a;
+				var newSub = elm$core$Array$SubTree(
+					A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, subTree));
+				return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
+			} else {
+				var newSub = elm$core$Array$SubTree(
+					A4(
+						elm$core$Array$insertTailInTree,
+						shift - elm$core$Array$shiftStep,
+						index,
+						tail,
+						elm$core$Elm$JsArray$singleton(value)));
+				return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
+			}
+		}
+	});
+var elm$core$Bitwise$shiftLeftBy = _Bitwise_shiftLeftBy;
+var elm$core$Array$unsafeReplaceTail = F2(
+	function (newTail, _n0) {
+		var len = _n0.a;
+		var startShift = _n0.b;
+		var tree = _n0.c;
+		var tail = _n0.d;
+		var originalTailLen = elm$core$Elm$JsArray$length(tail);
+		var newTailLen = elm$core$Elm$JsArray$length(newTail);
+		var newArrayLen = len + (newTailLen - originalTailLen);
+		if (_Utils_eq(newTailLen, elm$core$Array$branchFactor)) {
+			var overflow = _Utils_cmp(newArrayLen >>> elm$core$Array$shiftStep, 1 << startShift) > 0;
+			if (overflow) {
+				var newShift = startShift + elm$core$Array$shiftStep;
+				var newTree = A4(
+					elm$core$Array$insertTailInTree,
+					newShift,
+					len,
+					newTail,
+					elm$core$Elm$JsArray$singleton(
+						elm$core$Array$SubTree(tree)));
+				return A4(elm$core$Array$Array_elm_builtin, newArrayLen, newShift, newTree, elm$core$Elm$JsArray$empty);
+			} else {
+				return A4(
+					elm$core$Array$Array_elm_builtin,
+					newArrayLen,
+					startShift,
+					A4(elm$core$Array$insertTailInTree, startShift, len, newTail, tree),
+					elm$core$Elm$JsArray$empty);
+			}
+		} else {
+			return A4(elm$core$Array$Array_elm_builtin, newArrayLen, startShift, tree, newTail);
+		}
+	});
+var elm$core$Array$appendHelpTree = F2(
+	function (toAppend, array) {
+		var len = array.a;
+		var tree = array.c;
+		var tail = array.d;
+		var itemsToAppend = elm$core$Elm$JsArray$length(toAppend);
+		var notAppended = (elm$core$Array$branchFactor - elm$core$Elm$JsArray$length(tail)) - itemsToAppend;
+		var appended = A3(elm$core$Elm$JsArray$appendN, elm$core$Array$branchFactor, tail, toAppend);
+		var newArray = A2(elm$core$Array$unsafeReplaceTail, appended, array);
+		if (notAppended < 0) {
+			var nextTail = A3(elm$core$Elm$JsArray$slice, notAppended, itemsToAppend, toAppend);
+			return A2(elm$core$Array$unsafeReplaceTail, nextTail, newArray);
+		} else {
+			return newArray;
+		}
+	});
+var elm$core$Elm$JsArray$foldl = _JsArray_foldl;
+var elm$core$Array$builderFromArray = function (_n0) {
+	var len = _n0.a;
+	var tree = _n0.c;
+	var tail = _n0.d;
+	var helper = F2(
+		function (node, acc) {
+			if (node.$ === 'SubTree') {
+				var subTree = node.a;
+				return A3(elm$core$Elm$JsArray$foldl, helper, acc, subTree);
+			} else {
+				return A2(elm$core$List$cons, node, acc);
+			}
+		});
+	return {
+		nodeList: A3(elm$core$Elm$JsArray$foldl, helper, _List_Nil, tree),
+		nodeListSize: (len / elm$core$Array$branchFactor) | 0,
+		tail: tail
+	};
+};
+var elm$core$Array$append = F2(
+	function (a, _n0) {
+		var aTail = a.d;
+		var bLen = _n0.a;
+		var bTree = _n0.c;
+		var bTail = _n0.d;
+		if (_Utils_cmp(bLen, elm$core$Array$branchFactor * 4) < 1) {
+			var foldHelper = F2(
+				function (node, array) {
+					if (node.$ === 'SubTree') {
+						var tree = node.a;
+						return A3(elm$core$Elm$JsArray$foldl, foldHelper, array, tree);
+					} else {
+						var leaf = node.a;
+						return A2(elm$core$Array$appendHelpTree, leaf, array);
+					}
+				});
+			return A2(
+				elm$core$Array$appendHelpTree,
+				bTail,
+				A3(elm$core$Elm$JsArray$foldl, foldHelper, a, bTree));
+		} else {
+			var foldHelper = F2(
+				function (node, builder) {
+					if (node.$ === 'SubTree') {
+						var tree = node.a;
+						return A3(elm$core$Elm$JsArray$foldl, foldHelper, builder, tree);
+					} else {
+						var leaf = node.a;
+						return A2(elm$core$Array$appendHelpBuilder, leaf, builder);
+					}
+				});
+			return A2(
+				elm$core$Array$builderToArray,
+				true,
+				A2(
+					elm$core$Array$appendHelpBuilder,
+					bTail,
+					A3(
+						elm$core$Elm$JsArray$foldl,
+						foldHelper,
+						elm$core$Array$builderFromArray(a),
+						bTree)));
+		}
+	});
+var elm$core$Array$getHelp = F3(
+	function (shift, index, tree) {
+		getHelp:
+		while (true) {
+			var pos = elm$core$Array$bitMask & (index >>> shift);
+			var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
+			if (_n0.$ === 'SubTree') {
+				var subTree = _n0.a;
+				var $temp$shift = shift - elm$core$Array$shiftStep,
+					$temp$index = index,
+					$temp$tree = subTree;
+				shift = $temp$shift;
+				index = $temp$index;
+				tree = $temp$tree;
+				continue getHelp;
+			} else {
+				var values = _n0.a;
+				return A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, values);
+			}
+		}
+	});
+var elm$core$Array$tailIndex = function (len) {
+	return (len >>> 5) << 5;
+};
+var elm$core$Array$get = F2(
+	function (index, _n0) {
+		var len = _n0.a;
+		var startShift = _n0.b;
+		var tree = _n0.c;
+		var tail = _n0.d;
+		return ((index < 0) || (_Utils_cmp(index, len) > -1)) ? elm$core$Maybe$Nothing : ((_Utils_cmp(
+			index,
+			elm$core$Array$tailIndex(len)) > -1) ? elm$core$Maybe$Just(
+			A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, tail)) : elm$core$Maybe$Just(
+			A3(elm$core$Array$getHelp, startShift, index, tree)));
+	});
+var elm$core$Array$length = function (_n0) {
+	var len = _n0.a;
+	return len;
+};
+var elm$core$List$drop = F2(
+	function (n, list) {
+		drop:
+		while (true) {
+			if (n <= 0) {
+				return list;
+			} else {
+				if (!list.b) {
+					return list;
+				} else {
+					var x = list.a;
+					var xs = list.b;
+					var $temp$n = n - 1,
+						$temp$list = xs;
+					n = $temp$n;
+					list = $temp$list;
+					continue drop;
+				}
+			}
+		}
+	});
+var elm$core$Array$sliceLeft = F2(
+	function (from, array) {
+		var len = array.a;
+		var tree = array.c;
+		var tail = array.d;
+		if (!from) {
+			return array;
+		} else {
+			if (_Utils_cmp(
+				from,
+				elm$core$Array$tailIndex(len)) > -1) {
+				return A4(
+					elm$core$Array$Array_elm_builtin,
+					len - from,
+					elm$core$Array$shiftStep,
+					elm$core$Elm$JsArray$empty,
+					A3(
+						elm$core$Elm$JsArray$slice,
+						from - elm$core$Array$tailIndex(len),
+						elm$core$Elm$JsArray$length(tail),
+						tail));
+			} else {
+				var skipNodes = (from / elm$core$Array$branchFactor) | 0;
+				var helper = F2(
+					function (node, acc) {
+						if (node.$ === 'SubTree') {
+							var subTree = node.a;
+							return A3(elm$core$Elm$JsArray$foldr, helper, acc, subTree);
+						} else {
+							var leaf = node.a;
+							return A2(elm$core$List$cons, leaf, acc);
+						}
+					});
+				var leafNodes = A3(
+					elm$core$Elm$JsArray$foldr,
+					helper,
+					_List_fromArray(
+						[tail]),
+					tree);
+				var nodesToInsert = A2(elm$core$List$drop, skipNodes, leafNodes);
+				if (!nodesToInsert.b) {
+					return elm$core$Array$empty;
+				} else {
+					var head = nodesToInsert.a;
+					var rest = nodesToInsert.b;
+					var firstSlice = from - (skipNodes * elm$core$Array$branchFactor);
+					var initialBuilder = {
+						nodeList: _List_Nil,
+						nodeListSize: 0,
+						tail: A3(
+							elm$core$Elm$JsArray$slice,
+							firstSlice,
+							elm$core$Elm$JsArray$length(head),
+							head)
+					};
+					return A2(
+						elm$core$Array$builderToArray,
+						true,
+						A3(elm$core$List$foldl, elm$core$Array$appendHelpBuilder, initialBuilder, rest));
+				}
+			}
+		}
+	});
+var elm$core$Array$fetchNewTail = F4(
+	function (shift, end, treeEnd, tree) {
+		fetchNewTail:
+		while (true) {
+			var pos = elm$core$Array$bitMask & (treeEnd >>> shift);
+			var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
+			if (_n0.$ === 'SubTree') {
+				var sub = _n0.a;
+				var $temp$shift = shift - elm$core$Array$shiftStep,
+					$temp$end = end,
+					$temp$treeEnd = treeEnd,
+					$temp$tree = sub;
+				shift = $temp$shift;
+				end = $temp$end;
+				treeEnd = $temp$treeEnd;
+				tree = $temp$tree;
+				continue fetchNewTail;
+			} else {
+				var values = _n0.a;
+				return A3(elm$core$Elm$JsArray$slice, 0, elm$core$Array$bitMask & end, values);
+			}
+		}
+	});
+var elm$core$Array$hoistTree = F3(
+	function (oldShift, newShift, tree) {
+		hoistTree:
+		while (true) {
+			if ((_Utils_cmp(oldShift, newShift) < 1) || (!elm$core$Elm$JsArray$length(tree))) {
+				return tree;
+			} else {
+				var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, 0, tree);
+				if (_n0.$ === 'SubTree') {
+					var sub = _n0.a;
+					var $temp$oldShift = oldShift - elm$core$Array$shiftStep,
+						$temp$newShift = newShift,
+						$temp$tree = sub;
+					oldShift = $temp$oldShift;
+					newShift = $temp$newShift;
+					tree = $temp$tree;
+					continue hoistTree;
+				} else {
+					return tree;
+				}
+			}
+		}
+	});
+var elm$core$Array$sliceTree = F3(
+	function (shift, endIdx, tree) {
+		var lastPos = elm$core$Array$bitMask & (endIdx >>> shift);
+		var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, lastPos, tree);
+		if (_n0.$ === 'SubTree') {
+			var sub = _n0.a;
+			var newSub = A3(elm$core$Array$sliceTree, shift - elm$core$Array$shiftStep, endIdx, sub);
+			return (!elm$core$Elm$JsArray$length(newSub)) ? A3(elm$core$Elm$JsArray$slice, 0, lastPos, tree) : A3(
+				elm$core$Elm$JsArray$unsafeSet,
+				lastPos,
+				elm$core$Array$SubTree(newSub),
+				A3(elm$core$Elm$JsArray$slice, 0, lastPos + 1, tree));
+		} else {
+			return A3(elm$core$Elm$JsArray$slice, 0, lastPos, tree);
+		}
+	});
+var elm$core$Array$sliceRight = F2(
+	function (end, array) {
+		var len = array.a;
+		var startShift = array.b;
+		var tree = array.c;
+		var tail = array.d;
+		if (_Utils_eq(end, len)) {
+			return array;
+		} else {
+			if (_Utils_cmp(
+				end,
+				elm$core$Array$tailIndex(len)) > -1) {
+				return A4(
+					elm$core$Array$Array_elm_builtin,
+					end,
+					startShift,
+					tree,
+					A3(elm$core$Elm$JsArray$slice, 0, elm$core$Array$bitMask & end, tail));
+			} else {
+				var endIdx = elm$core$Array$tailIndex(end);
+				var depth = elm$core$Basics$floor(
+					A2(
+						elm$core$Basics$logBase,
+						elm$core$Array$branchFactor,
+						A2(elm$core$Basics$max, 1, endIdx - 1)));
+				var newShift = A2(elm$core$Basics$max, 5, depth * elm$core$Array$shiftStep);
+				return A4(
+					elm$core$Array$Array_elm_builtin,
+					end,
+					newShift,
+					A3(
+						elm$core$Array$hoistTree,
+						startShift,
+						newShift,
+						A3(elm$core$Array$sliceTree, startShift, endIdx, tree)),
+					A4(elm$core$Array$fetchNewTail, startShift, end, endIdx, tree));
+			}
+		}
+	});
+var elm$core$Array$translateIndex = F2(
+	function (index, _n0) {
+		var len = _n0.a;
+		var posIndex = (index < 0) ? (len + index) : index;
+		return (posIndex < 0) ? 0 : ((_Utils_cmp(posIndex, len) > 0) ? len : posIndex);
+	});
+var elm$core$Array$slice = F3(
+	function (from, to, array) {
+		var correctTo = A2(elm$core$Array$translateIndex, to, array);
+		var correctFrom = A2(elm$core$Array$translateIndex, from, array);
+		return (_Utils_cmp(correctFrom, correctTo) > 0) ? elm$core$Array$empty : A2(
+			elm$core$Array$sliceLeft,
+			correctFrom,
+			A2(elm$core$Array$sliceRight, correctTo, array));
+	});
+var elm_community$random_extra$Random$Array$choose = function (arr) {
+	if (elm$core$Array$isEmpty(arr)) {
+		return elm$random$Random$constant(
+			_Utils_Tuple2(elm$core$Maybe$Nothing, arr));
+	} else {
+		var lastIndex = elm$core$Array$length(arr) - 1;
+		var gen = A2(elm$random$Random$int, 0, lastIndex);
+		var front = function (i) {
+			return A3(elm$core$Array$slice, 0, i, arr);
+		};
+		var back = function (i) {
+			return _Utils_eq(i, lastIndex) ? elm$core$Array$empty : A3(elm$core$Array$slice, i + 1, lastIndex + 1, arr);
+		};
+		return A2(
+			elm$random$Random$map,
+			function (index) {
+				return _Utils_Tuple2(
+					A2(elm$core$Array$get, index, arr),
+					A2(
+						elm$core$Array$append,
+						front(index),
+						back(index)));
+			},
+			gen);
+	}
+};
+var elm_community$random_extra$Random$Array$shuffle = function (arr) {
+	if (elm$core$Array$isEmpty(arr)) {
+		return elm$random$Random$constant(arr);
+	} else {
+		var helper = function (_n0) {
+			var done = _n0.a;
+			var remaining = _n0.b;
+			return A2(
+				elm$random$Random$andThen,
+				function (_n1) {
+					var m_val = _n1.a;
+					var shorter = _n1.b;
+					if (m_val.$ === 'Nothing') {
+						return elm$random$Random$constant(
+							_Utils_Tuple2(done, shorter));
+					} else {
+						var val = m_val.a;
+						return helper(
+							_Utils_Tuple2(
+								A2(elm$core$List$cons, val, done),
+								shorter));
+					}
+				},
+				elm_community$random_extra$Random$Array$choose(remaining));
+		};
+		return A2(
+			elm$random$Random$map,
+			A2(elm$core$Basics$composeR, elm$core$Tuple$first, elm$core$Array$fromList),
+			helper(
+				_Utils_Tuple2(_List_Nil, arr)));
+	}
+};
+var author$project$Main$reshuffle = function (model) {
 	var _n0 = model.seed;
 	if (_n0.$ === 'Just') {
 		var seed = _n0.a;
+		var array = elm$core$Array$fromList(author$project$Main$data);
 		var _n1 = A2(
 			elm$random$Random$step,
-			A2(
-				elm$random$Random$int,
-				0,
-				elm$core$List$length(author$project$Main$data) - 1),
+			elm_community$random_extra$Random$Array$shuffle(array),
 			seed);
-		var count = _n1.a;
+		var shuffled = _n1.a;
 		var newSeed = _n1.b;
 		return author$project$Main$noMsg(
 			_Utils_update(
 				model,
 				{
-					count: elm$core$Maybe$Just(count),
 					input: '',
 					result: elm$core$Maybe$Nothing,
-					seed: elm$core$Maybe$Just(newSeed)
+					seed: elm$core$Maybe$Just(newSeed),
+					shuffled: elm$core$Maybe$Just(
+						elm$core$Array$toList(shuffled))
 				}));
 	} else {
 		return author$project$Main$noMsg(model);
+	}
+};
+var author$project$Main$actionNext = function (model) {
+	var _n0 = model.shuffled;
+	if (_n0.$ === 'Just') {
+		var list = _n0.a;
+		if (!list.b) {
+			return author$project$Main$reshuffle(model);
+		} else {
+			if (!list.b.b) {
+				var a = list.a;
+				return author$project$Main$reshuffle(model);
+			} else {
+				return author$project$Main$noMsg(
+					_Utils_update(
+						model,
+						{
+							input: '',
+							result: elm$core$Maybe$Nothing,
+							shuffled: elm$core$Maybe$Just(
+								A2(elm$core$List$drop, 1, list))
+						}));
+			}
+		}
+	} else {
+		return author$project$Main$reshuffle(model);
 	}
 };
 var elm$core$Basics$round = _Basics_round;
@@ -5718,21 +6435,11 @@ var author$project$Main$update = F2(
 				}
 			case 'GetSeed':
 				var seed = msg.a;
-				var _n2 = A2(
-					elm$random$Random$step,
-					A2(
-						elm$random$Random$int,
-						0,
-						elm$core$List$length(author$project$Main$data)),
-					seed);
-				var count = _n2.a;
-				var newSeed = _n2.b;
-				return author$project$Main$noMsg(
+				return author$project$Main$actionNext(
 					_Utils_update(
 						model,
 						{
-							count: elm$core$Maybe$Just(count),
-							seed: elm$core$Maybe$Just(newSeed)
+							seed: elm$core$Maybe$Just(seed)
 						}));
 			case 'ShowAll':
 				return author$project$Main$noMsg(
@@ -5741,10 +6448,10 @@ var author$project$Main$update = F2(
 						{showAll: !model.showAll}));
 			default:
 				var i = msg.a;
-				var _n3 = i === 13;
-				if (_n3) {
-					var _n4 = model.result;
-					if (_n4.$ === 'Just') {
+				var _n2 = i === 13;
+				if (_n2) {
+					var _n3 = model.result;
+					if (_n3.$ === 'Just') {
 						return author$project$Main$actionNext(model);
 					} else {
 						return author$project$Main$actionCheck(model);
@@ -5787,25 +6494,6 @@ var author$project$Main$onKeyUp = function (tagger) {
 		A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$keyCode));
 };
 var elm$core$Debug$toString = _Debug_toString;
-var elm$core$Maybe$map = F2(
-	function (f, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return elm$core$Maybe$Just(
-				f(value));
-		} else {
-			return elm$core$Maybe$Nothing;
-		}
-	});
-var elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
-	});
 var author$project$Main$resultsDescription = function (result) {
 	return A2(
 		elm$core$Maybe$withDefault,
@@ -5839,15 +6527,6 @@ var author$project$Main$resultsDescription = function (result) {
 				}
 			},
 			result));
-};
-var elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return elm$core$Maybe$Just(x);
-	} else {
-		return elm$core$Maybe$Nothing;
-	}
 };
 var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
@@ -5908,9 +6587,9 @@ var elm$html$Html$Events$onInput = function (tagger) {
 var author$project$Main$translationWidget = function (model) {
 	return function (i) {
 		if (i.$ === 'Just') {
-			var _n2 = i.a;
-			var pl = _n2.a;
-			var de = _n2.b;
+			var _n1 = i.a;
+			var pl = _n1.a;
+			var de = _n1.b;
 			return A2(
 				elm$html$Html$div,
 				_List_fromArray(
@@ -5921,18 +6600,18 @@ var author$project$Main$translationWidget = function (model) {
 				_List_fromArray(
 					[
 						function () {
-						var _n3 = model.result;
-						if (_n3.$ === 'Just') {
-							if (_n3.a.a) {
-								var _n4 = _n3.a;
-								var distances = _n4.b;
+						var _n2 = model.result;
+						if (_n2.$ === 'Just') {
+							if (_n2.a.a) {
+								var _n3 = _n2.a;
+								var distances = _n3.b;
 								var foundMatch = !elm$core$List$isEmpty(
 									A2(
 										elm$core$List$filter,
-										function (_n5) {
-											var word = _n5.a;
-											var dist = _n5.b;
-											var allowed = _n5.c;
+										function (_n4) {
+											var word = _n4.a;
+											var dist = _n4.b;
+											var allowed = _n4.c;
 											return dist <= 1.0e-3;
 										},
 										distances));
@@ -5957,7 +6636,7 @@ var author$project$Main$translationWidget = function (model) {
 											author$project$Main$resultsDescription(model.result))
 										]));
 							} else {
-								var _n6 = _n3.a;
+								var _n5 = _n2.a;
 								return A2(
 									elm$html$Html$div,
 									_List_fromArray(
@@ -6014,9 +6693,9 @@ var author$project$Main$translationWidget = function (model) {
 								_List_Nil)
 							])),
 						function () {
-						var _n7 = model.result;
-						if (_n7.$ === 'Just') {
-							var v = _n7.a;
+						var _n6 = model.result;
+						if (_n6.$ === 'Just') {
+							var v = _n6.a;
 							return A2(
 								elm$html$Html$button,
 								_List_fromArray(
@@ -6058,16 +6737,7 @@ var author$project$Main$translationWidget = function (model) {
 					]));
 		}
 	}(
-		elm$core$List$head(
-			function () {
-				var _n0 = model.count;
-				if (_n0.$ === 'Just') {
-					var count = _n0.a;
-					return A2(elm$core$List$drop, count, author$project$Main$data);
-				} else {
-					return _List_Nil;
-				}
-			}()));
+		A2(elm$core$Maybe$andThen, elm$core$List$head, model.shuffled));
 };
 var elm$core$List$append = F2(
 	function (xs, ys) {
