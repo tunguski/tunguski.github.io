@@ -5840,7 +5840,7 @@ var author$project$Main$data = _List_fromArray(
 		_Utils_Tuple2(
 		'stabilność polityczna',
 		_List_fromArray(
-			['politische Stabilitat'])),
+			['politische Stabilität'])),
 		_Utils_Tuple2(
 		'dostęp do nowoczesnych technologii',
 		_List_fromArray(
