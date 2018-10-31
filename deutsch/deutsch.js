@@ -232,87 +232,6 @@ var _JsArray_appendN = F3(function(n, dest, source)
 
 
 
-var _List_Nil_UNUSED = { $: 0 };
-var _List_Nil = { $: '[]' };
-
-function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }
-function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }
-
-
-var _List_cons = F2(_List_Cons);
-
-function _List_fromArray(arr)
-{
-	var out = _List_Nil;
-	for (var i = arr.length; i--; )
-	{
-		out = _List_Cons(arr[i], out);
-	}
-	return out;
-}
-
-function _List_toArray(xs)
-{
-	for (var out = []; xs.b; xs = xs.b) // WHILE_CONS
-	{
-		out.push(xs.a);
-	}
-	return out;
-}
-
-var _List_map2 = F3(function(f, xs, ys)
-{
-	for (var arr = []; xs.b && ys.b; xs = xs.b, ys = ys.b) // WHILE_CONSES
-	{
-		arr.push(A2(f, xs.a, ys.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map3 = F4(function(f, xs, ys, zs)
-{
-	for (var arr = []; xs.b && ys.b && zs.b; xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A3(f, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map4 = F5(function(f, ws, xs, ys, zs)
-{
-	for (var arr = []; ws.b && xs.b && ys.b && zs.b; ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A4(f, ws.a, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map5 = F6(function(f, vs, ws, xs, ys, zs)
-{
-	for (var arr = []; vs.b && ws.b && xs.b && ys.b && zs.b; vs = vs.b, ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A5(f, vs.a, ws.a, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_sortBy = F2(function(f, xs)
-{
-	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
-		return _Utils_cmp(f(a), f(b));
-	}));
-});
-
-var _List_sortWith = F2(function(f, xs)
-{
-	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
-		var ord = A2(f, a, b);
-		return ord === elm$core$Basics$EQ ? 0 : ord === elm$core$Basics$LT ? -1 : 1;
-	}));
-});
-
-
-
 // LOG
 
 var _Debug_log_UNUSED = F2(function(tag, value)
@@ -779,6 +698,147 @@ function _Utils_ap(xs, ys)
 
 
 
+var _List_Nil_UNUSED = { $: 0 };
+var _List_Nil = { $: '[]' };
+
+function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }
+function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }
+
+
+var _List_cons = F2(_List_Cons);
+
+function _List_fromArray(arr)
+{
+	var out = _List_Nil;
+	for (var i = arr.length; i--; )
+	{
+		out = _List_Cons(arr[i], out);
+	}
+	return out;
+}
+
+function _List_toArray(xs)
+{
+	for (var out = []; xs.b; xs = xs.b) // WHILE_CONS
+	{
+		out.push(xs.a);
+	}
+	return out;
+}
+
+var _List_map2 = F3(function(f, xs, ys)
+{
+	for (var arr = []; xs.b && ys.b; xs = xs.b, ys = ys.b) // WHILE_CONSES
+	{
+		arr.push(A2(f, xs.a, ys.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map3 = F4(function(f, xs, ys, zs)
+{
+	for (var arr = []; xs.b && ys.b && zs.b; xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A3(f, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map4 = F5(function(f, ws, xs, ys, zs)
+{
+	for (var arr = []; ws.b && xs.b && ys.b && zs.b; ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A4(f, ws.a, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map5 = F6(function(f, vs, ws, xs, ys, zs)
+{
+	for (var arr = []; vs.b && ws.b && xs.b && ys.b && zs.b; vs = vs.b, ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A5(f, vs.a, ws.a, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_sortBy = F2(function(f, xs)
+{
+	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
+		return _Utils_cmp(f(a), f(b));
+	}));
+});
+
+var _List_sortWith = F2(function(f, xs)
+{
+	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
+		var ord = A2(f, a, b);
+		return ord === elm$core$Basics$EQ ? 0 : ord === elm$core$Basics$LT ? -1 : 1;
+	}));
+});
+
+
+
+// MATH
+
+var _Basics_add = F2(function(a, b) { return a + b; });
+var _Basics_sub = F2(function(a, b) { return a - b; });
+var _Basics_mul = F2(function(a, b) { return a * b; });
+var _Basics_fdiv = F2(function(a, b) { return a / b; });
+var _Basics_idiv = F2(function(a, b) { return (a / b) | 0; });
+var _Basics_pow = F2(Math.pow);
+
+var _Basics_remainderBy = F2(function(b, a) { return a % b; });
+
+// https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/divmodnote-letter.pdf
+var _Basics_modBy = F2(function(modulus, x)
+{
+	var answer = x % modulus;
+	return modulus === 0
+		? _Debug_crash(11)
+		:
+	((answer > 0 && modulus < 0) || (answer < 0 && modulus > 0))
+		? answer + modulus
+		: answer;
+});
+
+
+// TRIGONOMETRY
+
+var _Basics_pi = Math.PI;
+var _Basics_e = Math.E;
+var _Basics_cos = Math.cos;
+var _Basics_sin = Math.sin;
+var _Basics_tan = Math.tan;
+var _Basics_acos = Math.acos;
+var _Basics_asin = Math.asin;
+var _Basics_atan = Math.atan;
+var _Basics_atan2 = F2(Math.atan2);
+
+
+// MORE MATH
+
+function _Basics_toFloat(x) { return x; }
+function _Basics_truncate(n) { return n | 0; }
+function _Basics_isInfinite(n) { return n === Infinity || n === -Infinity; }
+
+var _Basics_ceiling = Math.ceil;
+var _Basics_floor = Math.floor;
+var _Basics_round = Math.round;
+var _Basics_sqrt = Math.sqrt;
+var _Basics_log = Math.log;
+var _Basics_isNaN = isNaN;
+
+
+// BOOLEANS
+
+function _Basics_not(bool) { return !bool; }
+var _Basics_and = F2(function(a, b) { return a && b; });
+var _Basics_or  = F2(function(a, b) { return a || b; });
+var _Basics_xor = F2(function(a, b) { return a !== b; });
+
+
+
 // TASKS
 
 function _Scheduler_succeed(value)
@@ -967,66 +1027,6 @@ function _Scheduler_step(proc)
 		}
 	}
 }
-
-
-
-// MATH
-
-var _Basics_add = F2(function(a, b) { return a + b; });
-var _Basics_sub = F2(function(a, b) { return a - b; });
-var _Basics_mul = F2(function(a, b) { return a * b; });
-var _Basics_fdiv = F2(function(a, b) { return a / b; });
-var _Basics_idiv = F2(function(a, b) { return (a / b) | 0; });
-var _Basics_pow = F2(Math.pow);
-
-var _Basics_remainderBy = F2(function(b, a) { return a % b; });
-
-// https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/divmodnote-letter.pdf
-var _Basics_modBy = F2(function(modulus, x)
-{
-	var answer = x % modulus;
-	return modulus === 0
-		? _Debug_crash(11)
-		:
-	((answer > 0 && modulus < 0) || (answer < 0 && modulus > 0))
-		? answer + modulus
-		: answer;
-});
-
-
-// TRIGONOMETRY
-
-var _Basics_pi = Math.PI;
-var _Basics_e = Math.E;
-var _Basics_cos = Math.cos;
-var _Basics_sin = Math.sin;
-var _Basics_tan = Math.tan;
-var _Basics_acos = Math.acos;
-var _Basics_asin = Math.asin;
-var _Basics_atan = Math.atan;
-var _Basics_atan2 = F2(Math.atan2);
-
-
-// MORE MATH
-
-function _Basics_toFloat(x) { return x; }
-function _Basics_truncate(n) { return n | 0; }
-function _Basics_isInfinite(n) { return n === Infinity || n === -Infinity; }
-
-var _Basics_ceiling = Math.ceil;
-var _Basics_floor = Math.floor;
-var _Basics_round = Math.round;
-var _Basics_sqrt = Math.sqrt;
-var _Basics_log = Math.log;
-var _Basics_isNaN = isNaN;
-
-
-// BOOLEANS
-
-function _Basics_not(bool) { return !bool; }
-var _Basics_and = F2(function(a, b) { return a && b; });
-var _Basics_or  = F2(function(a, b) { return a || b; });
-var _Basics_xor = F2(function(a, b) { return a !== b; });
 
 
 
@@ -4482,50 +4482,9 @@ var author$project$Main$Resize = F2(
 	function (a, b) {
 		return {$: 'Resize', a: a, b: b};
 	});
-var elm$core$Basics$False = {$: 'False'};
-var elm$core$Maybe$Nothing = {$: 'Nothing'};
-var author$project$Main$initialModel = {correct: 0, incorrect: 0, input: '', result: elm$core$Maybe$Nothing, seed: elm$core$Maybe$Nothing, showAll: false, shuffled: elm$core$Maybe$Nothing, viewportSize: elm$core$Maybe$Nothing};
-var author$project$Main$GetSeed = function (a) {
-	return {$: 'GetSeed', a: a};
-};
-var author$project$Main$GetViewport = function (a) {
-	return {$: 'GetViewport', a: a};
-};
-var elm$browser$Browser$External = function (a) {
-	return {$: 'External', a: a};
-};
-var elm$browser$Browser$Internal = function (a) {
-	return {$: 'Internal', a: a};
-};
-var elm$browser$Browser$Dom$NotFound = function (a) {
-	return {$: 'NotFound', a: a};
-};
-var elm$core$Basics$never = function (_n0) {
-	never:
-	while (true) {
-		var nvr = _n0.a;
-		var $temp$_n0 = nvr;
-		_n0 = $temp$_n0;
-		continue never;
-	}
-};
-var elm$core$Maybe$Just = function (a) {
-	return {$: 'Just', a: a};
-};
-var elm$core$Basics$True = {$: 'True'};
-var elm$core$Result$isOk = function (result) {
-	if (result.$ === 'Ok') {
-		return true;
-	} else {
-		return false;
-	}
-};
-var elm$core$Basics$identity = function (x) {
-	return x;
-};
-var elm$core$Task$Perform = function (a) {
-	return {$: 'Perform', a: a};
-};
+var author$project$Main$LessonView = {$: 'LessonView'};
+var elm$core$Basics$EQ = {$: 'EQ'};
+var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 var elm$core$Array$foldr = F3(
 	function (func, baseCase, _n0) {
@@ -4547,8 +4506,6 @@ var elm$core$Array$foldr = F3(
 			A3(elm$core$Elm$JsArray$foldr, func, baseCase, tail),
 			tree);
 	});
-var elm$core$Basics$EQ = {$: 'EQ'};
-var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$List$cons = _List_cons;
 var elm$core$Array$toList = function (array) {
 	return A3(elm$core$Array$foldr, elm$core$List$cons, _List_Nil, array);
@@ -4606,8 +4563,510 @@ var elm$core$Set$toList = function (_n0) {
 	var dict = _n0.a;
 	return elm$core$Dict$keys(dict);
 };
-var elm$core$Task$succeed = _Scheduler_succeed;
-var elm$core$Task$init = elm$core$Task$succeed(_Utils_Tuple0);
+var author$project$Lessons$Rektion$rektion = _List_fromArray(
+	[
+		_Utils_Tuple3(
+		'an',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'dostosować się do',
+				_List_fromArray(
+					['anpassen'])),
+				_Utils_Tuple2(
+				'apelować do',
+				_List_fromArray(
+					['appelieren'])),
+				_Utils_Tuple2(
+				'myśleć o',
+				_List_fromArray(
+					['denken'])),
+				_Utils_Tuple2(
+				'przypominać sobie coś/kogoś',
+				_List_fromArray(
+					['sich erinnern'])),
+				_Utils_Tuple2(
+				'wierzyć w',
+				_List_fromArray(
+					['glauben'])),
+				_Utils_Tuple2(
+				'graniczyć z',
+				_List_fromArray(
+					['grenzen'])),
+				_Utils_Tuple2(
+				'przyzwyczaić się do',
+				_List_fromArray(
+					['sich gewöhnen'])),
+				_Utils_Tuple2(
+				'pisać do',
+				_List_fromArray(
+					['schreiben'])),
+				_Utils_Tuple2(
+				'zwracać się do',
+				_List_fromArray(
+					['sich wenden']))
+			])),
+		_Utils_Tuple3(
+		'an',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'pracować nad',
+				_List_fromArray(
+					['arbeiten'])),
+				_Utils_Tuple2(
+				'zachorować na',
+				_List_fromArray(
+					['erkranken'])),
+				_Utils_Tuple2(
+				'brakować czegoś',
+				_List_fromArray(
+					['fehlen'])),
+				_Utils_Tuple2(
+				'cierpieć na',
+				_List_fromArray(
+					['leiden'])),
+				_Utils_Tuple2(
+				'brakować czegoś',
+				_List_fromArray(
+					['mangeln'])),
+				_Utils_Tuple2(
+				'umrzeć na',
+				_List_fromArray(
+					['sterben'])),
+				_Utils_Tuple2(
+				'brać udział w',
+				_List_fromArray(
+					['teilnehmen'])),
+				_Utils_Tuple2(
+				'wątpić w',
+				_List_fromArray(
+					['zweifeln']))
+			])),
+		_Utils_Tuple3(
+		'auf',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'uważać na',
+				_List_fromArray(
+					['achten'])),
+				_Utils_Tuple2(
+				'zależeć od',
+				_List_fromArray(
+					['ankommen'])),
+				_Utils_Tuple2(
+				'odpowiadać na',
+				_List_fromArray(
+					['antworten'])),
+				_Utils_Tuple2(
+				'uważać na',
+				_List_fromArray(
+					['aufpassen'])),
+				_Utils_Tuple2(
+				'ograniczać się do',
+				_List_fromArray(
+					['sich beschränken'])),
+				_Utils_Tuple2(
+				'nastawić się na',
+				_List_fromArray(
+					['sich einstellen'])),
+				_Utils_Tuple2(
+				'cieszyć sie na',
+				_List_fromArray(
+					['sich freuen'])),
+				_Utils_Tuple2(
+				'mieć nadzieję na',
+				_List_fromArray(
+					['hoffen'])),
+				_Utils_Tuple2(
+				'konzentrować się na',
+				_List_fromArray(
+					['sich konzentrieren'])),
+				_Utils_Tuple2(
+				'zrezygnować z',
+				_List_fromArray(
+					['verzichten'])),
+				_Utils_Tuple2(
+				'przygotowywać się na',
+				_List_fromArray(
+					['sich vorbereiten'])),
+				_Utils_Tuple2(
+				'czekać na',
+				_List_fromArray(
+					['warten']))
+			])),
+		_Utils_Tuple3(
+		'auf',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'opierać się na',
+				_List_fromArray(
+					['basieren'])),
+				_Utils_Tuple2(
+				'opierać się na',
+				_List_fromArray(
+					['beruhen'])),
+				_Utils_Tuple2(
+				'obstawać przy',
+				_List_fromArray(
+					['bestehen']))
+			])),
+		_Utils_Tuple3(
+		'aus',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'składać się z',
+				_List_fromArray(
+					['bestehen'])),
+				_Utils_Tuple2(
+				'wynikać z',
+				_List_fromArray(
+					['sich ergeben'])),
+				_Utils_Tuple2(
+				'wywodzić się z/pochodzić z',
+				_List_fromArray(
+					['stammen']))
+			])),
+		_Utils_Tuple3(
+		'bei',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'pomagać przy',
+				_List_fromArray(
+					['helfen'])),
+				_Utils_Tuple2(
+				'wpaść do kogoś',
+				_List_fromArray(
+					['vorbeikommen']))
+			])),
+		_Utils_Tuple3(
+		'durch',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'zastąpić czymś',
+				_List_fromArray(
+					['ersetzen']))
+			])),
+		_Utils_Tuple3(
+		'für',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'dziękować za',
+				_List_fromArray(
+					['danken'])),
+				_Utils_Tuple2(
+				'zdecydować się na',
+				_List_fromArray(
+					['sich entscheiden'])),
+				_Utils_Tuple2(
+				'uważać za',
+				_List_fromArray(
+					['halten'])),
+				_Utils_Tuple2(
+				'interesować sie czymś',
+				_List_fromArray(
+					['sich interessieren'])),
+				_Utils_Tuple2(
+				'być za',
+				_List_fromArray(
+					['sein'])),
+				_Utils_Tuple2(
+				'zadbać o/ troszczyć się o',
+				_List_fromArray(
+					['sorgen']))
+			])),
+		_Utils_Tuple3(
+		'gegen',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'być przeciwko',
+				_List_fromArray(
+					['sein'])),
+				_Utils_Tuple2(
+				'ubezpieczyć się od',
+				_List_fromArray(
+					['sich versichern']))
+			])),
+		_Utils_Tuple3(
+		'in',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'zapraszać do',
+				_List_fromArray(
+					['einladen'])),
+				_Utils_Tuple2(
+				'popaść w',
+				_List_fromArray(
+					['geraten'])),
+				_Utils_Tuple2(
+				'zakochać się w',
+				_List_fromArray(
+					['sich verlieben'])),
+				_Utils_Tuple2(
+				'in	przeobrazić się w',
+				_List_fromArray(
+					['verwandeln']))
+			])),
+		_Utils_Tuple3(
+		'in',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'orientować się w',
+				_List_fromArray(
+					['sich auskennen'])),
+				_Utils_Tuple2(
+				'pomylić się w',
+				_List_fromArray(
+					['sich irren']))
+			])),
+		_Utils_Tuple3(
+		'mit',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'pogodzić się z',
+				_List_fromArray(
+					['sich abfinden'])),
+				_Utils_Tuple2(
+				'zaczynać coś/od',
+				_List_fromArray(
+					['anfangen'])),
+				_Utils_Tuple2(
+				'zaczynać coś od',
+				_List_fromArray(
+					['beginnen'])),
+				_Utils_Tuple2(
+				'beschäftigen	zajmować się czymś',
+				_List_fromArray(
+					['sich'])),
+				_Utils_Tuple2(
+				'rozmawiać przez telefon z',
+				_List_fromArray(
+					['telefonieren']))
+			])),
+		_Utils_Tuple3(
+		'nach',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'pachnieć czymś',
+				_List_fromArray(
+					['duften'])),
+				_Utils_Tuple2(
+				'dowiadywać się o',
+				_List_fromArray(
+					['sich erkundigen'])),
+				_Utils_Tuple2(
+				'pytać o',
+				_List_fromArray(
+					['fragen'])),
+				_Utils_Tuple2(
+				'sięgać po',
+				_List_fromArray(
+					['greifen'])),
+				_Utils_Tuple2(
+				'wołać kogoś',
+				_List_fromArray(
+					['rufen'])),
+				_Utils_Tuple2(
+				'tęsknić za',
+				_List_fromArray(
+					['sich sehnen'])),
+				_Utils_Tuple2(
+				'dążyć do',
+				_List_fromArray(
+					['streben'])),
+				_Utils_Tuple2(
+				'szukać czegoś',
+				_List_fromArray(
+					['suchen']))
+			])),
+		_Utils_Tuple3(
+		'über',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'złościć się z powodu',
+				_List_fromArray(
+					['sich ärgern'])),
+				_Utils_Tuple2(
+				'relacjonować coś',
+				_List_fromArray(
+					['berichten'])),
+				_Utils_Tuple2(
+				'sądzić o czymś',
+				_List_fromArray(
+					['denken'])),
+				_Utils_Tuple2(
+				'poskarżyć się na',
+				_List_fromArray(
+					['sich beschweren'])),
+				_Utils_Tuple2(
+				'dyskutować o',
+				_List_fromArray(
+					['diskutieren'])),
+				_Utils_Tuple2(
+				'cieszyć się z',
+				_List_fromArray(
+					['sich freuen'])),
+				_Utils_Tuple2(
+				'informować o',
+				_List_fromArray(
+					['informieren'])),
+				_Utils_Tuple2(
+				'pisać o',
+				_List_fromArray(
+					['schreiben'])),
+				_Utils_Tuple2(
+				'rozmawiać o',
+				_List_fromArray(
+					['sprechen'])),
+				_Utils_Tuple2(
+				'rozmawiać o',
+				_List_fromArray(
+					['sich unterhalten']))
+			])),
+		_Utils_Tuple3(
+		'um',
+		'A',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'bemühen	starać się o',
+				_List_fromArray(
+					['sich'])),
+				_Utils_Tuple2(
+				'ubiegać się o',
+				_List_fromArray(
+					['sich bewerben'])),
+				_Utils_Tuple2(
+				'prosić o',
+				_List_fromArray(
+					['bitten'])),
+				_Utils_Tuple2(
+				'troszczyć się o',
+				_List_fromArray(
+					['sich kümmern'])),
+				_Utils_Tuple2(
+				'kłócić się o',
+				_List_fromArray(
+					['streiten']))
+			])),
+		_Utils_Tuple3(
+		'von',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'uwolnić od',
+				_List_fromArray(
+					['befreien'])),
+				_Utils_Tuple2(
+				'relacjonować coś',
+				_List_fromArray(
+					['berichten'])),
+				_Utils_Tuple2(
+				'dowiedzieć się o',
+				_List_fromArray(
+					['erfahren'])),
+				_Utils_Tuple2(
+				'odpocząć od',
+				_List_fromArray(
+					['sich erholen'])),
+				_Utils_Tuple2(
+				'sądzić o',
+				_List_fromArray(
+					['halten'])),
+				_Utils_Tuple2(
+				'pożeganać się z',
+				_List_fromArray(
+					['sich verabschieden']))
+			])),
+		_Utils_Tuple3(
+		'vor',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'bać się czegoś',
+				_List_fromArray(
+					['Angst haben'])),
+				_Utils_Tuple2(
+				'bać się czegoś',
+				_List_fromArray(
+					['sich fürchten'])),
+				_Utils_Tuple2(
+				'chronić się przed',
+				_List_fromArray(
+					['sich schützen'])),
+				_Utils_Tuple2(
+				'ostrzegać przed',
+				_List_fromArray(
+					['warnen']))
+			])),
+		_Utils_Tuple3(
+		'zu',
+		'D',
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'przyczyniać się do',
+				_List_fromArray(
+					['beitragen'])),
+				_Utils_Tuple2(
+				'służyć do',
+				_List_fromArray(
+					['dienen'])),
+				_Utils_Tuple2(
+				'zapraszać na',
+				_List_fromArray(
+					['einladen'])),
+				_Utils_Tuple2(
+				'zdecydować się na',
+				_List_fromArray(
+					['sich entschließen'])),
+				_Utils_Tuple2(
+				'gratulować z okazji',
+				_List_fromArray(
+					['gratulieren'])),
+				_Utils_Tuple2(
+				'stawać się czymś/kimś',
+				_List_fromArray(
+					['werden'])),
+				_Utils_Tuple2(
+				'zmuszać do',
+				_List_fromArray(
+					['zwingen']))
+			]))
+	]);
+var elm$core$Basics$apR = F2(
+	function (x, f) {
+		return f(x);
+	});
+var elm$core$Basics$append = _Utils_append;
 var elm$core$Basics$add = _Basics_add;
 var elm$core$Basics$gt = _Utils_gt;
 var elm$core$List$foldl = F3(
@@ -4687,6 +5146,17 @@ var elm$core$List$foldr = F3(
 	function (fn, acc, ls) {
 		return A4(elm$core$List$foldrHelper, fn, acc, 0, ls);
 	});
+var elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3(elm$core$List$foldr, elm$core$List$cons, ys, xs);
+		}
+	});
+var elm$core$List$concat = function (lists) {
+	return A3(elm$core$List$foldr, elm$core$List$append, _List_Nil, lists);
+};
 var elm$core$List$map = F2(
 	function (f, xs) {
 		return A3(
@@ -4701,10 +5171,260 @@ var elm$core$List$map = F2(
 			_List_Nil,
 			xs);
 	});
-var elm$core$Basics$apR = F2(
-	function (x, f) {
-		return f(x);
+var elm$core$List$concatMap = F2(
+	function (f, list) {
+		return elm$core$List$concat(
+			A2(elm$core$List$map, f, list));
 	});
+var author$project$Lessons$Rektion$rektionLesson = _Utils_Tuple2(
+	'Rektion',
+	A2(
+		elm$core$List$concatMap,
+		function (_n0) {
+			var word = _n0.a;
+			var case_ = _n0.b;
+			var list = _n0.c;
+			return A2(
+				elm$core$List$map,
+				function (_n1) {
+					var pl = _n1.a;
+					var de = _n1.b;
+					return _Utils_Tuple2(
+						pl,
+						A2(
+							elm$core$List$map,
+							function (item) {
+								return item + (' ' + (word + (' ' + case_)));
+							},
+							de));
+				},
+				list);
+		},
+		author$project$Lessons$Rektion$rektion));
+var author$project$Main$j2s1 = _List_fromArray(
+	[
+		_Utils_Tuple2(
+		'wymienić (np. buty)',
+		_List_fromArray(
+			['umtauschen'])),
+		_Utils_Tuple2(
+		'wygłaszać referat',
+		_List_fromArray(
+			['das Referat halten'])),
+		_Utils_Tuple2(
+		'wypadać (np. zajęcia)',
+		_List_fromArray(
+			['ausfallen'])),
+		_Utils_Tuple2(
+		'oszczędzać pieniądze',
+		_List_fromArray(
+			['Geld sparen'])),
+		_Utils_Tuple2(
+		'dozwolone',
+		_List_fromArray(
+			['erlaubt'])),
+		_Utils_Tuple2(
+		'regulamin (np. domu)',
+		_List_fromArray(
+			['die Hausordnung'])),
+		_Utils_Tuple2(
+		'po uzgodnieniu',
+		_List_fromArray(
+			['nach Absprache'])),
+		_Utils_Tuple2(
+		'urządzone komfortowo',
+		_List_fromArray(
+			['komfortabel eingerichtet'])),
+		_Utils_Tuple2(
+		'powstają szkody',
+		_List_fromArray(
+			['Schäden entstehen'])),
+		_Utils_Tuple2(
+		'poinformować',
+		_List_fromArray(
+			['benachrichten', 'mitteilen'])),
+		_Utils_Tuple2(
+		'spełniać życzenia',
+		_List_fromArray(
+			['Wünsche zu erfüllen'])),
+		_Utils_Tuple2(
+		'według danych szacunkowych',
+		_List_fromArray(
+			['nach schätzungen Angaben'])),
+		_Utils_Tuple2(
+		'zgłaszać rekordowe wyniki',
+		_List_fromArray(
+			['Rekordergebnise melden'])),
+		_Utils_Tuple2(
+		'nocleg',
+		_List_fromArray(
+			['die Übernachtung'])),
+		_Utils_Tuple2(
+		'w stosunku do ubiegłego roku',
+		_List_fromArray(
+			['gegenüber dem Vorjahr'])),
+		_Utils_Tuple2(
+		'w porównaniu do',
+		_List_fromArray(
+			['im Vergleich zu'])),
+		_Utils_Tuple2(
+		'ogólna liczba',
+		_List_fromArray(
+			['Gesamtzahl'])),
+		_Utils_Tuple2(
+		'wynosić',
+		_List_fromArray(
+			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
+		_Utils_Tuple2(
+		'udział w',
+		_List_fromArray(
+			['der Anteil an'])),
+		_Utils_Tuple2(
+		'pochodzić z',
+		_List_fromArray(
+			['stammen aus'])),
+		_Utils_Tuple2(
+		'odnotowywać wzrost',
+		_List_fromArray(
+			['Wachstum verzeichnen'])),
+		_Utils_Tuple2(
+		'szybować w górę',
+		_List_fromArray(
+			['in die Höhe schnellen'])),
+		_Utils_Tuple2(
+		'miejsce pamięci',
+		_List_fromArray(
+			['das Gedenkort', 'die Gedenkstätte'])),
+		_Utils_Tuple2(
+		'bliskość surowców naturalnych',
+		_List_fromArray(
+			['die Rohstoffnähe'])),
+		_Utils_Tuple2(
+		'niska cena energii',
+		_List_fromArray(
+			['niedrige Energiepreis'])),
+		_Utils_Tuple2(
+		'dobre trasy transportowe',
+		_List_fromArray(
+			['gute Transportwege'])),
+		_Utils_Tuple2(
+		'dobra infrastruktura',
+		_List_fromArray(
+			['gute Infrastruktur'])),
+		_Utils_Tuple2(
+		'bliskość rynku zbytu',
+		_List_fromArray(
+			['Nähe des Absatzmarktes'])),
+		_Utils_Tuple2(
+		'warunki klimatyczne',
+		_List_fromArray(
+			['klimatische Bediengungen'])),
+		_Utils_Tuple2(
+		'korzystne opodatkowanie',
+		_List_fromArray(
+			['günstige Besteuerung'])),
+		_Utils_Tuple2(
+		'klimat przyjazny przedsiębiorcy',
+		_List_fromArray(
+			['unternehmensfreindliches Klima'])),
+		_Utils_Tuple2(
+		'jasne, nieskomplikowane (transparentne) zasady',
+		_List_fromArray(
+			['klare, nicht komplizierte (transparente) Vorschriften'])),
+		_Utils_Tuple2(
+		'stabilność polityczna',
+		_List_fromArray(
+			['politische Stabilität'])),
+		_Utils_Tuple2(
+		'dostęp do nowoczesnych technologii',
+		_List_fromArray(
+			['Zugang zu modernen Technologien'])),
+		_Utils_Tuple2(
+		'dobra dostępność',
+		_List_fromArray(
+			['gute Erreichbarkeit'])),
+		_Utils_Tuple2(
+		'o ile',
+		_List_fromArray(
+			['sofern'])),
+		_Utils_Tuple2(
+		'przyciąganie',
+		_List_fromArray(
+			['anziehung']))
+	]);
+var author$project$Main$lessons = _List_fromArray(
+	[
+		_Utils_Tuple2('Jahr 2 Semester 1', author$project$Main$j2s1),
+		author$project$Lessons$Rektion$rektionLesson
+	]);
+var elm$core$Maybe$Just = function (a) {
+	return {$: 'Just', a: a};
+};
+var elm$core$Maybe$Nothing = {$: 'Nothing'};
+var elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return elm$core$Maybe$Just(x);
+	} else {
+		return elm$core$Maybe$Nothing;
+	}
+};
+var elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var author$project$Main$defaultLesson = A2(
+	elm$core$Maybe$withDefault,
+	_Utils_Tuple2('No lessons available', _List_Nil),
+	elm$core$List$head(author$project$Main$lessons));
+var elm$core$Basics$False = {$: 'False'};
+var author$project$Main$initialModel = {correct: 0, incorrect: 0, input: '', lesson: author$project$Main$defaultLesson, result: elm$core$Maybe$Nothing, seed: elm$core$Maybe$Nothing, showAll: false, shuffled: elm$core$Maybe$Nothing, view: author$project$Main$LessonView, viewportSize: elm$core$Maybe$Nothing};
+var author$project$Main$GetSeed = function (a) {
+	return {$: 'GetSeed', a: a};
+};
+var author$project$Main$GetViewport = function (a) {
+	return {$: 'GetViewport', a: a};
+};
+var elm$browser$Browser$External = function (a) {
+	return {$: 'External', a: a};
+};
+var elm$browser$Browser$Internal = function (a) {
+	return {$: 'Internal', a: a};
+};
+var elm$browser$Browser$Dom$NotFound = function (a) {
+	return {$: 'NotFound', a: a};
+};
+var elm$core$Basics$never = function (_n0) {
+	never:
+	while (true) {
+		var nvr = _n0.a;
+		var $temp$_n0 = nvr;
+		_n0 = $temp$_n0;
+		continue never;
+	}
+};
+var elm$core$Basics$True = {$: 'True'};
+var elm$core$Result$isOk = function (result) {
+	if (result.$ === 'Ok') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var elm$core$Basics$identity = function (x) {
+	return x;
+};
+var elm$core$Task$Perform = function (a) {
+	return {$: 'Perform', a: a};
+};
+var elm$core$Task$succeed = _Scheduler_succeed;
+var elm$core$Task$init = elm$core$Task$succeed(_Utils_Tuple0);
 var elm$core$Task$andThen = _Scheduler_andThen;
 var elm$core$Task$map = F2(
 	function (func, taskA) {
@@ -4903,7 +5623,6 @@ var elm$json$Json$Decode$OneOf = function (a) {
 	return {$: 'OneOf', a: a};
 };
 var elm$core$Basics$and = _Basics_and;
-var elm$core$Basics$append = _Utils_append;
 var elm$core$Basics$or = _Basics_or;
 var elm$core$Char$toCode = _Char_toCode;
 var elm$core$Char$isLower = function (_char) {
@@ -5493,6 +6212,7 @@ var author$project$Main$initialMsg = elm$core$Platform$Cmd$batch(
 			A2(elm$core$Task$attempt, author$project$Main$GetViewport, elm$browser$Browser$Dom$getViewport),
 			A2(elm$random$Random$generate, author$project$Main$GetSeed, elm$random$Random$independentSeed)
 		]));
+var author$project$Main$ChangeLessonView = {$: 'ChangeLessonView'};
 var elm$core$String$trim = _String_trim;
 var elm$regex$Regex$Match = F4(
 	function (match, index, number, submatches) {
@@ -5553,15 +6273,6 @@ var elm$core$List$filter = F2(
 			_List_Nil,
 			list);
 	});
-var elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return elm$core$Maybe$Just(x);
-	} else {
-		return elm$core$Maybe$Nothing;
-	}
-};
 var elm$core$List$isEmpty = function (xs) {
 	if (!xs.b) {
 		return true;
@@ -5586,15 +6297,6 @@ var elm$core$Maybe$map = F2(
 				f(value));
 		} else {
 			return elm$core$Maybe$Nothing;
-		}
-	});
-var elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
 		}
 	});
 var elm$core$String$foldr = _String_foldr;
@@ -5707,157 +6409,6 @@ var author$project$Main$actionCheck = function (model) {
 			},
 			A2(elm$core$Maybe$andThen, elm$core$List$head, model.shuffled)));
 };
-var author$project$Main$data = _List_fromArray(
-	[
-		_Utils_Tuple2(
-		'wymienić (np. buty)',
-		_List_fromArray(
-			['umtauschen'])),
-		_Utils_Tuple2(
-		'wygłaszać referat',
-		_List_fromArray(
-			['das Referat halten'])),
-		_Utils_Tuple2(
-		'wypadać (np. zajęcia)',
-		_List_fromArray(
-			['ausfallen'])),
-		_Utils_Tuple2(
-		'oszczędzać pieniądze',
-		_List_fromArray(
-			['Geld sparen'])),
-		_Utils_Tuple2(
-		'dozwolone',
-		_List_fromArray(
-			['erlaubt'])),
-		_Utils_Tuple2(
-		'regulamin (np. domu)',
-		_List_fromArray(
-			['die Hausordnung'])),
-		_Utils_Tuple2(
-		'po uzgodnieniu',
-		_List_fromArray(
-			['nach Absprache'])),
-		_Utils_Tuple2(
-		'urządzone komfortowo',
-		_List_fromArray(
-			['komfortabel eingerichtet'])),
-		_Utils_Tuple2(
-		'powstają szkody',
-		_List_fromArray(
-			['Schäden entstehen'])),
-		_Utils_Tuple2(
-		'poinformować',
-		_List_fromArray(
-			['benachrichten', 'mitteilen'])),
-		_Utils_Tuple2(
-		'spełniać życzenia',
-		_List_fromArray(
-			['Wünsche zu erfüllen'])),
-		_Utils_Tuple2(
-		'według danych szacunkowych',
-		_List_fromArray(
-			['nach schätzungen Angaben'])),
-		_Utils_Tuple2(
-		'zgłaszać rekordowe wyniki',
-		_List_fromArray(
-			['Rekordergebnise melden'])),
-		_Utils_Tuple2(
-		'nocleg',
-		_List_fromArray(
-			['die Übernachtung'])),
-		_Utils_Tuple2(
-		'w stosunku do ubiegłego roku',
-		_List_fromArray(
-			['gegenüber dem Vorjahr'])),
-		_Utils_Tuple2(
-		'w porównaniu do',
-		_List_fromArray(
-			['im Vergleich zu'])),
-		_Utils_Tuple2(
-		'ogólna liczba',
-		_List_fromArray(
-			['Gesamtzahl'])),
-		_Utils_Tuple2(
-		'wynosić',
-		_List_fromArray(
-			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
-		_Utils_Tuple2(
-		'udział w',
-		_List_fromArray(
-			['der Anteil an'])),
-		_Utils_Tuple2(
-		'pochodzić z',
-		_List_fromArray(
-			['stammen aus'])),
-		_Utils_Tuple2(
-		'odnotowywać wzrost',
-		_List_fromArray(
-			['Wachstum verzeichnen'])),
-		_Utils_Tuple2(
-		'szybować w górę',
-		_List_fromArray(
-			['in die Höhe schnellen'])),
-		_Utils_Tuple2(
-		'miejsce pamięci',
-		_List_fromArray(
-			['das Gedenkort', 'die Gedenkstätte'])),
-		_Utils_Tuple2(
-		'bliskość surowców naturalnych',
-		_List_fromArray(
-			['die Rohstoffnähe'])),
-		_Utils_Tuple2(
-		'niska cena energii',
-		_List_fromArray(
-			['niedrige Energiepreis'])),
-		_Utils_Tuple2(
-		'dobre trasy transportowe',
-		_List_fromArray(
-			['gute Transportwege'])),
-		_Utils_Tuple2(
-		'dobra infrastruktura',
-		_List_fromArray(
-			['gute Infrastruktur'])),
-		_Utils_Tuple2(
-		'bliskość rynku zbytu',
-		_List_fromArray(
-			['Nähe des Absatzmarktes'])),
-		_Utils_Tuple2(
-		'warunki klimatyczne',
-		_List_fromArray(
-			['klimatische Bediengungen'])),
-		_Utils_Tuple2(
-		'korzystne opodatkowanie',
-		_List_fromArray(
-			['günstige Besteuerung'])),
-		_Utils_Tuple2(
-		'klimat przyjazny przedsiębiorcy',
-		_List_fromArray(
-			['unternehmensfreindliches Klima'])),
-		_Utils_Tuple2(
-		'jasne, nieskomplikowane (transparentne) zasady',
-		_List_fromArray(
-			['klare, nicht komplizierte (transparente) Vorschriften'])),
-		_Utils_Tuple2(
-		'stabilność polityczna',
-		_List_fromArray(
-			['politische Stabilität'])),
-		_Utils_Tuple2(
-		'dostęp do nowoczesnych technologii',
-		_List_fromArray(
-			['Zugang zu modernen Technologien'])),
-		_Utils_Tuple2(
-		'dobra dostępność',
-		_List_fromArray(
-			['gute Erreichbarkeit'])),
-		_Utils_Tuple2(
-		'o ile',
-		_List_fromArray(
-			['sofern'])),
-		_Utils_Tuple2(
-		'przyciąganie',
-		_List_fromArray(
-			['anziehung']))
-	]);
 var elm$core$Array$fromListHelp = F3(
 	function (list, nodeList, nodeListSize) {
 		fromListHelp:
@@ -5892,6 +6443,10 @@ var elm$core$Array$fromList = function (list) {
 	} else {
 		return A3(elm$core$Array$fromListHelp, list, _List_Nil, 0);
 	}
+};
+var elm$core$Tuple$second = function (_n0) {
+	var y = _n0.b;
+	return y;
 };
 var elm$core$Array$isEmpty = function (_n0) {
 	var len = _n0.a;
@@ -6402,7 +6957,7 @@ var author$project$Main$reshuffle = function (model) {
 	var _n0 = model.seed;
 	if (_n0.$ === 'Just') {
 		var seed = _n0.a;
-		var array = elm$core$Array$fromList(author$project$Main$data);
+		var array = elm$core$Array$fromList(model.lesson.b);
 		var _n1 = A2(
 			elm$random$Random$step,
 			elm_community$random_extra$Random$Array$shuffle(array),
@@ -6502,7 +7057,7 @@ var author$project$Main$update = F2(
 					_Utils_update(
 						model,
 						{showAll: !model.showAll}));
-			default:
+			case 'KeyPressed':
 				var i = msg.a;
 				var _n2 = i === 13;
 				if (_n2) {
@@ -6515,11 +7070,80 @@ var author$project$Main$update = F2(
 				} else {
 					return author$project$Main$noMsg(model);
 				}
+			case 'ChangeLesson':
+				return author$project$Main$noMsg(
+					_Utils_update(
+						model,
+						{view: author$project$Main$ChangeLessonView}));
+			default:
+				var lesson = msg.a;
+				return author$project$Main$reshuffle(
+					_Utils_update(
+						model,
+						{lesson: lesson, view: author$project$Main$LessonView}));
 		}
 	});
+var author$project$Main$ChangeLesson = {$: 'ChangeLesson'};
 var author$project$Main$ShowAll = {$: 'ShowAll'};
+var author$project$Main$SetLesson = function (a) {
+	return {$: 'SetLesson', a: a};
+};
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+var elm$json$Json$Encode$string = _Json_wrap;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			elm$virtual_dom$VirtualDom$on,
+			event,
+			elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		elm$html$Html$Events$on,
+		'click',
+		elm$json$Json$Decode$succeed(msg));
+};
+var author$project$Main$changeLessonView = function (model) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('container change-lesson')
+			]),
+		A2(
+			elm$core$List$map,
+			function (lesson) {
+				return A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$class('btn btn-outline-primary'),
+							elm$html$Html$Events$onClick(
+							author$project$Main$SetLesson(lesson))
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(lesson.a)
+						]));
+			},
+			author$project$Main$lessons));
+};
 var author$project$Main$css = function (model) {
-	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer a {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    ';
+	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer .btn {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    .change-lesson .btn {\n        margin-left: 5px;\n    }\n    ';
 };
 var author$project$Main$ChangeInput = function (a) {
 	return {$: 'ChangeInput', a: a};
@@ -6532,17 +7156,6 @@ var author$project$Main$Next = {$: 'Next'};
 var elm$json$Json$Decode$field = _Json_decodeField;
 var elm$json$Json$Decode$int = _Json_decodeInt;
 var elm$html$Html$Events$keyCode = A2(elm$json$Json$Decode$field, 'keyCode', elm$json$Json$Decode$int);
-var elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			elm$virtual_dom$VirtualDom$on,
-			event,
-			elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
 var author$project$Main$onKeyUp = function (tagger) {
 	return A2(
 		elm$html$Html$Events$on,
@@ -6585,29 +7198,11 @@ var author$project$Main$resultsDescription = function (result) {
 			result));
 };
 var elm$html$Html$button = _VirtualDom_node('button');
-var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$label = _VirtualDom_node('label');
-var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$json$Json$Encode$string = _Json_wrap;
-var elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$string(string));
-	});
-var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
 var elm$html$Html$Attributes$type_ = elm$html$Html$Attributes$stringProperty('type');
 var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
-var elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		elm$html$Html$Events$on,
-		'click',
-		elm$json$Json$Decode$succeed(msg));
-};
 var elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
@@ -6795,23 +7390,6 @@ var author$project$Main$translationWidget = function (model) {
 	}(
 		A2(elm$core$Maybe$andThen, elm$core$List$head, model.shuffled));
 };
-var elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3(elm$core$List$foldr, elm$core$List$cons, ys, xs);
-		}
-	});
-var elm$core$List$concat = function (lists) {
-	return A3(elm$core$List$foldr, elm$core$List$append, _List_Nil, lists);
-};
-var elm$core$List$concatMap = F2(
-	function (f, list) {
-		return elm$core$List$concat(
-			A2(elm$core$List$map, f, list));
-	});
-var elm$html$Html$a = _VirtualDom_node('a');
 var elm$html$Html$footer = _VirtualDom_node('footer');
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$header = _VirtualDom_node('header');
@@ -6876,7 +7454,14 @@ var author$project$Main$view = function (model) {
 								elm$html$Html$text('Sgh Deutsch')
 							]))
 					])),
-				author$project$Main$translationWidget(model),
+				function () {
+				var _n0 = model.view;
+				if (_n0.$ === 'LessonView') {
+					return author$project$Main$translationWidget(model);
+				} else {
+					return author$project$Main$changeLessonView(model);
+				}
+			}(),
 				A2(
 				elm$html$Html$footer,
 				_List_fromArray(
@@ -6886,10 +7471,10 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						A2(
-						elm$html$Html$a,
+						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$href('#'),
+								elm$html$Html$Attributes$class('btn btn-link'),
 								elm$html$Html$Events$onClick(author$project$Main$ShowAll)
 							]),
 						_List_fromArray(
@@ -6897,9 +7482,20 @@ var author$project$Main$view = function (model) {
 								elm$html$Html$text(
 								model.showAll ? 'Hide' : 'Show all')
 							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('btn btn-link'),
+								elm$html$Html$Events$onClick(author$project$Main$ChangeLesson)
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('Change lesson')
+							])),
 						function () {
-						var _n0 = model.showAll;
-						if (_n0) {
+						var _n1 = model.showAll;
+						if (_n1) {
 							return A2(
 								elm$html$Html$table,
 								_List_fromArray(
@@ -6933,9 +7529,9 @@ var author$project$Main$view = function (model) {
 										_List_Nil,
 										A2(
 											elm$core$List$concatMap,
-											function (_n1) {
-												var pl = _n1.a;
-												var de = _n1.b;
+											function (_n2) {
+												var pl = _n2.a;
+												var de = _n2.b;
 												if (!de.b) {
 													return _List_fromArray(
 														[
@@ -7027,7 +7623,7 @@ var author$project$Main$view = function (model) {
 													}
 												}
 											},
-											author$project$Main$data))
+											model.lesson.b))
 									]));
 						} else {
 							return A2(elm$html$Html$div, _List_Nil, _List_Nil);
