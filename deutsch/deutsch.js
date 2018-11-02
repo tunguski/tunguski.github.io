@@ -4655,7 +4655,7 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['achten'])),
 				_Utils_Tuple2(
-				'zależeć od',
+				'zależeć od (w zależności od)',
 				_List_fromArray(
 					['ankommen'])),
 				_Utils_Tuple2(
@@ -4757,7 +4757,11 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_Utils_Tuple2(
 				'zastąpić czymś',
 				_List_fromArray(
-					['ersetzen']))
+					['ersetzen'])),
+				_Utils_Tuple2(
+				'płynąć przez',
+				_List_fromArray(
+					['fließen']))
 			])),
 		_Utils_Tuple3(
 		'für',
@@ -4781,6 +4785,10 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['sich interessieren'])),
 				_Utils_Tuple2(
+				'walczyć o',
+				_List_fromArray(
+					['kämpfen'])),
+				_Utils_Tuple2(
 				'być za',
 				_List_fromArray(
 					['sein'])),
@@ -4801,7 +4809,11 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_Utils_Tuple2(
 				'ubezpieczyć się od',
 				_List_fromArray(
-					['sich versichern']))
+					['sich versichern'])),
+				_Utils_Tuple2(
+				'wykroczyć przeciwko',
+				_List_fromArray(
+					['verstoßen']))
 			])),
 		_Utils_Tuple3(
 		'in',
@@ -4816,6 +4828,10 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				'popaść w',
 				_List_fromArray(
 					['geraten'])),
+				_Utils_Tuple2(
+				'przetłumaczyć na',
+				_List_fromArray(
+					['übersetzen'])),
 				_Utils_Tuple2(
 				'zakochać się w',
 				_List_fromArray(
@@ -4853,17 +4869,25 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['anfangen'])),
 				_Utils_Tuple2(
+				'przestawać, skończyć z',
+				_List_fromArray(
+					['aufhören'])),
+				_Utils_Tuple2(
 				'zaczynać coś od',
 				_List_fromArray(
 					['beginnen'])),
 				_Utils_Tuple2(
-				'beschäftigen	zajmować się czymś',
+				'zajmować się czymś',
 				_List_fromArray(
-					['sich'])),
+					['sich beschäftigen'])),
 				_Utils_Tuple2(
 				'rozmawiać przez telefon z',
 				_List_fromArray(
-					['telefonieren']))
+					['telefonieren'])),
+				_Utils_Tuple2(
+				'zderzyć się z',
+				_List_fromArray(
+					['zusammenstoßen']))
 			])),
 		_Utils_Tuple3(
 		'nach',
@@ -4929,6 +4953,10 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['diskutieren'])),
 				_Utils_Tuple2(
+				'opowiadać o',
+				_List_fromArray(
+					['erzählen'])),
+				_Utils_Tuple2(
 				'cieszyć się z',
 				_List_fromArray(
 					['sich freuen'])),
@@ -4947,7 +4975,11 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_Utils_Tuple2(
 				'rozmawiać o',
 				_List_fromArray(
-					['sich unterhalten']))
+					['sich unterhalten'])),
+				_Utils_Tuple2(
+				'dysponować czymś',
+				_List_fromArray(
+					['verfügen']))
 			])),
 		_Utils_Tuple3(
 		'um',
@@ -4967,6 +4999,10 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['bitten'])),
 				_Utils_Tuple2(
+				'walczyć o',
+				_List_fromArray(
+					['kämpfen'])),
+				_Utils_Tuple2(
 				'troszczyć się o',
 				_List_fromArray(
 					['sich kümmern'])),
@@ -4980,6 +5016,10 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 		'D',
 		_List_fromArray(
 			[
+				_Utils_Tuple2(
+				'zależeć od (być zależnym)',
+				_List_fromArray(
+					['abhängen'])),
 				_Utils_Tuple2(
 				'uwolnić od',
 				_List_fromArray(
@@ -4997,9 +5037,25 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				_List_fromArray(
 					['sich erholen'])),
 				_Utils_Tuple2(
+				'odpowiadać o',
+				_List_fromArray(
+					['erzählen'])),
+				_Utils_Tuple2(
 				'sądzić o',
 				_List_fromArray(
 					['halten'])),
+				_Utils_Tuple2(
+				'słyszeć o',
+				_List_fromArray(
+					['hören'])),
+				_Utils_Tuple2(
+				'marzyć o',
+				_List_fromArray(
+					['träumen'])),
+				_Utils_Tuple2(
+				'przekonać o',
+				_List_fromArray(
+					['überzeugen'])),
 				_Utils_Tuple2(
 				'pożeganać się z',
 				_List_fromArray(
@@ -5048,6 +5104,14 @@ var author$project$Lessons$Rektion$rektion = _List_fromArray(
 				'zdecydować się na',
 				_List_fromArray(
 					['sich entschließen'])),
+				_Utils_Tuple2(
+				'prowadzić do',
+				_List_fromArray(
+					['führen'])),
+				_Utils_Tuple2(
+				'należeć do',
+				_List_fromArray(
+					['gehören'])),
 				_Utils_Tuple2(
 				'gratulować z okazji',
 				_List_fromArray(
