@@ -18,10 +18,15 @@
   </head>
   <body>
     <div id="elm-node"></div>
-    <script>
-        var app = Elm.Main.init({
+    <script type="text/javascript">
+        var storedState = localStorage.getItem('sgh-deutsch');
+        var startingState = storedState ? JSON.parse(storedState) : null;
+        var app = Elm.MainWithStorage.init({
             node: document.getElementById("elm-node"),
-            flags: 'test'
+            flags: startingState
+        });
+        app.ports.setStorage.subscribe(function(state) {
+            localStorage.setItem('sgh-deutsch', JSON.stringify(state));
         });
     </script>
   </body>

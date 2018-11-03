@@ -4478,11 +4478,11 @@ var _Regex_splitAtMost = F3(function(n, re, str)
 });
 
 var _Regex_infinity = Infinity;
-var author$project$Main$Resize = F2(
+var author$project$LearnApp$Resize = F2(
 	function (a, b) {
 		return {$: 'Resize', a: a, b: b};
 	});
-var author$project$Main$LessonView = {$: 'LessonView'};
+var author$project$LearnApp$LessonView = {$: 'LessonView'};
 var elm$core$Basics$EQ = {$: 'EQ'};
 var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
@@ -4563,7 +4563,159 @@ var elm$core$Set$toList = function (_n0) {
 	var dict = _n0.a;
 	return elm$core$Dict$keys(dict);
 };
-var author$project$Lessons$Rektion$rektion = _List_fromArray(
+var author$project$Jahr2Semester1$j2s1 = _List_fromArray(
+	[
+		_Utils_Tuple2(
+		'wymienić (np. buty)',
+		_List_fromArray(
+			['umtauschen'])),
+		_Utils_Tuple2(
+		'wygłaszać referat',
+		_List_fromArray(
+			['das Referat halten'])),
+		_Utils_Tuple2(
+		'wypadać (np. zajęcia)',
+		_List_fromArray(
+			['ausfallen'])),
+		_Utils_Tuple2(
+		'oszczędzać pieniądze',
+		_List_fromArray(
+			['Geld sparen'])),
+		_Utils_Tuple2(
+		'dozwolone',
+		_List_fromArray(
+			['erlaubt'])),
+		_Utils_Tuple2(
+		'regulamin (np. domu)',
+		_List_fromArray(
+			['die Hausordnung'])),
+		_Utils_Tuple2(
+		'po uzgodnieniu',
+		_List_fromArray(
+			['nach Absprache'])),
+		_Utils_Tuple2(
+		'urządzone komfortowo',
+		_List_fromArray(
+			['komfortabel eingerichtet'])),
+		_Utils_Tuple2(
+		'powstają szkody',
+		_List_fromArray(
+			['Schäden entstehen'])),
+		_Utils_Tuple2(
+		'poinformować',
+		_List_fromArray(
+			['benachrichten', 'mitteilen'])),
+		_Utils_Tuple2(
+		'spełniać życzenia',
+		_List_fromArray(
+			['Wünsche zu erfüllen'])),
+		_Utils_Tuple2(
+		'według danych szacunkowych',
+		_List_fromArray(
+			['nach schätzungen Angaben'])),
+		_Utils_Tuple2(
+		'zgłaszać rekordowe wyniki',
+		_List_fromArray(
+			['Rekordergebnise melden'])),
+		_Utils_Tuple2(
+		'nocleg',
+		_List_fromArray(
+			['die Übernachtung'])),
+		_Utils_Tuple2(
+		'w stosunku do ubiegłego roku',
+		_List_fromArray(
+			['gegenüber dem Vorjahr'])),
+		_Utils_Tuple2(
+		'w porównaniu do',
+		_List_fromArray(
+			['im Vergleich zu'])),
+		_Utils_Tuple2(
+		'ogólna liczba',
+		_List_fromArray(
+			['Gesamtzahl'])),
+		_Utils_Tuple2(
+		'wynosić',
+		_List_fromArray(
+			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
+		_Utils_Tuple2(
+		'udział w',
+		_List_fromArray(
+			['der Anteil an'])),
+		_Utils_Tuple2(
+		'pochodzić z',
+		_List_fromArray(
+			['stammen aus'])),
+		_Utils_Tuple2(
+		'odnotowywać wzrost',
+		_List_fromArray(
+			['Wachstum verzeichnen'])),
+		_Utils_Tuple2(
+		'szybować w górę',
+		_List_fromArray(
+			['in die Höhe schnellen'])),
+		_Utils_Tuple2(
+		'miejsce pamięci',
+		_List_fromArray(
+			['das Gedenkort', 'die Gedenkstätte'])),
+		_Utils_Tuple2(
+		'bliskość surowców naturalnych',
+		_List_fromArray(
+			['die Rohstoffnähe'])),
+		_Utils_Tuple2(
+		'niska cena energii',
+		_List_fromArray(
+			['niedrige Energiepreis'])),
+		_Utils_Tuple2(
+		'dobre trasy transportowe',
+		_List_fromArray(
+			['gute Transportwege'])),
+		_Utils_Tuple2(
+		'dobra infrastruktura',
+		_List_fromArray(
+			['gute Infrastruktur'])),
+		_Utils_Tuple2(
+		'bliskość rynku zbytu',
+		_List_fromArray(
+			['Nähe des Absatzmarktes'])),
+		_Utils_Tuple2(
+		'warunki klimatyczne',
+		_List_fromArray(
+			['klimatische Bediengungen'])),
+		_Utils_Tuple2(
+		'korzystne opodatkowanie',
+		_List_fromArray(
+			['günstige Besteuerung'])),
+		_Utils_Tuple2(
+		'klimat przyjazny przedsiębiorcy',
+		_List_fromArray(
+			['unternehmensfreindliches Klima'])),
+		_Utils_Tuple2(
+		'jasne, nieskomplikowane (transparentne) zasady',
+		_List_fromArray(
+			['klare, nicht komplizierte (transparente) Vorschriften'])),
+		_Utils_Tuple2(
+		'stabilność polityczna',
+		_List_fromArray(
+			['politische Stabilität'])),
+		_Utils_Tuple2(
+		'dostęp do nowoczesnych technologii',
+		_List_fromArray(
+			['Zugang zu modernen Technologien'])),
+		_Utils_Tuple2(
+		'dobra dostępność',
+		_List_fromArray(
+			['gute Erreichbarkeit'])),
+		_Utils_Tuple2(
+		'o ile',
+		_List_fromArray(
+			['sofern'])),
+		_Utils_Tuple2(
+		'przyciąganie',
+		_List_fromArray(
+			['anziehung']))
+	]);
+var author$project$Jahr2Semester1$lesson = _Utils_Tuple2('Jahr 2 Semester 1', author$project$Jahr2Semester1$j2s1);
+var author$project$Rektion$rektion = _List_fromArray(
 	[
 		_Utils_Tuple3(
 		'an',
@@ -5240,7 +5392,7 @@ var elm$core$List$concatMap = F2(
 		return elm$core$List$concat(
 			A2(elm$core$List$map, f, list));
 	});
-var author$project$Lessons$Rektion$rektionLesson = _Utils_Tuple2(
+var author$project$Rektion$rektionLesson = _Utils_Tuple2(
 	'Rektion',
 	A2(
 		elm$core$List$concatMap,
@@ -5264,163 +5416,9 @@ var author$project$Lessons$Rektion$rektionLesson = _Utils_Tuple2(
 				},
 				list);
 		},
-		author$project$Lessons$Rektion$rektion));
-var author$project$Main$j2s1 = _List_fromArray(
-	[
-		_Utils_Tuple2(
-		'wymienić (np. buty)',
-		_List_fromArray(
-			['umtauschen'])),
-		_Utils_Tuple2(
-		'wygłaszać referat',
-		_List_fromArray(
-			['das Referat halten'])),
-		_Utils_Tuple2(
-		'wypadać (np. zajęcia)',
-		_List_fromArray(
-			['ausfallen'])),
-		_Utils_Tuple2(
-		'oszczędzać pieniądze',
-		_List_fromArray(
-			['Geld sparen'])),
-		_Utils_Tuple2(
-		'dozwolone',
-		_List_fromArray(
-			['erlaubt'])),
-		_Utils_Tuple2(
-		'regulamin (np. domu)',
-		_List_fromArray(
-			['die Hausordnung'])),
-		_Utils_Tuple2(
-		'po uzgodnieniu',
-		_List_fromArray(
-			['nach Absprache'])),
-		_Utils_Tuple2(
-		'urządzone komfortowo',
-		_List_fromArray(
-			['komfortabel eingerichtet'])),
-		_Utils_Tuple2(
-		'powstają szkody',
-		_List_fromArray(
-			['Schäden entstehen'])),
-		_Utils_Tuple2(
-		'poinformować',
-		_List_fromArray(
-			['benachrichten', 'mitteilen'])),
-		_Utils_Tuple2(
-		'spełniać życzenia',
-		_List_fromArray(
-			['Wünsche zu erfüllen'])),
-		_Utils_Tuple2(
-		'według danych szacunkowych',
-		_List_fromArray(
-			['nach schätzungen Angaben'])),
-		_Utils_Tuple2(
-		'zgłaszać rekordowe wyniki',
-		_List_fromArray(
-			['Rekordergebnise melden'])),
-		_Utils_Tuple2(
-		'nocleg',
-		_List_fromArray(
-			['die Übernachtung'])),
-		_Utils_Tuple2(
-		'w stosunku do ubiegłego roku',
-		_List_fromArray(
-			['gegenüber dem Vorjahr'])),
-		_Utils_Tuple2(
-		'w porównaniu do',
-		_List_fromArray(
-			['im Vergleich zu'])),
-		_Utils_Tuple2(
-		'ogólna liczba',
-		_List_fromArray(
-			['Gesamtzahl'])),
-		_Utils_Tuple2(
-		'wynosić',
-		_List_fromArray(
-			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
-		_Utils_Tuple2(
-		'udział w',
-		_List_fromArray(
-			['der Anteil an'])),
-		_Utils_Tuple2(
-		'pochodzić z',
-		_List_fromArray(
-			['stammen aus'])),
-		_Utils_Tuple2(
-		'odnotowywać wzrost',
-		_List_fromArray(
-			['Wachstum verzeichnen'])),
-		_Utils_Tuple2(
-		'szybować w górę',
-		_List_fromArray(
-			['in die Höhe schnellen'])),
-		_Utils_Tuple2(
-		'miejsce pamięci',
-		_List_fromArray(
-			['das Gedenkort', 'die Gedenkstätte'])),
-		_Utils_Tuple2(
-		'bliskość surowców naturalnych',
-		_List_fromArray(
-			['die Rohstoffnähe'])),
-		_Utils_Tuple2(
-		'niska cena energii',
-		_List_fromArray(
-			['niedrige Energiepreis'])),
-		_Utils_Tuple2(
-		'dobre trasy transportowe',
-		_List_fromArray(
-			['gute Transportwege'])),
-		_Utils_Tuple2(
-		'dobra infrastruktura',
-		_List_fromArray(
-			['gute Infrastruktur'])),
-		_Utils_Tuple2(
-		'bliskość rynku zbytu',
-		_List_fromArray(
-			['Nähe des Absatzmarktes'])),
-		_Utils_Tuple2(
-		'warunki klimatyczne',
-		_List_fromArray(
-			['klimatische Bediengungen'])),
-		_Utils_Tuple2(
-		'korzystne opodatkowanie',
-		_List_fromArray(
-			['günstige Besteuerung'])),
-		_Utils_Tuple2(
-		'klimat przyjazny przedsiębiorcy',
-		_List_fromArray(
-			['unternehmensfreindliches Klima'])),
-		_Utils_Tuple2(
-		'jasne, nieskomplikowane (transparentne) zasady',
-		_List_fromArray(
-			['klare, nicht komplizierte (transparente) Vorschriften'])),
-		_Utils_Tuple2(
-		'stabilność polityczna',
-		_List_fromArray(
-			['politische Stabilität'])),
-		_Utils_Tuple2(
-		'dostęp do nowoczesnych technologii',
-		_List_fromArray(
-			['Zugang zu modernen Technologien'])),
-		_Utils_Tuple2(
-		'dobra dostępność',
-		_List_fromArray(
-			['gute Erreichbarkeit'])),
-		_Utils_Tuple2(
-		'o ile',
-		_List_fromArray(
-			['sofern'])),
-		_Utils_Tuple2(
-		'przyciąganie',
-		_List_fromArray(
-			['anziehung']))
-	]);
-var author$project$Main$lessons = _List_fromArray(
-	[
-		_Utils_Tuple2('Jahr 2 Semester 1', author$project$Main$j2s1),
-		author$project$Lessons$Rektion$rektionLesson
-	]);
+		author$project$Rektion$rektion));
+var author$project$LearnApp$lessons = _List_fromArray(
+	[author$project$Jahr2Semester1$lesson, author$project$Rektion$rektionLesson]);
 var elm$core$Maybe$Just = function (a) {
 	return {$: 'Just', a: a};
 };
@@ -5443,16 +5441,34 @@ var elm$core$Maybe$withDefault = F2(
 			return _default;
 		}
 	});
-var author$project$Main$defaultLesson = A2(
+var author$project$LearnApp$defaultLesson = A2(
 	elm$core$Maybe$withDefault,
 	_Utils_Tuple2('No lessons available', _List_Nil),
-	elm$core$List$head(author$project$Main$lessons));
+	elm$core$List$head(author$project$LearnApp$lessons));
 var elm$core$Basics$False = {$: 'False'};
-var author$project$Main$initialModel = {correct: 0, incorrect: 0, input: '', lesson: author$project$Main$defaultLesson, result: elm$core$Maybe$Nothing, seed: elm$core$Maybe$Nothing, showAll: false, shuffled: elm$core$Maybe$Nothing, view: author$project$Main$LessonView, viewportSize: elm$core$Maybe$Nothing};
-var author$project$Main$GetSeed = function (a) {
+var elm$core$Debug$log = _Debug_log;
+var author$project$LearnApp$initialModel = function (state) {
+	return {
+		correct: 0,
+		incorrect: 0,
+		input: '',
+		lesson: author$project$LearnApp$defaultLesson,
+		result: elm$core$Maybe$Nothing,
+		seed: elm$core$Maybe$Nothing,
+		showAll: false,
+		shuffled: elm$core$Maybe$Nothing,
+		state: A2(
+			elm$core$Maybe$withDefault,
+			{history: _List_Nil},
+			A2(elm$core$Debug$log, 'state', state)),
+		view: author$project$LearnApp$LessonView,
+		viewportSize: elm$core$Maybe$Nothing
+	};
+};
+var author$project$LearnApp$GetSeed = function (a) {
 	return {$: 'GetSeed', a: a};
 };
-var author$project$Main$GetViewport = function (a) {
+var author$project$LearnApp$GetViewport = function (a) {
 	return {$: 'GetViewport', a: a};
 };
 var elm$browser$Browser$External = function (a) {
@@ -6270,13 +6286,14 @@ var elm$random$Random$independentSeed = elm$random$Random$Generator(
 			A4(elm$random$Random$map3, makeIndependentSeed, gen, gen, gen),
 			seed0);
 	});
-var author$project$Main$initialMsg = elm$core$Platform$Cmd$batch(
+var author$project$LearnApp$initialMsg = elm$core$Platform$Cmd$batch(
 	_List_fromArray(
 		[
-			A2(elm$core$Task$attempt, author$project$Main$GetViewport, elm$browser$Browser$Dom$getViewport),
-			A2(elm$random$Random$generate, author$project$Main$GetSeed, elm$random$Random$independentSeed)
+			A2(elm$core$Task$attempt, author$project$LearnApp$GetViewport, elm$browser$Browser$Dom$getViewport),
+			A2(elm$random$Random$generate, author$project$LearnApp$GetSeed, elm$random$Random$independentSeed)
 		]));
-var author$project$Main$ChangeLessonView = {$: 'ChangeLessonView'};
+var author$project$LearnApp$ChangeLessonView = {$: 'ChangeLessonView'};
+var author$project$LearnApp$HistoryView = {$: 'HistoryView'};
 var elm$core$String$trim = _String_trim;
 var elm$regex$Regex$Match = F4(
 	function (match, index, number, submatches) {
@@ -6290,7 +6307,7 @@ var elm$regex$Regex$fromString = function (string) {
 		string);
 };
 var elm$regex$Regex$replace = _Regex_replaceAtMost(_Regex_infinity);
-var author$project$Main$cleanup = function (text) {
+var author$project$LearnApp$cleanup = function (text) {
 	var trimWs = elm$regex$Regex$fromString('[ \t]+');
 	var toRemove = elm$regex$Regex$fromString('[^a-z\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df ]+');
 	var replaced = function () {
@@ -6318,12 +6335,9 @@ var author$project$Main$cleanup = function (text) {
 	}();
 	return replaced;
 };
-var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
-var author$project$Main$noMsg = function (model) {
-	return _Utils_Tuple2(
-		A2(elm$core$Debug$log, 'model', model),
-		elm$core$Platform$Cmd$none);
+var author$project$LearnApp$noMsg = function (model) {
+	return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 };
 var elm$core$Basics$not = _Basics_not;
 var elm$core$List$filter = F2(
@@ -6418,10 +6432,10 @@ var rluiten$stringdistance$StringDistance$sift3Distance = F2(
 			}
 		}
 	});
-var author$project$Main$actionCheck = function (model) {
+var author$project$LearnApp$actionCheck = function (model) {
 	return A2(
 		elm$core$Maybe$withDefault,
-		author$project$Main$noMsg(model),
+		author$project$LearnApp$noMsg(model),
 		A2(
 			elm$core$Maybe$map,
 			function (_n0) {
@@ -6434,10 +6448,10 @@ var author$project$Main$actionCheck = function (model) {
 							word,
 							A2(
 								rluiten$stringdistance$StringDistance$sift3Distance,
-								author$project$Main$cleanup(model.input),
-								author$project$Main$cleanup(word)),
+								author$project$LearnApp$cleanup(model.input),
+								author$project$LearnApp$cleanup(word)),
 							(elm$core$String$length(
-								author$project$Main$cleanup(word)) / 5) | 0);
+								author$project$LearnApp$cleanup(word)) / 5) | 0);
 					},
 					de);
 				var foundMatch = !elm$core$List$isEmpty(
@@ -6450,7 +6464,7 @@ var author$project$Main$actionCheck = function (model) {
 							return _Utils_cmp(dist, allowed) < 0;
 						},
 						distances));
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					function () {
 						if (foundMatch) {
 							return _Utils_update(
@@ -6473,6 +6487,10 @@ var author$project$Main$actionCheck = function (model) {
 			},
 			A2(elm$core$Maybe$andThen, elm$core$List$head, model.shuffled)));
 };
+var author$project$LearnApp$SaveState = F2(
+	function (a, b) {
+		return {$: 'SaveState', a: a, b: b};
+	});
 var elm$core$Array$fromListHelp = F3(
 	function (list, nodeList, nodeListSize) {
 		fromListHelp:
@@ -7017,10 +7035,11 @@ var elm_community$random_extra$Random$Array$shuffle = function (arr) {
 				_Utils_Tuple2(_List_Nil, arr)));
 	}
 };
-var author$project$Main$reshuffle = function (model) {
+var author$project$LearnApp$reshuffle = function (model) {
 	var _n0 = model.seed;
 	if (_n0.$ === 'Just') {
 		var seed = _n0.a;
+		var state = model.state;
 		var array = elm$core$Array$fromList(model.lesson.b);
 		var _n1 = A2(
 			elm$random$Random$step,
@@ -7028,32 +7047,47 @@ var author$project$Main$reshuffle = function (model) {
 			seed);
 		var shuffled = _n1.a;
 		var newSeed = _n1.b;
-		return author$project$Main$noMsg(
-			_Utils_update(
-				model,
-				{
-					input: '',
-					result: elm$core$Maybe$Nothing,
-					seed: elm$core$Maybe$Just(newSeed),
-					shuffled: elm$core$Maybe$Just(
-						elm$core$Array$toList(shuffled))
-				}));
+		var newModel = _Utils_update(
+			model,
+			{
+				correct: 0,
+				incorrect: 0,
+				input: '',
+				result: elm$core$Maybe$Nothing,
+				seed: elm$core$Maybe$Just(newSeed),
+				shuffled: elm$core$Maybe$Just(
+					elm$core$Array$toList(shuffled))
+			});
+		return _Utils_Tuple2(
+			newModel,
+			function () {
+				var _n2 = (model.correct > 0) || (model.incorrect > 0);
+				if (_n2) {
+					return A2(
+						elm$core$Task$perform,
+						author$project$LearnApp$SaveState(
+							{correct: model.correct, incorrect: model.incorrect, lesson: 'x', time: 0}),
+						elm$time$Time$now);
+				} else {
+					return elm$core$Platform$Cmd$none;
+				}
+			}());
 	} else {
-		return author$project$Main$noMsg(model);
+		return author$project$LearnApp$noMsg(model);
 	}
 };
-var author$project$Main$actionNext = function (model) {
+var author$project$LearnApp$actionNext = function (model) {
 	var _n0 = model.shuffled;
 	if (_n0.$ === 'Just') {
 		var list = _n0.a;
 		if (!list.b) {
-			return author$project$Main$reshuffle(model);
+			return author$project$LearnApp$reshuffle(model);
 		} else {
 			if (!list.b.b) {
 				var a = list.a;
-				return author$project$Main$reshuffle(model);
+				return author$project$LearnApp$reshuffle(model);
 			} else {
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					_Utils_update(
 						model,
 						{
@@ -7065,27 +7099,80 @@ var author$project$Main$actionNext = function (model) {
 			}
 		}
 	} else {
-		return author$project$Main$reshuffle(model);
+		return author$project$LearnApp$reshuffle(model);
 	}
 };
+var elm$json$Json$Encode$int = _Json_wrap;
+var elm$json$Json$Encode$list = F2(
+	function (func, entries) {
+		return _Json_wrap(
+			A3(
+				elm$core$List$foldl,
+				_Json_addEntry(func),
+				_Json_emptyArray(_Utils_Tuple0),
+				entries));
+	});
+var elm$json$Json$Encode$object = function (pairs) {
+	return _Json_wrap(
+		A3(
+			elm$core$List$foldl,
+			F2(
+				function (_n0, obj) {
+					var k = _n0.a;
+					var v = _n0.b;
+					return A3(_Json_addField, k, v, obj);
+				}),
+			_Json_emptyObject(_Utils_Tuple0),
+			pairs));
+};
+var elm$json$Json$Encode$string = _Json_wrap;
+var author$project$LearnApp$setStorage = _Platform_outgoingPort(
+	'setStorage',
+	function ($) {
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+					'history',
+					elm$json$Json$Encode$list(
+						function ($) {
+							return elm$json$Json$Encode$object(
+								_List_fromArray(
+									[
+										_Utils_Tuple2(
+										'correct',
+										elm$json$Json$Encode$int($.correct)),
+										_Utils_Tuple2(
+										'incorrect',
+										elm$json$Json$Encode$int($.incorrect)),
+										_Utils_Tuple2(
+										'lesson',
+										elm$json$Json$Encode$string($.lesson)),
+										_Utils_Tuple2(
+										'time',
+										elm$json$Json$Encode$int($.time))
+									]));
+						})($.history))
+				]));
+	});
 var elm$core$Basics$round = _Basics_round;
-var author$project$Main$update = F2(
+var author$project$LearnApp$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
 			case 'Check':
-				return author$project$Main$actionCheck(model);
+				return author$project$LearnApp$actionCheck(model);
 			case 'Next':
-				return author$project$Main$actionNext(model);
+				return author$project$LearnApp$actionNext(model);
 			case 'ChangeInput':
 				var str = msg.a;
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					_Utils_update(
 						model,
 						{input: str}));
 			case 'Resize':
 				var x = msg.a;
 				var y = msg.b;
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					_Utils_update(
 						model,
 						{
@@ -7096,7 +7183,7 @@ var author$project$Main$update = F2(
 				var result = msg.a;
 				if (result.$ === 'Ok') {
 					var v = result.a;
-					return author$project$Main$noMsg(
+					return author$project$LearnApp$noMsg(
 						_Utils_update(
 							model,
 							{
@@ -7106,18 +7193,18 @@ var author$project$Main$update = F2(
 										elm$core$Basics$round(v.viewport.height)))
 							}));
 				} else {
-					return author$project$Main$noMsg(model);
+					return author$project$LearnApp$noMsg(model);
 				}
 			case 'GetSeed':
 				var seed = msg.a;
-				return author$project$Main$actionNext(
+				return author$project$LearnApp$actionNext(
 					_Utils_update(
 						model,
 						{
 							seed: elm$core$Maybe$Just(seed)
 						}));
 			case 'ShowAll':
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					_Utils_update(
 						model,
 						{showAll: !model.showAll}));
@@ -7127,35 +7214,76 @@ var author$project$Main$update = F2(
 				if (_n2) {
 					var _n3 = model.result;
 					if (_n3.$ === 'Just') {
-						return author$project$Main$actionNext(model);
+						return author$project$LearnApp$actionNext(model);
 					} else {
-						return author$project$Main$actionCheck(model);
+						return author$project$LearnApp$actionCheck(model);
 					}
 				} else {
-					return author$project$Main$noMsg(model);
+					return author$project$LearnApp$noMsg(model);
 				}
 			case 'ChangeLesson':
-				return author$project$Main$noMsg(
+				return author$project$LearnApp$noMsg(
 					_Utils_update(
 						model,
-						{view: author$project$Main$ChangeLessonView}));
-			default:
+						{view: author$project$LearnApp$ChangeLessonView}));
+			case 'SetLesson':
 				var lesson = msg.a;
-				return author$project$Main$reshuffle(
+				return author$project$LearnApp$reshuffle(
 					_Utils_update(
 						model,
-						{lesson: lesson, view: author$project$Main$LessonView}));
+						{lesson: lesson, view: author$project$LearnApp$LessonView}));
+			case 'SaveState':
+				var _new = msg.a;
+				var time = msg.b;
+				var state = model.state;
+				var newModel = _Utils_update(
+					model,
+					{
+						state: _Utils_update(
+							state,
+							{
+								history: A2(
+									elm$core$List$cons,
+									_Utils_update(
+										_new,
+										{
+											time: elm$time$Time$posixToMillis(time)
+										}),
+									state.history)
+							})
+					});
+				return _Utils_Tuple2(
+					newModel,
+					elm$core$Platform$Cmd$batch(
+						_List_fromArray(
+							[
+								author$project$LearnApp$setStorage(newModel.state)
+							])));
+			case 'ShowLesson':
+				return author$project$LearnApp$noMsg(
+					_Utils_update(
+						model,
+						{view: author$project$LearnApp$LessonView}));
+			default:
+				return author$project$LearnApp$noMsg(
+					_Utils_update(
+						model,
+						{view: author$project$LearnApp$HistoryView}));
 		}
 	});
-var author$project$Main$ChangeLesson = {$: 'ChangeLesson'};
-var author$project$Main$ShowAll = {$: 'ShowAll'};
-var author$project$Main$SetLesson = function (a) {
+var author$project$Css$css = function (model) {
+	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer .btn {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    .change-lesson .btn {\n        margin-left: 5px;\n    }\n    .show-history .fa-check {\n        margin-left: 5px;\n    }\n    ';
+};
+var author$project$LearnApp$ChangeLesson = {$: 'ChangeLesson'};
+var author$project$LearnApp$ShowAll = {$: 'ShowAll'};
+var author$project$LearnApp$ShowHistory = {$: 'ShowHistory'};
+var author$project$LearnApp$ShowLesson = {$: 'ShowLesson'};
+var author$project$LearnApp$SetLesson = function (a) {
 	return {$: 'SetLesson', a: a};
 };
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
 		return A2(
@@ -7181,7 +7309,7 @@ var elm$html$Html$Events$onClick = function (msg) {
 		'click',
 		elm$json$Json$Decode$succeed(msg));
 };
-var author$project$Main$changeLessonView = function (model) {
+var author$project$LearnApp$changeLessonView = function (model) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -7197,37 +7325,116 @@ var author$project$Main$changeLessonView = function (model) {
 						[
 							elm$html$Html$Attributes$class('btn btn-outline-primary'),
 							elm$html$Html$Events$onClick(
-							author$project$Main$SetLesson(lesson))
+							author$project$LearnApp$SetLesson(lesson))
 						]),
 					_List_fromArray(
 						[
 							elm$html$Html$text(lesson.a)
 						]));
 			},
-			author$project$Main$lessons));
+			author$project$LearnApp$lessons));
 };
-var author$project$Main$css = function (model) {
-	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer .btn {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    .change-lesson .btn {\n        margin-left: 5px;\n    }\n    ';
+var elm$html$Html$i = _VirtualDom_node('i');
+var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$ul = _VirtualDom_node('ul');
+var author$project$LearnApp$showHistory = function (model) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('container show-history')
+			]),
+		_List_fromArray(
+			[
+				function () {
+				var _n0 = model.state.history;
+				if (!_n0.b) {
+					return A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('alert alert-warning')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('No history yet')
+							]));
+				} else {
+					var list = _n0;
+					return A2(
+						elm$html$Html$ul,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('list-group-flush')
+							]),
+						A2(
+							elm$core$List$map,
+							function (item) {
+								return A2(
+									elm$html$Html$li,
+									_List_fromArray(
+										[
+											elm$html$Html$Attributes$class('list-group-item')
+										]),
+									_List_fromArray(
+										[
+											elm$html$Html$text(item.lesson),
+											A2(
+											elm$html$Html$i,
+											_List_fromArray(
+												[
+													elm$html$Html$Attributes$class('fas fa-check')
+												]),
+											_List_Nil)
+										]));
+							},
+							list));
+				}
+			}()
+			]));
 };
-var author$project$Main$ChangeInput = function (a) {
+var elm$virtual_dom$VirtualDom$node = function (tag) {
+	return _VirtualDom_node(
+		_VirtualDom_noScript(tag));
+};
+var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
+var elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
+var author$project$LearnApp$stylesheet = function (url) {
+	return A3(
+		elm$html$Html$node,
+		'link',
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$rel('stylesheet'),
+				elm$html$Html$Attributes$href(url)
+			]),
+		_List_Nil);
+};
+var author$project$LearnApp$ChangeInput = function (a) {
 	return {$: 'ChangeInput', a: a};
 };
-var author$project$Main$Check = {$: 'Check'};
-var author$project$Main$KeyPressed = function (a) {
+var author$project$LearnApp$Check = {$: 'Check'};
+var author$project$LearnApp$KeyPressed = function (a) {
 	return {$: 'KeyPressed', a: a};
 };
-var author$project$Main$Next = {$: 'Next'};
+var author$project$LearnApp$Next = {$: 'Next'};
 var elm$json$Json$Decode$field = _Json_decodeField;
 var elm$json$Json$Decode$int = _Json_decodeInt;
 var elm$html$Html$Events$keyCode = A2(elm$json$Json$Decode$field, 'keyCode', elm$json$Json$Decode$int);
-var author$project$Main$onKeyUp = function (tagger) {
+var author$project$LearnApp$onKeyUp = function (tagger) {
 	return A2(
 		elm$html$Html$Events$on,
 		'keyup',
 		A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$keyCode));
 };
 var elm$core$Debug$toString = _Debug_toString;
-var author$project$Main$resultsDescription = function (result) {
+var author$project$LearnApp$resultsDescription = function (result) {
 	return A2(
 		elm$core$Maybe$withDefault,
 		elm$core$Debug$toString(result),
@@ -7299,7 +7506,7 @@ var elm$html$Html$Events$onInput = function (tagger) {
 			elm$html$Html$Events$alwaysStop,
 			A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$targetValue)));
 };
-var author$project$Main$translationWidget = function (model) {
+var author$project$LearnApp$translationWidget = function (model) {
 	return function (i) {
 		if (i.$ === 'Just') {
 			var _n1 = i.a;
@@ -7348,7 +7555,7 @@ var author$project$Main$translationWidget = function (model) {
 									_List_fromArray(
 										[
 											elm$html$Html$text(
-											author$project$Main$resultsDescription(model.result))
+											author$project$LearnApp$resultsDescription(model.result))
 										]));
 							} else {
 								var _n5 = _n2.a;
@@ -7361,7 +7568,7 @@ var author$project$Main$translationWidget = function (model) {
 									_List_fromArray(
 										[
 											elm$html$Html$text(
-											author$project$Main$resultsDescription(model.result))
+											author$project$LearnApp$resultsDescription(model.result))
 										]));
 							}
 						} else {
@@ -7402,8 +7609,8 @@ var author$project$Main$translationWidget = function (model) {
 									[
 										elm$html$Html$Attributes$class('form-control'),
 										elm$html$Html$Attributes$value(model.input),
-										elm$html$Html$Events$onInput(author$project$Main$ChangeInput),
-										author$project$Main$onKeyUp(author$project$Main$KeyPressed)
+										elm$html$Html$Events$onInput(author$project$LearnApp$ChangeInput),
+										author$project$LearnApp$onKeyUp(author$project$LearnApp$KeyPressed)
 									]),
 								_List_Nil)
 							])),
@@ -7417,7 +7624,7 @@ var author$project$Main$translationWidget = function (model) {
 									[
 										elm$html$Html$Attributes$type_('button'),
 										elm$html$Html$Attributes$class('btn btn-default'),
-										elm$html$Html$Events$onClick(author$project$Main$Next)
+										elm$html$Html$Events$onClick(author$project$LearnApp$Next)
 									]),
 								_List_fromArray(
 									[
@@ -7430,7 +7637,7 @@ var author$project$Main$translationWidget = function (model) {
 									[
 										elm$html$Html$Attributes$type_('button'),
 										elm$html$Html$Attributes$class('btn btn-primary'),
-										elm$html$Html$Events$onClick(author$project$Main$Check)
+										elm$html$Html$Events$onClick(author$project$LearnApp$Check)
 									]),
 								_List_fromArray(
 									[
@@ -7457,25 +7664,13 @@ var author$project$Main$translationWidget = function (model) {
 var elm$html$Html$footer = _VirtualDom_node('footer');
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$header = _VirtualDom_node('header');
-var elm$virtual_dom$VirtualDom$node = function (tag) {
-	return _VirtualDom_node(
-		_VirtualDom_noScript(tag));
-};
-var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
 var elm$html$Html$table = _VirtualDom_node('table');
 var elm$html$Html$tbody = _VirtualDom_node('tbody');
 var elm$html$Html$td = _VirtualDom_node('td');
 var elm$html$Html$th = _VirtualDom_node('th');
 var elm$html$Html$thead = _VirtualDom_node('thead');
 var elm$html$Html$tr = _VirtualDom_node('tr');
-var elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
-};
-var elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
-var author$project$Main$view = function (model) {
+var author$project$LearnApp$view = function (model) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -7484,15 +7679,8 @@ var author$project$Main$view = function (model) {
 			]),
 		_List_fromArray(
 			[
-				A3(
-				elm$html$Html$node,
-				'link',
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$rel('stylesheet'),
-						elm$html$Html$Attributes$href('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
-					]),
-				_List_Nil),
+				author$project$LearnApp$stylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'),
+				author$project$LearnApp$stylesheet('https://use.fontawesome.com/releases/v5.4.2/css/all.css'),
 				A3(
 				elm$html$Html$node,
 				'style',
@@ -7500,7 +7688,7 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						author$project$Main$css(model))
+						author$project$Css$css(model))
 					])),
 				A2(
 				elm$html$Html$header,
@@ -7520,10 +7708,13 @@ var author$project$Main$view = function (model) {
 					])),
 				function () {
 				var _n0 = model.view;
-				if (_n0.$ === 'LessonView') {
-					return author$project$Main$translationWidget(model);
-				} else {
-					return author$project$Main$changeLessonView(model);
+				switch (_n0.$) {
+					case 'LessonView':
+						return author$project$LearnApp$translationWidget(model);
+					case 'ChangeLessonView':
+						return author$project$LearnApp$changeLessonView(model);
+					default:
+						return author$project$LearnApp$showHistory(model);
 				}
 			}(),
 				A2(
@@ -7534,32 +7725,74 @@ var author$project$Main$view = function (model) {
 					]),
 				_List_fromArray(
 					[
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('btn btn-link'),
-								elm$html$Html$Events$onClick(author$project$Main$ShowAll)
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text(
-								model.showAll ? 'Hide' : 'Show all')
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('btn btn-link'),
-								elm$html$Html$Events$onClick(author$project$Main$ChangeLesson)
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Change lesson')
-							])),
 						function () {
-						var _n1 = model.showAll;
-						if (_n1) {
+						var _n1 = model.view;
+						if (_n1.$ === 'LessonView') {
+							return A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('btn btn-link'),
+										elm$html$Html$Events$onClick(author$project$LearnApp$ShowAll)
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text(
+										model.showAll ? 'Hide' : 'Show all')
+									]));
+						} else {
+							return A2(elm$html$Html$div, _List_Nil, _List_Nil);
+						}
+					}(),
+						function () {
+						var _n2 = model.view;
+						if (_n2.$ === 'LessonView') {
+							return A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('btn btn-link'),
+										elm$html$Html$Events$onClick(author$project$LearnApp$ChangeLesson)
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Change lesson')
+									]));
+						} else {
+							return A2(elm$html$Html$div, _List_Nil, _List_Nil);
+						}
+					}(),
+						function () {
+						var _n3 = model.view;
+						if (_n3.$ === 'HistoryView') {
+							return A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('btn btn-link'),
+										elm$html$Html$Events$onClick(author$project$LearnApp$ShowLesson)
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Back to lesson')
+									]));
+						} else {
+							return A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('btn btn-link'),
+										elm$html$Html$Events$onClick(author$project$LearnApp$ShowHistory)
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('History')
+									]));
+						}
+					}(),
+						function () {
+						var _n4 = model.showAll;
+						if (_n4) {
 							return A2(
 								elm$html$Html$table,
 								_List_fromArray(
@@ -7593,9 +7826,9 @@ var author$project$Main$view = function (model) {
 										_List_Nil,
 										A2(
 											elm$core$List$concatMap,
-											function (_n2) {
-												var pl = _n2.a;
-												var de = _n2.b;
+											function (_n5) {
+												var pl = _n5.a;
+												var de = _n5.b;
 												if (!de.b) {
 													return _List_fromArray(
 														[
@@ -8115,24 +8348,47 @@ var elm$browser$Browser$Events$onResize = function (func) {
 				A2(elm$json$Json$Decode$field, 'innerWidth', elm$json$Json$Decode$int),
 				A2(elm$json$Json$Decode$field, 'innerHeight', elm$json$Json$Decode$int))));
 };
-var author$project$Main$main = elm$browser$Browser$document(
+var elm$json$Json$Decode$andThen = _Json_andThen;
+var elm$json$Json$Decode$list = _Json_decodeList;
+var elm$json$Json$Decode$null = _Json_decodeNull;
+var elm$json$Json$Decode$oneOf = _Json_oneOf;
+var author$project$MainWithStorage$main = elm$browser$Browser$document(
 	{
-		init: function (_n0) {
-			return _Utils_Tuple2(author$project$Main$initialModel, author$project$Main$initialMsg);
+		init: function (state) {
+			return _Utils_Tuple2(
+				author$project$LearnApp$initialModel(state),
+				author$project$LearnApp$initialMsg);
 		},
-		subscriptions: function (_n1) {
-			return elm$browser$Browser$Events$onResize(author$project$Main$Resize);
+		subscriptions: function (_n0) {
+			return elm$browser$Browser$Events$onResize(author$project$LearnApp$Resize);
 		},
-		update: author$project$Main$update,
+		update: author$project$LearnApp$update,
 		view: function (model) {
 			return A2(
 				elm$browser$Browser$Document,
 				'Sgh Deutsch',
 				_List_fromArray(
 					[
-						author$project$Main$view(model)
+						author$project$LearnApp$view(model)
 					]));
 		}
 	});
-_Platform_export({'Main':{'init':author$project$Main$main(
-	elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
+_Platform_export({'MainWithStorage':{'init':author$project$MainWithStorage$main(
+	elm$json$Json$Decode$oneOf(
+		_List_fromArray(
+			[
+				elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
+				A2(
+				elm$json$Json$Decode$map,
+				elm$core$Maybe$Just,
+				A2(
+					elm$json$Json$Decode$andThen,
+					function (history) {
+						return elm$json$Json$Decode$succeed(
+							{history: history});
+					},
+					A2(
+						elm$json$Json$Decode$field,
+						'history',
+						elm$json$Json$Decode$list(elm$json$Json$Decode$int))))
+			])))(0)}});}(this));
