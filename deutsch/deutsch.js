@@ -6200,7 +6200,111 @@ var author$project$LearnApp$update = F2(
 var author$project$Model$SetLesson = function (a) {
 	return {$: 'SetLesson', a: a};
 };
-var author$project$Jahr2Semester1$j2s1 = _List_fromArray(
+var elm$json$Json$Decode$map = _Json_map1;
+var elm$json$Json$Decode$map2 = _Json_map2;
+var elm$json$Json$Decode$succeed = _Json_succeed;
+var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
+	switch (handler.$) {
+		case 'Normal':
+			return 0;
+		case 'MayStopPropagation':
+			return 1;
+		case 'MayPreventDefault':
+			return 2;
+		default:
+			return 3;
+	}
+};
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$span = _VirtualDom_node('span');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+var elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			elm$json$Json$Encode$string(string));
+	});
+var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			elm$virtual_dom$VirtualDom$on,
+			event,
+			elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		elm$html$Html$Events$on,
+		'click',
+		elm$json$Json$Decode$succeed(msg));
+};
+var author$project$ChangeLessonView$createLessonButton = function (lesson) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('btn btn-outline-primary'),
+				elm$html$Html$Events$onClick(
+				author$project$Model$SetLesson(lesson))
+			]),
+		_List_fromArray(
+			[
+				elm$html$Html$text(lesson.a),
+				A2(
+				elm$html$Html$span,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('badge badge-pill badge-light')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text(
+						elm$core$String$fromInt(
+							elm$core$List$length(lesson.b)))
+					]))
+			]));
+};
+var elm$html$Html$h3 = _VirtualDom_node('h3');
+var author$project$ChangeLessonView$createGroup = F2(
+	function (index, list) {
+		var year = ((index / 2) | 0) + 1;
+		var semester = (index % 2) + 1;
+		if (!list.b) {
+			return A2(elm$html$Html$div, _List_Nil, _List_Nil);
+		} else {
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$h3,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('year-header')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+								'Jahr ' + (elm$core$String$fromInt(year) + (' Semester ' + elm$core$String$fromInt(semester))))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('year-list')
+							]),
+						A2(elm$core$List$map, author$project$ChangeLessonView$createLessonButton, list))
+					]));
+		}
+	});
+var author$project$Jahr2Semester1$random = _List_fromArray(
 	[
 		_Utils_Tuple2(
 		'wymienić (np. buty)',
@@ -6295,6 +6399,17 @@ var author$project$Jahr2Semester1$j2s1 = _List_fromArray(
 		_List_fromArray(
 			['das Gedenkort', 'die Gedenkstätte'])),
 		_Utils_Tuple2(
+		'o ile',
+		_List_fromArray(
+			['sofern'])),
+		_Utils_Tuple2(
+		'przyciąganie',
+		_List_fromArray(
+			['die Anziehung']))
+	]);
+var author$project$Jahr2Semester1$standortAllgemein = _List_fromArray(
+	[
+		_Utils_Tuple2(
 		'bliskość surowców naturalnych',
 		_List_fromArray(
 			['die Rohstoffnähe'])),
@@ -6341,17 +6456,66 @@ var author$project$Jahr2Semester1$j2s1 = _List_fromArray(
 		_Utils_Tuple2(
 		'dobra dostępność',
 		_List_fromArray(
-			['gute Erreichbarkeit'])),
-		_Utils_Tuple2(
-		'o ile',
-		_List_fromArray(
-			['sofern'])),
-		_Utils_Tuple2(
-		'przyciąganie',
-		_List_fromArray(
-			['anziehung']))
+			['gute Erreichbarkeit']))
 	]);
-var author$project$Jahr2Semester1$lesson = _Utils_Tuple2('Jahr 2 Semester 1', author$project$Jahr2Semester1$j2s1);
+var author$project$Jahr2Semester1$lessons = _List_fromArray(
+	[
+		_Utils_Tuple2('Verschiedene', author$project$Jahr2Semester1$random),
+		_Utils_Tuple2('Standort allgemein', author$project$Jahr2Semester1$standortAllgemein)
+	]);
+var author$project$LieblingslandDeutschen$deutsch = '\nDas Lieblingsland der Deutschen\n\nDas Urlaubsziel Spanien erlebt einen gewaltigen Boom. Die Reiseveranstalter weiten ihre Angebote stark aus\n\nVeranstalter und Hoteliers trauen ihren Augen kaum: Spanien, das beliebteste Reiseland der Deutschen, erlebt derzeit einen Boom wie nie zuvor. Wer dieses Jahr auf Last-minute-Angebote für den Osterurlaub in Spanien spekuliert, könnte am Ende leer ausgehen.\n\n„Wir haben in den Osterfeiertagen kein einziges Bett mehr frei, das habe ich noch nie so erlebt“, sagt Isabel Jorge von der kanarischen Hotelgruppe Lopesan, die zehn Häuser auf Gran Canaria und Teneriffa betreibt. Die Kanarischen Inseln sind hinter Katalonien und den Balearen die drittwichtigste Reiseregion Spaniens.\n\nWährend die gestiegene Terrorgefahr andere Reiseziele wie die Türkei und Ägypten ins Herz trifft, erzielt Spanien einen Rekord nach dem anderen. Für das Sommergeschäft verzeichnen die Hoteliers schon jetzt zweistellige Zuwachsraten bei den Buchungen. Insbesondere die fünf größten deutschen Reiseveranstalter – TUI Group, Thomas Cook, DER Touristik, FTI und Alltours – haben ihre Angebote für Spanien ordentlich ausgeweitet.\n\nAuf den Kanaren meldet TUI einen Zuwachs von fast 40 Prozent in diesem Jahr. Insbesondere Lanzarote legt massiv zu. „Das ist wirklich unglaublich, ich glaube, wir könnten noch mehr Betten auf den Inseln verkaufen”, sagt TUI-Sprecher Mario Köpers. Allerdings sind die Kanaren nur noch begrenzt aufnahmefähig, denn seit 15 Jahren gibt es einen Baustopp für neue Hotels und Apartmentsiedlungen.\n\nBesonders gefragt ist dieses Jahr auch die Costa de la Luz, der Küstenstreifen am Golf von Cádiz. TUI meldet dort einen Zuwachs von 22 Prozent bei den Buchungen. Auch Mallorca kann seine Stellung als Lieblingsinsel der Deutschen weiter festigen, nicht einmal die für Juni geplante Einführung einer neuen Tourismussteuer mindert die Anziehungskraft der Insel.\n\nDie Mehrheit der Deutschen bevorzugt nach wie vor Badeurlaub. „Sonne und Strand ist und bleibt das Hauptmotiv für Spanien-Reisen“, sagt Köpers. Jede siebte Urlaubsreise der Deutschen hat laut der Forschungsgemeinschaft Urlaub und Reisen (FUR) Spanien als Ziel.\n\nDas boomende Spanien-Geschäft geht hauptsächlich zulasten der Türkei. „Das Unglück in anderen Ländern kommt unserem Land zugute“, sagt José Luis Zoreda von Exceltur, dem Dachverband der wichtigsten spanischen Tourismusunternehmen. Nicht nur die Buchungen für die Türkei sind seit den Anschlägen in Istanbul vom Januar drastisch zurückgegangen. Die Tourismusbranche in Ägypten leidet unter den Folgen des Abschusses eines russischen Passagierflugzeugs über dem Sinai durch IS-Terroristen. Auch in Tunesien brachen die Buchungen nach zwei Anschlägen im vergangenen Jahr dramatisch ein. „Das sind die drei Länder, die weiterhin Einbrüche erleiden werden“, prognostiziert Norbert Fiebig, Präsident des Deutschen Reiseverbands (DRV).\n\nSpanien dürfte seine Stellung hingegen weiter festigen: Martin Lohmann von der FUR sieht noch großes Wachstumspotenzial bei neuen Segmenten, wie etwa Wellnessurlaub oder Städtereisen. Das sieht auch Juan Molas, Präsident des spanischen Hoteldachverbands Cehat, so. Früher buchten 80 Prozent aller Spanien-Touristen nur den klassischen Badeurlaub, jetzt sind es lediglich noch 60 Prozent. Kulturtourismus, Städtereisen und Gesundheitsurlaube hätten an Bedeutung gewonnen.\n';
+var author$project$LieblingslandDeutschen$polnish = '\nUlubiony kraj Niemców\n\nHiszpański kraj wakacyjny przeżywa wielki rozkwit. Organizatorzy wycieczek poszerzają swoje oferty\n \nOrganizatorzy i hotelarze prawie nie wierzą w swoje oczy: Hiszpania, najpopularniejszy cel podróży Niemców, przeżywa boom jak nigdy dotąd. Każdy, kto spekuluje na temat ofert last minute na święta wielkanocne w Hiszpanii, może w końcu stracić pieniądze.\n\n"W czasie świąt wielkanocnych nie mamy żadnego łóżka pojedynczego, nigdy tego nie doświadczyłem" - mówi Isabel Jorge z grupy hotelowej Lopesan na Wyspach Kanaryjskich, która prowadzi dziesięć domów na Gran Canarii i Teneryfie. Wyspy Kanaryjskie są trzecim najważniejszym celem turystycznym w Hiszpanii, za Katalonią i Balearami.\n\nGdy zagrożenie terrorystyczne trafia do innych miejsc, w tym Turcji i Egiptu, Hiszpania zdobywa kolejne rekordy. Hotelarze już teraz odnotowują dwucyfrowe stopy wzrostu dla rezerwacji dla letniego biznesu. W szczególności pięciu największych niemieckich operatorów turystycznych - TUI Group, Thomas Cook, DER Touristik, FTI i Alltours - odpowiednio rozszerzyło swoje oferty dla Hiszpanii.\n\nNa Wyspach Kanaryjskich TUI odnotowuje w tym roku wzrost o prawie 40 procent. W szczególności Lanzarote jest masowo. "To naprawdę niesamowite, myślę, że moglibyśmy sprzedać jeszcze więcej miejsc na wyspach", mówi rzecznik TUI, Mario Köpers. Wyspy Kanaryjskie są jednak tylko częściowo otwarte, ponieważ od 15 lat istnieje zamrożenie nowych hoteli i osiedli mieszkaniowych.\n\nSzczególnie na zapotrzebowanie w tym roku jest Costa de la Luz, pas nadmorski w Zatoce Kadyksu. TUI odnotowuje wzrost o 22 procent w rezerwacjach. Nawet Majorka może umocnić swoją pozycję jako ulubiona wyspa Niemiec, nawet planowane w czerwcu wprowadzenie nowego podatku turystycznego nie zmniejsza atrakcyjności wyspy.\n\nWiększość Niemców nadal preferuje wakacje na plaży. "Słońce i plaża są i pozostaną głównym motywem podróży do Hiszpanii", mówi Köpers. Co siódma wakacyjna podróż Niemców, według badań Stowarzyszenia Wakacje i Podróże (FUR), Hiszpania jako cel podróży.\n\nRozkwita biznes w Hiszpanii odbywa się głównie kosztem Turcji. "Katastrofa w innych krajach przynosi korzyści naszemu krajowi" - mówi José Luis Zoreda z Exceltur, organizacji parasolowej najważniejszych hiszpańskich firm turystycznych. Nie tylko rezerwacje w Turcji drastycznie spadły od styczniowych ataków w Stambule. Przemysł turystyczny w Egipcie cierpi na terrorystów z IS w wyniku zestrzelenia rosyjskiego samolotu pasażerskiego na Synaju. Również w Tunezji rezerwacje spadły dramatycznie po dwóch atakach w zeszłym roku. "To są trzy kraje, które będą nadal cierpieć z powodu kryzysu" - prognozuje Norbert Fiebig, prezes Niemieckiego Stowarzyszenia Turystycznego (DRV).\n\nZ drugiej strony Hiszpania prawdopodobnie jeszcze bardziej umocni swoją pozycję: Martin Lohmann z FUR dostrzega ogromny potencjał wzrostu w nowych segmentach, takich jak wakacje wellness czy przerwy w mieście. To wygląda Juan Molas, prezes hiszpańskiego hotelu konfederacji CEHAT tak. Przed 80 procent Spain-turystów zarezerwowany tylko klasyczne wakacje nad morzem, teraz jest tylko 60 proc. Turystyka kulturowa, Zakwaterowanie i urlop zdrowia zyskały na znaczeniu.\n';
+var elm$core$Debug$log = _Debug_log;
+var author$project$LieblingslandDeutschen$translations = function () {
+	var pl = A2(elm$core$String$split, '.', author$project$LieblingslandDeutschen$polnish);
+	var lengthPl = A2(
+		elm$core$Debug$log,
+		'Length pl',
+		elm$core$List$length(pl));
+	var de = A2(elm$core$String$split, '.', author$project$LieblingslandDeutschen$deutsch);
+	var lengthDe = A2(
+		elm$core$Debug$log,
+		'Length de',
+		elm$core$List$length(de));
+	return A3(
+		elm$core$List$map2,
+		F2(
+			function (plSentence, deSentence) {
+				return _Utils_Tuple2(
+					plSentence,
+					_List_fromArray(
+						[deSentence]));
+			}),
+		pl,
+		de);
+}();
+var author$project$LieblingslandDeutschen$lesson = _Utils_Tuple2('Das Lieblingsland der Deutschen', author$project$LieblingslandDeutschen$translations);
+var author$project$PolensTurismus$deutsch = '\nDas Jahr 2016 war für den Tourismus in Polens Städten und Regionen wiederum ein Erfolgsjahr. Aufgrund der unsicheren Lage in der östlichen Mittelmeerregion entschieden sich mehr Polen für den Urlaub im eigenen Land. Aber auch bei der Zahl der ausländischen Gäste setzte sich der positive Trend der Vorjahre fort. Nach vorläufigen Schätzungen rechnet das Polnische Fremdenverkehrsamt für 2016 mit rund 6,5 Millionen deutschen Touristen in Polen, etwa eine halbe Million mehr als im Jahr zuvor. Auch viele Städte und Touristenattraktionen melden Rekordergebnisse.\n\nNach Angaben des polnischen Statistikamtes stieg die Zahl der Übernachtungen ausländischer Gäste in registrierten Unterkünften mit mindestens zehn Betten in den ersten elf Monaten 2016 um gut sieben Prozent gegenüber dem Vorjahreszeitraum, die der deutschen Gäste um fast acht Prozent. Rechnet man die Zahlen auf das ganze Jahr hoch und bezieht auch die Übernachtungen in kleinen Pensionen, Ferienwohnungen, agrotouristischen Unterkünften oder bei Verwandten und Bekannten mit ein, ist für 2016 mit einer Gesamtzahl von rund 18,5 Millionen ausländischen Touristen zu rechnen. Im Jahr 2015 waren es etwa 17,3 Millionen. Die Zahl der deutschen Touristen stieg danach im gleichen Zeitraum von rund sechs auf fast 6,5 Millionen. Der Anteil deutscher Gäste an der Gesamtzahl aller ausländischen Touristen liegt stabil bei gut einem Drittel.\n\nBeliebtestes Städtereiseziel in Polen ist die alte Königsstadt Krakow (Krakau). Rund 12,5 Millionen Menschen haben die Stadt 2016 besucht. Das ist ein Plus von gut zwei Millionen im Vergleich zum Vorjahr. Etwa 2,9 Millionen Besucher stammten aus dem Ausland. Positiv für die Bilanz wirkte sich der Weltjugendtag aus, der im vergangenen Juli in Krakau stattfand. Allein zur Papstmesse kamen laut Zahlen des Vatikans rund 1,5 Millionen Menschen.\n\nAuch Wroclaw (Breslau) stand 2016 im Fokus des Interesses der Weltöffentlichkeit. Die Europäische Kulturhauptstadt konnte im Verlauf des Festjahres insgesamt rund fünf Millionen Besucher verbuchen. Die Mehrheit der etwa 1,4 Millionen ausländischen Touristen stammte aus Deutschland. Aufgrund der hohen Besucherzahlen will die Stadtverwaltung in diesem Jahr einige Neuerungen für Touristen einführen. So soll künftig ein Shuttle-Bus die Innenstadt noch schneller und häufiger mit dem Flughafen verbinden. Ebenfalls in diesem Jahr soll eine attraktive Touristenkarte eingeführt werden, die gleichzeitig als Ticket für den Nahverkehr, wie auch als Rabattkarte für zahlreiche Sehenswürdigkeiten der Stadt dient.\n\nIn Poznan (Posen) wuchs die Zahl der Besucher im vergangenen Jahr Schätzungen zufolge um etwa zehn Prozent auf rund 1,4 Millionen. Ein enormes Plus an Übernachtungen konnte 2016 auch die polnische Ostseeregion verzeichnen. Wichtige Seebäder wie Kolobrzeg (Kolberg), Swinoujscie (Swinemünde) und Mielno (Großmöllen) begrüßten 2016 bis zu 15 Prozent mehr Gäste, und dies nicht nur während der Hauptsaison. Gerade das milde Septemberwetter ließ die Zahlen nochmals in die Höhe schnellen.\n\nAber nicht nur klassische Städte- und Sommerziele können zufrieden auf das vergangene Tourismusjahr zurückblicken. Auch Museen, Freizeitparks und andere Sehenswürdigkeiten waren viel besucht. So genossen beispielsweise rund 3,5 Millionen Besucher die Reize des Tatra-Nationalparks ganz im Süden des Landes an der Grenze zur Slowakischen Republik. Obwohl die Zahlen einen neuen Rekord markierten, konnte die Nationalparkverwaltung keinen nennenswerten Anstieg der Verstöße gegen die Parkordnung erkennen. Die überwiegende Mehrzahl gehe verantwortungsvoll mit der streng geschützten Naturlandschaft um.\n\nZu den größten Touristenattraktionen Polens gehört das unweit von Krakau gelegene Salzbergwerk von Wieliczka, das Teil des UNESCO-Welterbes ist. Im vergangenen Jahr zählte man fast 1,6 Millionen Besucher und erreichte damit ein neues Allzeithoch. Gegenüber 2015 wuchs die Besucherzahl um rund 13 Prozent. Fast 50 Prozent der Gäste kamen aus dem Ausland, die meisten aus Großbritannien und Deutschland. Noch mehr Interesse verzeichnete eine andere UNESCO-Welterbestätte in der Nähe von Krakau. Mehr als zwei Millionen Besucher zählte 2016 die Gedenkstätte im ehemaligen Konzentrationslager Auschwitz-Birkenau, so viele wie noch nie zuvor. 2015 waren es noch 1,7 Millionen. Rund 155 000 Pilger besuchten das Stammlager Auschwitz und das Lager Birkenau im Rahmen des katholischen Weltjugendtages im Juli. Fast drei Viertel aller Besucher nahmen an einer Führung mit einer der 286 geschulten Fachkräften teil, welche die Geschichte des Vernichtungslagers in fast 20 Sprachen vermitteln.\n';
+var author$project$PolensTurismus$polnish = '\nRok 2016 był kolejnym udanym rokiem dla turystyki w polskich miastach i regionach. Ze względu na niepewną sytuację we wschodnim regionie Morza Śródziemnego więcej Polaków postanowiło spędzić wakacje we własnym kraju. Ale liczba gości zagranicznych również kontynuowała pozytywny trend z poprzednich lat. Według wstępnych szacunków, Polska Izba Turystyki spodziewa się około 6,5 miliona niemieckich turystów w Polsce w 2016 roku, o pół miliona więcej niż rok wcześniej. Wiele miast i atrakcji turystycznych również odnotowuje rekordowe wyniki.\n\nWedług polskiego Urzędu Statystycznego, liczba noclegów gości zagranicznych wzrósł w zarejestrowanej zakwaterowania z co najmniej dziesięć łóżek w pierwszych jedenastu miesięcy w 2016 roku do siedmiu procent w porównaniu do tego samego okresu w ubiegłym roku, niemieccy goście przez prawie osiem procent. Jeśli dodać numery na cały rok wysokie i jest również noce w małych pensjonatach, agro noclegowej lub z rodziną i przyjaciółmi z jednej spodziewana jest w sumie około 18,5 mln zagranicznych\nturystów do 2016. W 2015 roku było to około 17,3 miliona. Liczba niemieckich turystów wzrosła w tym samym okresie z około sześciu do niemal 6,5 miliona. Odsetek gości z Niemiec w ogólnej liczbie turystów zagranicznych jest stabilny i wynosi nieco ponad jedną trzecią.\n\nNajbardziej popularnym celem wycieczek w Polsce jest stare królewskie miasto Kraków. Około 12,5 miliona osób odwiedziło miasto w 2016 roku. To plus ponad dwa miliony w porównaniu do poprzedniego roku. Około 2,9 miliona odwiedzających pochodziło z zagranicy. Światowe Dni Młodzieży, które odbyły się w Krakowie w lipcu ubiegłego roku, miały pozytywny wpływ na bilans. Według danych Watykanu do Mszy św Papieża przyszło około 1,5 miliona osób.\n\nWrocław (Wrocław) był również przedmiotem międzynarodowego zainteresowania w 2016 roku. Europejska Stolica Kultury odnotowała w ciągu roku około pięciu milionów odwiedzających. Większość z około 1,4 miliona zagranicznych turystów pochodziła z Niemiec. Ze względu na dużą liczbę odwiedzających, administracja miasta chce wprowadzić w tym roku pewne innowacje dla turystów. W przyszłości autobus będzie łączyć centrum miasta jeszcze szybciej i częściej z lotniskiem. Również w tym roku ma zostać wprowadzona atrakcyjna karta turystyczna, która służy również jako bilet na transport publiczny, a także karta rabatowa dla licznych zabytków miasta.\n\nW Poznaniu liczba odwiedzających w zeszłym roku wzrosła o około dziesięć procent do około 1,4 miliona. Ogromny wzrost noclegów odnotowano również w 2016 roku w polskim regionie Morza Bałtyckiego. Ważne nadmorskie kurorty, takie jak Kołobrzegu (Kolberg) Świnoujście (Świnoujście) oraz Mielno (Mielno) przywitał 2016 do 15 procent więcej osób, a nie tylko w sezonie. Zwłaszcza łagodna wrześniowa pogoda pozwoliła na wzrost liczby.\n\nAle nie tylko klasyczne miejskie i letnie miejscowości mogą cieszyć się z ubiegłorocznej turystyki. Również muzea, parki rozrywki i inne zabytki były często odwiedzane. Na przykład około 3,5 miliona odwiedzających cieszyło się atrakcjami Tatrzańskiego Parku Narodowego na południu kraju, na granicy z Republiką Słowacką. Chociaż liczby ustanowiły nowy rekord, administracja Parku Narodowego nie była w stanie wykryć znacznego wzrostu liczby naruszeń systemu parkingowego. Ogromna większość postępuje w sposób odpowiedzialny wobec ściśle chronionego krajobrazu naturalnego.\n\nJedną z największych atrakcji turystycznych w Polsce jest Kopalnia Soli w Wieliczce, która znajduje się niedaleko Krakowa i wpisana jest na listę światowego dziedzictwa UNESCO. W ubiegłym roku było prawie 1,6 miliona odwiedzających, osiągając nowy rekord wszech czasów. W porównaniu do roku 2015 liczba odwiedzających wzrosła o około 13 procent. Prawie 50 procent gości pochodziło z zagranicy, w większości z Wielkiej Brytanii i Niemiec. Jeszcze większe zainteresowanie wzbudziło kolejne miejsce wpisane na Listę Światowego Dziedzictwa UNESCO pod Krakowem. W 2016 roku ponad dwa miliony odwiedzających policzyło pomnik w byłym obozie koncentracyjnym Auschwitz-Birkenau, bardziej niż kiedykolwiek wcześniej. W 2015 roku było jeszcze 1,7 miliona. Około 155 000 pielgrzymów odwiedziło główny obóz Auschwitz i obóz Birkenau w kontekście Światowego Dnia Młodzieży Katolickiej w lipcu. Prawie trzy czwarte wszystkich odwiedzających wzięło udział w wycieczce z jednym z 286 przeszkolonych specjalistów, którzy nauczają historii obozu zagłady w prawie 20 językach.\n';
+var author$project$PolensTurismus$translations = function () {
+	var pl = A2(elm$core$String$split, '.', author$project$PolensTurismus$polnish);
+	var lengthPl = A2(
+		elm$core$Debug$log,
+		'Length pl',
+		elm$core$List$length(pl));
+	var de = A2(elm$core$String$split, '.', author$project$PolensTurismus$deutsch);
+	var lengthDe = A2(
+		elm$core$Debug$log,
+		'Length de',
+		elm$core$List$length(de));
+	return A3(
+		elm$core$List$map2,
+		F2(
+			function (plSentence, deSentence) {
+				return _Utils_Tuple2(
+					plSentence,
+					_List_fromArray(
+						[deSentence]));
+			}),
+		pl,
+		de);
+}();
+var author$project$PolensTurismus$lesson = _Utils_Tuple2('Polens Turismus', author$project$PolensTurismus$translations);
 var author$project$Rektion$rektion = _List_fromArray(
 	[
 		_Utils_Tuple3(
@@ -6956,52 +7120,18 @@ var author$project$Rektion$rektionLesson = _Utils_Tuple2(
 				list);
 		},
 		author$project$Rektion$rektion));
+var author$project$Rektion$lessons = _List_fromArray(
+	[author$project$Rektion$rektionLesson]);
 var author$project$Model$lessons = _List_fromArray(
-	[author$project$Jahr2Semester1$lesson, author$project$Rektion$rektionLesson]);
-var elm$json$Json$Decode$map = _Json_map1;
-var elm$json$Json$Decode$map2 = _Json_map2;
-var elm$json$Json$Decode$succeed = _Json_succeed;
-var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
-	switch (handler.$) {
-		case 'Normal':
-			return 0;
-		case 'MayStopPropagation':
-			return 1;
-		case 'MayPreventDefault':
-			return 2;
-		default:
-			return 3;
-	}
-};
-var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$span = _VirtualDom_node('span');
-var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$string(string));
-	});
-var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
-var elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			elm$virtual_dom$VirtualDom$on,
-			event,
-			elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		elm$html$Html$Events$on,
-		'click',
-		elm$json$Json$Decode$succeed(msg));
-};
+	[
+		_List_Nil,
+		author$project$Rektion$lessons,
+		_Utils_ap(
+		author$project$Jahr2Semester1$lessons,
+		_List_fromArray(
+			[author$project$PolensTurismus$lesson, author$project$LieblingslandDeutschen$lesson])),
+		_List_Nil
+	]);
 var author$project$ChangeLessonView$changeLessonView = function (model) {
 	return A2(
 		elm$html$Html$div,
@@ -7009,38 +7139,10 @@ var author$project$ChangeLessonView$changeLessonView = function (model) {
 			[
 				elm$html$Html$Attributes$class('container change-lesson')
 			]),
-		A2(
-			elm$core$List$map,
-			function (lesson) {
-				return A2(
-					elm$html$Html$div,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('btn btn-outline-primary'),
-							elm$html$Html$Events$onClick(
-							author$project$Model$SetLesson(lesson))
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text(lesson.a),
-							A2(
-							elm$html$Html$span,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('badge badge-pill badge-light')
-								]),
-							_List_fromArray(
-								[
-									elm$html$Html$text(
-									elm$core$String$fromInt(
-										elm$core$List$length(lesson.b)))
-								]))
-						]));
-			},
-			author$project$Model$lessons));
+		A2(elm$core$List$indexedMap, author$project$ChangeLessonView$createGroup, author$project$Model$lessons));
 };
 var author$project$Css$css = function (model) {
-	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer .btn {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    .change-lesson .btn {\n        margin-left: 5px;\n    }\n    .show-history .fa-check {\n        margin-left: 5px;\n    }\n    .change-lesson .badge-pill {\n        margin-left: 10px;\n    }\n    ';
+	return '\n    header, \n    footer, \n    footer table {\n        margin-top: 2em;\n        margin-bottom: 1em;\n    }\n    footer .btn {\n        color: darkgrey;\n    }\n    footer a:hover {\n        color: grey;\n    }\n    .change-lesson .btn {\n        margin-left: 5px;\n    }\n    .show-history .fa-check {\n        margin-left: 5px;\n    }\n    .change-lesson .badge-pill {\n        margin-left: 10px;\n    }\n    .change-lesson .year-header {\n        margin-bottom: 5px;\n    }\n    .change-lesson .year-list {\n        margin-bottom: 20px;\n    }\n    ';
 };
 var elm$html$Html$i = _VirtualDom_node('i');
 var elm$html$Html$li = _VirtualDom_node('li');
@@ -7624,9 +7726,9 @@ var author$project$Model$decodeState = function (string) {
 var author$project$Model$defaultLesson = A2(
 	elm$core$Maybe$withDefault,
 	_Utils_Tuple2('No lessons available', _List_Nil),
-	elm$core$List$head(author$project$Model$lessons));
+	elm$core$List$head(
+		elm$core$List$concat(author$project$Model$lessons)));
 var author$project$Model$initState = {history: _List_Nil};
-var elm$core$Debug$log = _Debug_log;
 var elm$core$Result$withDefault = F2(
 	function (def, result) {
 		if (result.$ === 'Ok') {
@@ -7658,7 +7760,7 @@ var author$project$Model$initialModel = function (state) {
 				return author$project$Model$initState;
 			}
 		}(),
-		view: author$project$Model$LessonView,
+		view: author$project$Model$ChangeLessonView,
 		viewportSize: elm$core$Maybe$Nothing
 	};
 };
