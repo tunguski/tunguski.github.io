@@ -23,7 +23,7 @@
         var startingState = storedState ? JSON.parse(storedState) : null;
         var app = Elm.MainWithStorage.init({
             node: document.getElementById("elm-node"),
-            flags: startingState
+            flags: JSON.stringify(startingState)
         });
         app.ports.setStorage.subscribe(function(state) {
             localStorage.setItem('sgh-deutsch', JSON.stringify(state));
