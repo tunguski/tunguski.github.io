@@ -5977,15 +5977,17 @@ var author$project$LearnApp$reshuffle = function (model) {
 				shuffled: elm$core$Maybe$Just(
 					elm$core$Array$toList(shuffled))
 			});
+		var _n2 = model.lesson;
+		var lessonName = _n2.a;
 		return _Utils_Tuple2(
 			newModel,
 			function () {
-				var _n2 = (model.correct > 0) || (model.incorrect > 0);
-				if (_n2) {
+				var _n3 = (model.correct > 0) || (model.incorrect > 0);
+				if (_n3) {
 					return A2(
 						elm$core$Task$perform,
 						author$project$Model$SaveState(
-							{correct: model.correct, incorrect: model.incorrect, lesson: 'x', time: 0}),
+							{correct: model.correct, incorrect: model.incorrect, lesson: lessonName, time: 0}),
 						elm$time$Time$now);
 				} else {
 					return elm$core$Platform$Cmd$none;
