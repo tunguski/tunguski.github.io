@@ -6306,164 +6306,272 @@ var author$project$ChangeLessonView$createGroup = F2(
 					]));
 		}
 	});
-var author$project$Jahr2Semester1$random = _List_fromArray(
+var author$project$Anfrage$anfrage = _List_fromArray(
 	[
 		_Utils_Tuple2(
-		'wymienić (np. buty)',
+		'prosić o korzystną ofertę',
 		_List_fromArray(
-			['umtauschen'])),
+			['um ein günstiges Angebot bieten'])),
 		_Utils_Tuple2(
-		'wygłaszać referat',
+		'przesłać ofertę',
 		_List_fromArray(
-			['das Referat halten'])),
+			['ein Angebot übersenden', 'ein Angebot zu schicken'])),
 		_Utils_Tuple2(
-		'wypadać (np. zajęcia)',
+		'skontaktować się z firmą X',
 		_List_fromArray(
-			['ausfallen'])),
+			['sich an die Firma X wenden'])),
 		_Utils_Tuple2(
-		'oszczędzać pieniądze',
+		'zdecydować się na ofertę',
 		_List_fromArray(
-			['Geld sparen'])),
+			['sich für ein Angebot entscheiden'])),
 		_Utils_Tuple2(
-		'dozwolone',
+		'nie być zobowiązanym do zamówienia',
 		_List_fromArray(
-			['erlaubt'])),
+			['zur Bestellung nicht verpflichtet sein'])),
 		_Utils_Tuple2(
-		'regulamin (np. domu)',
+		'dodać nowe produkty do programu sprzedaży',
 		_List_fromArray(
-			['die Hausordnung'])),
+			['neue Produkte in das Verkaufsprogramm aufnehmen'])),
 		_Utils_Tuple2(
-		'po uzgodnieniu',
+		'przesłać prospekt, cennik',
 		_List_fromArray(
-			['nach Absprache'])),
+			['das Prospekt, Preislisten übersenden'])),
 		_Utils_Tuple2(
-		'urządzone komfortowo',
+		'udostępnić',
 		_List_fromArray(
-			['komfortabel eingerichtet'])),
+			['zur Verfügung stellen'])),
 		_Utils_Tuple2(
-		'powstają szkody',
+		'otrzymać informacje',
 		_List_fromArray(
-			['Schäden entstehen'])),
+			['Auskünfte erhalten'])),
 		_Utils_Tuple2(
-		'poinformować',
+		'uświadomić komuś coś',
 		_List_fromArray(
-			['benachrichten', 'mitteilen'])),
+			['jemanden auf etwas aufmerksam machen'])),
 		_Utils_Tuple2(
-		'spełniać życzenia',
+		'dostarczyć pod uzgodnionymi warunkami',
 		_List_fromArray(
-			['Wünsche zu erfüllen'])),
+			['zu bestimmten Bedingungen liefern'])),
 		_Utils_Tuple2(
-		'według danych szacunkowych',
+		'wyrazić gotowość',
 		_List_fromArray(
-			['nach schätzungen Angaben'])),
+			['sich bereit erklären'])),
 		_Utils_Tuple2(
-		'zgłaszać rekordowe wyniki',
+		'wyznaczyć termin',
 		_List_fromArray(
-			['Rekordergebnisse melden'])),
+			['eine Frist setzen'])),
 		_Utils_Tuple2(
-		'nocleg',
+		'specjalizować się w',
 		_List_fromArray(
-			['die Übernachtung'])),
+			['sich spezialisieren auf'])),
 		_Utils_Tuple2(
-		'w stosunku do ubiegłego roku',
+		'wykazać żywe zainteresowanie produktami',
 		_List_fromArray(
-			['gegenüber dem Vorjahr'])),
+			['das lebhafte Interesse den Produkten entgegenbringen'])),
 		_Utils_Tuple2(
-		'w porównaniu do',
+		'spełnić życzenie',
 		_List_fromArray(
-			['im Vergleich zu'])),
+			['den Wunsch erfüllen'])),
 		_Utils_Tuple2(
-		'ogólna liczba',
+		'wejść w relacje biznesowe',
 		_List_fromArray(
-			['Gesamtzahl'])),
+			['in Geschäftsbeziehungen kommen', 'in Geschäftsbeziehungen treten'])),
 		_Utils_Tuple2(
-		'wynosić',
+		'rozważać ofertę',
 		_List_fromArray(
-			['betragen', 'liegen bei ...', 'sich beläuft auf', 'ausmachen'])),
+			['das Angebot berücksichtigen'])),
 		_Utils_Tuple2(
-		'udział w',
+		'Dowiedzieliśmy się od naszego partnera biznesowego',
 		_List_fromArray(
-			['der Anteil an'])),
+			['Wir haben von unserem Geschäftspartner erfahren'])),
 		_Utils_Tuple2(
-		'pochodzić z',
+		'Chcielibyśmy poznać państwa aktualny cennik',
 		_List_fromArray(
-			['stammen aus'])),
+			['Wir möchten Ihre aktuellen Preise erfahren'])),
 		_Utils_Tuple2(
-		'odnotowywać wzrost',
+		'Proszę, zrób nam korzystną ofertę',
 		_List_fromArray(
-			['Wachstum verzeichnen'])),
+			['Bitte unterbreiten Sie uns ein günstiges Angebot'])),
 		_Utils_Tuple2(
-		'szybować w górę',
+		'Mamy zapotrzebowanie na',
 		_List_fromArray(
-			['in die Höhe schnellen'])),
+			['Wir haben ständig Bedarf an'])),
 		_Utils_Tuple2(
-		'miejsce pamięci',
+		'Daj nam znać czy masz towar w magazynie',
 		_List_fromArray(
-			['das Gedenkort', 'die Gedenkstätte'])),
+			['Bitte teilen Sie uns mit, ob Sie die Ware am Lager haben'])),
 		_Utils_Tuple2(
-		'o ile',
+		'Bierzemy pod uwagę produkty wysokiej jakości',
 		_List_fromArray(
-			['sofern'])),
+			['Für uns kommen hochwertige Produkte in Frage'])),
 		_Utils_Tuple2(
-		'przyciąganie',
+		'Przywiązujemy dużą wagę do produktów najwyższej jakości',
 		_List_fromArray(
-			['die Anziehung']))
+			['Wir legen großen Wert auf Erzeugnisse höchster Qualität'])),
+		_Utils_Tuple2(
+		'Możesz liczyć na duże zamówienia',
+		_List_fromArray(
+			['Sie könen mit großen Aufträgen rechnen'])),
+		_Utils_Tuple2(
+		'Oczekujemy opóźnionego terminu płatności o 30 dni',
+		_List_fromArray(
+			['Wir erwarten ein Zahlungsziel von 30 Tagen'])),
+		_Utils_Tuple2(
+		'Będziemy wdzięczni za przesłanie próbek',
+		_List_fromArray(
+			['Für die Zusendung einiger Muster wären wir Ihnen dankbar'])),
+		_Utils_Tuple2(
+		'Proszę nam pozwolić zwrócić Pana uwagę na następującą ofertę',
+		_List_fromArray(
+			['Gestalten Sie uns, Sie uaf folgendes Angebot aufmerksam zu machen'])),
+		_Utils_Tuple2(
+		'Oferujemy Ci bez zobowiązań',
+		_List_fromArray(
+			['Wir bieten Ihnen unverbindlich an'])),
+		_Utils_Tuple2(
+		'Ze względu na duże zapotrzebowanie na nasze produkty oferujemy bez zaangażowania',
+		_List_fromArray(
+			['Wegen der großen Nachfrage nach unseren Produkten, bieten wir freibleibend an'])),
+		_Utils_Tuple2(
+		'Na życzenie wysyłamy Państwu nasz katalog',
+		_List_fromArray(
+			['Auf Ihren Wünsch senden wir Ihnen hiermit unseren Katalog']))
 	]);
-var author$project$Jahr2Semester1$standortAllgemein = _List_fromArray(
+var author$project$Anfrage$lesson = _Utils_Tuple2('Anfrage', author$project$Anfrage$anfrage);
+var author$project$Jahr2Semester1$anfrage = _List_fromArray(
 	[
 		_Utils_Tuple2(
-		'bliskość surowców naturalnych',
+		'prosić o korzystną ofertę',
 		_List_fromArray(
-			['die Rohstoffnähe'])),
+			['um ein günstiges Angebot bieten'])),
 		_Utils_Tuple2(
-		'niska cena energii',
+		'przesłać ofertę',
 		_List_fromArray(
-			['niedrige Energiepreis'])),
+			['ein Angebot übersenden', 'ein Angebot zu schicken'])),
 		_Utils_Tuple2(
-		'dobre trasy transportowe',
+		'skontaktować się z firmą X',
 		_List_fromArray(
-			['gute Transportwege'])),
+			['sich an die Firma X wenden'])),
 		_Utils_Tuple2(
-		'dobra infrastruktura',
+		'zdecydować się na ofertę',
 		_List_fromArray(
-			['gute Infrastruktur'])),
+			['sich für ein Angebot entscheiden'])),
 		_Utils_Tuple2(
-		'bliskość rynku zbytu',
+		'nie być zobowiązanym do zamówienia',
 		_List_fromArray(
-			['Nähe des Absatzmarktes'])),
+			['zur Bestellung nicht verpflichtet sein'])),
 		_Utils_Tuple2(
-		'warunki klimatyczne',
+		'dodać nowe produkty do programu sprzedaży',
 		_List_fromArray(
-			['klimatische Bedingungen'])),
+			['neue Produkte in das Verkaufsprogramm aufnehmen'])),
 		_Utils_Tuple2(
-		'korzystne opodatkowanie',
+		'przesłać prospekt, cennik',
 		_List_fromArray(
-			['günstige Besteuerung'])),
+			['das Prospekt, Preislisten übersenden'])),
 		_Utils_Tuple2(
-		'klimat przyjazny przedsiębiorcy',
+		'udostępnić',
 		_List_fromArray(
-			['unternehmensfreindliches Klima'])),
+			['zur Verfügung stellen'])),
 		_Utils_Tuple2(
-		'jasne, nieskomplikowane (transparentne) zasady',
+		'otrzymać informacje',
 		_List_fromArray(
-			['klare, nicht komplizierte (transparente) Vorschriften'])),
+			['Auskünfte erhalten'])),
 		_Utils_Tuple2(
-		'stabilność polityczna',
+		'uświadomić komuś coś',
 		_List_fromArray(
-			['politische Stabilität'])),
+			['jemanden auf etwas aufmerksam machen'])),
 		_Utils_Tuple2(
-		'dostęp do nowoczesnych technologii',
+		'dostarczyć pod uzgodnionymi warunkami',
 		_List_fromArray(
-			['Zugang zu modernen Technologien'])),
+			['zu bestimmten Bedingungen liefern'])),
 		_Utils_Tuple2(
-		'dobra dostępność',
+		'wyrazić gotowość',
 		_List_fromArray(
-			['gute Erreichbarkeit']))
+			['sich bereit erklären'])),
+		_Utils_Tuple2(
+		'wyznaczyć termin',
+		_List_fromArray(
+			['eine Frist setzen'])),
+		_Utils_Tuple2(
+		'specjalizować się w',
+		_List_fromArray(
+			['sich spezialisieren auf'])),
+		_Utils_Tuple2(
+		'wykazać żywe zainteresowanie produktami',
+		_List_fromArray(
+			['das lebhafte Interesse den Produkten entgegenbringen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['den Wunsch erfüllen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['in Geschäftsbeziehungen kommen', 'in Geschäftsbeziehungen treten'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['das Angebot berücksichtigen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir haben von unserem Geschäftspartner erfahren'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir möchten Ihre aktuellen Preise erfahren'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Bitte ünterbreiten Sie uns ein günstiges Angebot'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir haben ständig Bedarf an'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Bitte teilen Sie uns mit, ob Sie die Ware am Lager haben'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Für uns kommen hochwertige Produkte in Frage'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir legen großen Wert auf Erzeugnisse höchster Qualität'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Sie könen mit großen Aufträgen rechnen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir erwarten ein Zahlungsziel von 30 Tagen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Für die Zusendung einiger Muster wären wir Ihnen dankbar'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Gestalten Sie uns, Sie uaf folgendes Angebot aufmerksam zu machen'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wir bieten Ihnen unverbindlich an'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Wegen der großen Nachfrage nach unseren Produkten, bieten wir freibleibend an'])),
+		_Utils_Tuple2(
+		'',
+		_List_fromArray(
+			['Auf Ihren Wünsch senden wir Ihnen hiermit unseren Katalog']))
 	]);
 var author$project$Jahr2Semester1$lessons = _List_fromArray(
 	[
-		_Utils_Tuple2('Verschiedene', author$project$Jahr2Semester1$random),
-		_Utils_Tuple2('Standort allgemein', author$project$Jahr2Semester1$standortAllgemein)
+		_Utils_Tuple2('Anfrage', author$project$Jahr2Semester1$anfrage)
 	]);
 var author$project$LieblingslandDeutschen$deutsch = '\nDas Lieblingsland der Deutschen\n\nDas Urlaubsziel Spanien erlebt einen gewaltigen Boom. Die Reiseveranstalter weiten ihre Angebote stark aus\n\nVeranstalter und Hoteliers trauen ihren Augen kaum: Spanien, das beliebteste Reiseland der Deutschen, erlebt derzeit einen Boom wie nie zuvor. Wer dieses Jahr auf Last-minute-Angebote für den Osterurlaub in Spanien spekuliert, könnte am Ende leer ausgehen.\n\n„Wir haben in den Osterfeiertagen kein einziges Bett mehr frei, das habe ich noch nie so erlebt“, sagt Isabel Jorge von der kanarischen Hotelgruppe Lopesan, die zehn Häuser auf Gran Canaria und Teneriffa betreibt. Die Kanarischen Inseln sind hinter Katalonien und den Balearen die drittwichtigste Reiseregion Spaniens.\n\nWährend die gestiegene Terrorgefahr andere Reiseziele wie die Türkei und Ägypten ins Herz trifft, erzielt Spanien einen Rekord nach dem anderen. Für das Sommergeschäft verzeichnen die Hoteliers schon jetzt zweistellige Zuwachsraten bei den Buchungen. Insbesondere die fünf größten deutschen Reiseveranstalter – TUI Group, Thomas Cook, DER Touristik, FTI und Alltours – haben ihre Angebote für Spanien ordentlich ausgeweitet.\n\nAuf den Kanaren meldet TUI einen Zuwachs von fast 40 Prozent in diesem Jahr. Insbesondere Lanzarote legt massiv zu. „Das ist wirklich unglaublich, ich glaube, wir könnten noch mehr Betten auf den Inseln verkaufen”, sagt TUI-Sprecher Mario Köpers. Allerdings sind die Kanaren nur noch begrenzt aufnahmefähig, denn seit 15 Jahren gibt es einen Baustopp für neue Hotels und Apartmentsiedlungen.\n\nBesonders gefragt ist dieses Jahr auch die Costa de la Luz, der Küstenstreifen am Golf von Cádiz. TUI meldet dort einen Zuwachs von 22 Prozent bei den Buchungen. Auch Mallorca kann seine Stellung als Lieblingsinsel der Deutschen weiter festigen, nicht einmal die für Juni geplante Einführung einer neuen Tourismussteuer mindert die Anziehungskraft der Insel.\n\nDie Mehrheit der Deutschen bevorzugt nach wie vor Badeurlaub. „Sonne und Strand ist und bleibt das Hauptmotiv für Spanien-Reisen“, sagt Köpers. Jede siebte Urlaubsreise der Deutschen hat laut der Forschungsgemeinschaft Urlaub und Reisen (FUR) Spanien als Ziel.\n\nDas boomende Spanien-Geschäft geht hauptsächlich zulasten der Türkei. „Das Unglück in anderen Ländern kommt unserem Land zugute“, sagt José Luis Zoreda von Exceltur, dem Dachverband der wichtigsten spanischen Tourismusunternehmen. Nicht nur die Buchungen für die Türkei sind seit den Anschlägen in Istanbul vom Januar drastisch zurückgegangen. Die Tourismusbranche in Ägypten leidet unter den Folgen des Abschusses eines russischen Passagierflugzeugs über dem Sinai durch IS-Terroristen. Auch in Tunesien brachen die Buchungen nach zwei Anschlägen im vergangenen Jahr dramatisch ein. „Das sind die drei Länder, die weiterhin Einbrüche erleiden werden“, prognostiziert Norbert Fiebig, Präsident des Deutschen Reiseverbands (DRV).\n\nSpanien dürfte seine Stellung hingegen weiter festigen: Martin Lohmann von der FUR sieht noch großes Wachstumspotenzial bei neuen Segmenten, wie etwa Wellnessurlaub oder Städtereisen. Das sieht auch Juan Molas, Präsident des spanischen Hoteldachverbands Cehat, so. Früher buchten 80 Prozent aller Spanien-Touristen nur den klassischen Badeurlaub, jetzt sind es lediglich noch 60 Prozent. Kulturtourismus, Städtereisen und Gesundheitsurlaube hätten an Bedeutung gewonnen.\n';
 var author$project$LieblingslandDeutschen$polnish = '\nUlubiony kraj Niemców\n\nHiszpański kraj wakacyjny przeżywa wielki rozkwit. Organizatorzy wycieczek poszerzają swoje oferty\n \nOrganizatorzy i hotelarze prawie nie wierzą w swoje oczy: Hiszpania, najpopularniejszy cel podróży Niemców, przeżywa boom jak nigdy dotąd. Każdy, kto spekuluje na temat ofert last minute na święta wielkanocne w Hiszpanii, może w końcu stracić pieniądze.\n\n"W czasie świąt wielkanocnych nie mamy żadnego łóżka pojedynczego, nigdy tego nie doświadczyłem" - mówi Isabel Jorge z grupy hotelowej Lopesan na Wyspach Kanaryjskich, która prowadzi dziesięć domów na Gran Canarii i Teneryfie. Wyspy Kanaryjskie są trzecim najważniejszym celem turystycznym w Hiszpanii, za Katalonią i Balearami.\n\nGdy zagrożenie terrorystyczne trafia do innych miejsc, w tym Turcji i Egiptu, Hiszpania zdobywa kolejne rekordy. Hotelarze już teraz odnotowują dwucyfrowe stopy wzrostu dla rezerwacji dla letniego biznesu. W szczególności pięciu największych niemieckich operatorów turystycznych - TUI Group, Thomas Cook, DER Touristik, FTI i Alltours - odpowiednio rozszerzyło swoje oferty dla Hiszpanii.\n\nNa Wyspach Kanaryjskich TUI odnotowuje w tym roku wzrost o prawie 40 procent. W szczególności Lanzarote jest masowo. "To naprawdę niesamowite, myślę, że moglibyśmy sprzedać jeszcze więcej miejsc na wyspach", mówi rzecznik TUI, Mario Köpers. Wyspy Kanaryjskie są jednak tylko częściowo otwarte, ponieważ od 15 lat istnieje zamrożenie nowych hoteli i osiedli mieszkaniowych.\n\nSzczególnie na zapotrzebowanie w tym roku jest Costa de la Luz, pas nadmorski w Zatoce Kadyksu. TUI odnotowuje wzrost o 22 procent w rezerwacjach. Nawet Majorka może umocnić swoją pozycję jako ulubiona wyspa Niemiec, nawet planowane w czerwcu wprowadzenie nowego podatku turystycznego nie zmniejsza atrakcyjności wyspy.\n\nWiększość Niemców nadal preferuje wakacje na plaży. "Słońce i plaża są i pozostaną głównym motywem podróży do Hiszpanii", mówi Köpers. Co siódma wakacyjna podróż Niemców, według badań Stowarzyszenia Wakacje i Podróże (FUR), Hiszpania jako cel podróży.\n\nRozkwita biznes w Hiszpanii odbywa się głównie kosztem Turcji. "Katastrofa w innych krajach przynosi korzyści naszemu krajowi" - mówi José Luis Zoreda z Exceltur, organizacji parasolowej najważniejszych hiszpańskich firm turystycznych. Nie tylko rezerwacje w Turcji drastycznie spadły od styczniowych ataków w Stambule. Przemysł turystyczny w Egipcie cierpi na terrorystów z IS w wyniku zestrzelenia rosyjskiego samolotu pasażerskiego na Synaju. Również w Tunezji rezerwacje spadły dramatycznie po dwóch atakach w zeszłym roku. "To są trzy kraje, które będą nadal cierpieć z powodu kryzysu" - prognozuje Norbert Fiebig, prezes Niemieckiego Stowarzyszenia Turystycznego (DRV).\n\nZ drugiej strony Hiszpania prawdopodobnie jeszcze bardziej umocni swoją pozycję: Martin Lohmann z FUR dostrzega ogromny potencjał wzrostu w nowych segmentach, takich jak wakacje wellness czy przerwy w mieście. To wygląda Juan Molas, prezes hiszpańskiego hotelu konfederacji CEHAT tak. Przed 80 procent Spain-turystów zarezerwowany tylko klasyczne wakacje nad morzem, teraz jest tylko 60 proc. Turystyka kulturowa, Zakwaterowanie i urlop zdrowia zyskały na znaczeniu.\n';
@@ -7157,7 +7265,7 @@ var author$project$Model$lessons = _List_fromArray(
 		_Utils_ap(
 		author$project$Jahr2Semester1$lessons,
 		_List_fromArray(
-			[author$project$PolensTurismus$lesson, author$project$LieblingslandDeutschen$lesson, author$project$WoSichInvestorenAmWohlstenFuhlen$lesson])),
+			[author$project$PolensTurismus$lesson, author$project$LieblingslandDeutschen$lesson, author$project$WoSichInvestorenAmWohlstenFuhlen$lesson, author$project$Anfrage$lesson])),
 		_List_Nil
 	]);
 var author$project$ChangeLessonView$changeLessonView = function (model) {
