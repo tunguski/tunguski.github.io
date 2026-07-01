@@ -263,11 +263,25 @@
           <h3>elm-workspace</h3>
           <p>A reusable workspace around any document — create, name, open, search, copy and share
              documents (owners &amp; readers, private/public), comment on their elements in threads,
-             import from a URL, run SQL and export to CSV/JSON/Excel. Generic over the document and
-             the storage backend; it powers elm-notebook and elm-svg.</p>
+             import from a URL, run SQL and export to CSV/JSON/Excel. Documents can reference each
+             other's data with cycle detection. Generic over the document and the storage backend;
+             it powers elm-notebook, elm-spreadsheet and elm-studio.</p>
           <div class="links">
             <a class="btn primary" href="https://tunguski.github.io/elm-workspace/">Live demo</a>
             <a class="btn" href="https://github.com/tunguski/elm-workspace">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎛️</div>
+          <h3>elm-studio</h3>
+          <p>One workspace holding notebooks, spreadsheets and SQL queries — that reference each
+             other's results <em>across types</em>. A notebook reads a spreadsheet's range or a
+             query's result; a spreadsheet pulls a notebook step and reloads it; a reference cycle
+             is detected and blocks evaluation until it's broken.</p>
+          <div class="links">
+            <a class="btn primary" href="https://tunguski.github.io/elm-studio/">Live demo</a>
+            <a class="btn" href="https://github.com/tunguski/elm-studio">GitHub</a>
           </div>
         </article>
 
